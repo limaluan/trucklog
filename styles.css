@@ -10,6 +10,7 @@
   --black-400: #777e90; /* Sub-texts and Input-Placeholders */
 }
 
+/* --REGRAS GERAIS */
 * {
   margin: 0;
   padding: 0;
@@ -66,8 +67,14 @@ button:hover {
   margin: auto;
 }
 
+.title {
+  color: #204945;
+  font-size: 3.6rem;
+}
+
 .sub-text {
   color: var(--black-400);
+  /* font-size: ; <- Necessário testes */
 }
 
 /* --HEADER */
@@ -77,7 +84,6 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   height: 15vh;
-  /* background-color: aqua; */
 }
 
 .header-content > .logo {
@@ -109,9 +115,8 @@ button:hover {
   text-decoration: underline;
 }
 
-/* HOME */
+/* --HOME */
 .home-content {
-  /* background-color: #3cbd96; */
   display: flex;
   justify-content: space-between;
   height: 75vh;
@@ -125,13 +130,13 @@ button:hover {
   gap: 3rem;
 }
 
-.home-content .text-section h1 {
+.home-content .title {
   font-size: 4.2rem;
-  color: var(--green-700);
 }
 
 .text-rectangle {
   width: fit-content;
+  display: block;
   padding: 1rem 4rem;
   border: #204945 2px solid;
   border-radius: 1.6rem;
@@ -162,5 +167,5 @@ button:hover {
 
 .home-content .image-section img {
   width: 80%;
-  transform: scale(1.5) translateY(-5rem);
+  transform: scale(1.5) translateY(-9vh);
 }
