@@ -17,7 +17,7 @@
 }
 
 html {
-  font-family: 'Red Hat Tex t', sans-serif;
+  font-family: "Red Hat Tex t", sans-serif;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
@@ -44,6 +44,15 @@ button {
   transition: filter 200ms;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Anybody", cursive;
+}
+
 button:hover {
   filter: brightness(0.8);
 }
@@ -55,6 +64,10 @@ button:hover {
 [class$="content"] {
   max-width: 80vw;
   margin: auto;
+}
+
+.sub-text {
+  color: var(--black-400);
 }
 
 /* --HEADER */
@@ -81,7 +94,7 @@ button:hover {
 }
 
 .header-content button {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .header-content nav {
@@ -94,4 +107,60 @@ button:hover {
 .header-content a:hover {
   color: #000;
   text-decoration: underline;
+}
+
+/* HOME */
+.home-content {
+  /* background-color: #3cbd96; */
+  display: flex;
+  justify-content: space-between;
+  height: 75vh;
+  align-items: center;
+}
+
+.home-content .text-section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 3rem;
+}
+
+.home-content .text-section h1 {
+  font-size: 4.2rem;
+  color: var(--green-700);
+}
+
+.text-rectangle {
+  width: fit-content;
+  padding: 1rem 4rem;
+  border: #204945 2px solid;
+  border-radius: 1.6rem;
+}
+
+.home-content .sub-text {
+  font-size: 1.6rem;
+  width: 50rem;
+  line-height: 3rem;
+}
+
+.home-content .image-section {
+  width: 50%;
+  align-self: end;
+}
+
+.home-content .image-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url("./assets/bg_world.svg");
+  background-size: cover;
+  z-index: -1;
+}
+
+.home-content .image-section img {
+  width: 80%;
+  transform: scale(1.5) translateY(-5rem);
 }
