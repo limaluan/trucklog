@@ -1,0 +1,171 @@
+:root {
+  --bg-body: #f0f0f5; /* Background Body default */
+
+  --green-100: #e2f5ef;
+  --green-300: #e3f9e7;
+  --green-500: #3cbd96; /* Buttons background */
+  --green-700: #204945; /* Headings and topics */
+
+  --black-300: #5a5f6a; /* Nav Links */
+  --black-400: #777e90; /* Sub-texts and Input-Placeholders */
+}
+
+/* --REGRAS GERAIS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Red Hat Tex t", sans-serif;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+  color: inherit;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  background-color: var(--green-500);
+  color: #ffffff;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  transition: filter 200ms;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Anybody", cursive;
+}
+
+button:hover {
+  filter: brightness(0.8);
+}
+
+[class$="container"] {
+  width: 100%;
+}
+
+[class$="content"] {
+  max-width: 80vw;
+  margin: auto;
+}
+
+.title {
+  color: #204945;
+  font-size: 3.6rem;
+}
+
+.sub-text {
+  color: var(--black-400);
+  /* font-size: ; <- Necessário testes */
+}
+
+/* --HEADER */
+.header-content {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 15vh;
+}
+
+.header-content > .logo {
+  height: 100%;
+}
+
+.header-content .bg-item {
+  position: absolute;
+  opacity: 32%;
+  left: 0;
+  top: -5rem;
+  width: 40vw;
+  z-index: -1;
+}
+
+.header-content button {
+  font-family: "Poppins", sans-serif;
+}
+
+.header-content nav {
+  display: flex;
+  font-size: 1.6rem;
+  gap: 5rem;
+  color: var(--black-300);
+}
+
+.header-content a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* --HOME */
+.home-content {
+  display: flex;
+  justify-content: space-between;
+  height: 75vh;
+  align-items: center;
+}
+
+.home-content .text-section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 3rem;
+}
+
+.home-content .title {
+  font-size: 4.2rem;
+}
+
+.text-rectangle {
+  width: fit-content;
+  display: block;
+  padding: 1rem 4rem;
+  border: #204945 2px solid;
+  border-radius: 1.6rem;
+}
+
+.home-content .sub-text {
+  font-size: 1.6rem;
+  width: 50rem;
+  line-height: 3rem;
+}
+
+.home-content .image-section {
+  width: 50%;
+  align-self: end;
+}
+
+.home-content .image-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url("./assets/bg_world.svg");
+  background-size: cover;
+  z-index: -1;
+}
+
+.home-content .image-section img {
+  width: 80%;
+  transform: scale(1.5) translateY(-9vh);
+}
