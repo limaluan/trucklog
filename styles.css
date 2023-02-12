@@ -87,7 +87,8 @@ button:hover {
 }
 
 .header-content > .logo {
-    height: 100%;
+    width: 100%;
+    max-width: 12rem;
 }
 
 .header-content .bg-item {
