@@ -302,3 +302,18 @@ button:hover {
     font-size: 1.8rem;
     color: var(--black-400);
 }
+.back-to-top {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--green-500);
+    border-radius: 100%;
+    padding: 1rem;
+}
+
+.back-to-top i {
+    font-size: 2.5rem;
+}
