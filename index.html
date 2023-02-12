@@ -219,16 +219,35 @@
                         <h2 class="section-subtitle">
                             Preencha o formulário e entraremos em contato.
                         </h2>
+
+                        <img src="./assets/forms-person.svg" alt="" />
                     </div>
 
                     <form class="form-group">
                         <div class="form-control">
-                            <label for="email">Seu e-mail</label>
+                            <div class="label-container">
+                                <div><i class="ph-user"></i></div>
+                                <label for="name">Seu nome</label>
+                            </div>
+
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                placeholder="Digite aqui seu nome"
+                                required
+                            />
+
+                            <div class="label-container">
+                                <div><i class="ph-envelope"></i></div>
+                                <label for="email">Seu e-mail</label>
+                            </div>
+
                             <input
                                 id="email"
                                 name="email"
                                 type="email"
-                                placeholder="Digite aqui..."
+                                placeholder="Digite aqui seu e-mail"
                                 required
                             />
                         </div>
@@ -241,25 +260,26 @@
 
                             <div class="options-group">
                                 <div>
-                                    <label for="yes-option">Sim</label>
-                                    <input
-                                        id="yes-option"
-                                        name="accept-option"
-                                        value="yes"
-                                        type="radio"
-                                        required
-                                    />
-                                </div>
-
-                                <div>
-                                    <label for="no-option">Não</label>
-                                    <input
-                                        id="no-option"
-                                        name="accept-option"
-                                        value="no"
-                                        type="radio"
-                                        required
-                                    />
+                                    <div>
+                                        <label for="yes-option">Sim</label>
+                                        <input
+                                            id="yes-option"
+                                            name="accept-option"
+                                            value="yes"
+                                            type="radio"
+                                            required
+                                        />
+                                    </div>
+                                    <div>
+                                        <label for="no-option">Não</label>
+                                        <input
+                                            id="no-option"
+                                            name="accept-option"
+                                            value="no"
+                                            type="radio"
+                                            required
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
