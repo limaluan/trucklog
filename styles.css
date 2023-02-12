@@ -160,7 +160,7 @@ button:hover {
   right: 0;
   width: 50%;
   height: 100%;
-  background-image: url("./assets/bg_world.svg");
+  background-image: url("./assets/bg-world.svg");
   background-size: cover;
   z-index: -1;
 }
