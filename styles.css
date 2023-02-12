@@ -302,6 +302,7 @@ button:hover {
     font-size: 1.8rem;
     color: var(--black-400);
 }
+
 .back-to-top {
     position: fixed;
     display: flex;
