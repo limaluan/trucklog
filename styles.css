@@ -1,13 +1,18 @@
 :root {
-    --bg-body: #f0f0f5; /* Background Body default */
-
     --green-100: #e2f5ef;
     --green-300: #e3f9e7;
     --green-500: #3cbd96; /* Buttons background */
     --green-700: #204945; /* Headings and topics */
 
-    --black-300: #5a5f6a; /* Nav Links */
-    --black-400: #777e90; /* Sub-texts and Input-Placeholders */
+    --gray-400: #5a5f6a; /* Nav Links */
+    --gray-300: #777e90; /* Sub-texts */
+    --gray-200: #c9c9c9; /* Input-Borders and Input-Placeholders */
+    --gray-100: #e5e5e5; /* Input-Borders */
+
+    --red-500: #e74c3c; /* Error messages */
+
+    --black: #000000;
+    --white: #ffffff;
 }
 
 /* --REGRAS GERAIS */
@@ -25,7 +30,8 @@ html {
 }
 
 body {
-    background-color: #ffffff;
+    background-color: var(--white);
+    font-size: 1.6rem;
 }
 
 a {
@@ -38,8 +44,8 @@ button {
     all: unset;
     cursor: pointer;
     background-color: var(--green-500);
-    color: #ffffff;
-    font-size: 1.6rem;
+    color: var(--white);
+    font-size: inherit;
     border-radius: 1rem;
     padding: 1rem 2rem;
     transition: filter 200ms;
@@ -74,7 +80,7 @@ button:hover {
 }
 
 .section-subtitle {
-    color: var(--black-400);
+    color: var(--gray-300);
     font-size: 1.6rem;
     font-weight: 500;
 }
@@ -110,7 +116,7 @@ button:hover {
     display: flex;
     font-size: 1.6rem;
     gap: 5rem;
-    color: var(--black-300);
+    color: var(--gray-400);
 }
 
 .header-content a:hover {
@@ -288,9 +294,110 @@ button:hover {
 
 .functionality-item p {
     font-size: 1.8rem;
-    color: var(--black-400);
+    color: var(--gray-300);
 }
 
+/* PRODUCT FORM SECTION */
+.product-form-container {
+    background-color: var(--green-300);
+}
+
+.product-form-content {
+    padding: 8.4rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+}
+
+.product-form-content .section-subtitle {
+    color: var(--green-700);
+    opacity: 75%;
+}
+
+.product-form-content form {
+    margin-top: 2rem;
+    max-width: 40rem;
+}
+
+.product-form-content form .options-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-form-content form .button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.4rem;
+}
+
+.product-form-content form .button-group button {
+    font-weight: 500;
+}
+
+.product-form-content form .button-group button[type="submit"] {
+    flex: 1;
+}
+
+.product-form-content form .button-group button[type="reset"] {
+    background-color: var(--white);
+    border: 1px solid var(--green-500);
+    color: var(--green-500);
+}
+
+/* forms */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 3rem;
+    background-color: var(--white);
+    border-radius: 1rem;
+    width: 100%;
+    color: var(--gray-300);
+}
+
+.form-group .form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group .form-control > label {
+    font-size: 2rem;
+    color: var(--gray-400);
+    font-weight: 500;
+}
+
+.form-group .form-control input,
+.form-group .form-control textarea {
+    padding: 1rem;
+    border: 2px solid var(--gray-100);
+    border-radius: 0.8rem;
+    font-size: 1.6rem;
+}
+
+.form-group .form-control input:focus:invalid,
+.form-group .form-control textarea:focus:invalid {
+    border-color: var(--red-500);
+}
+
+.form-group .form-control input::placeholder,
+.form-group .form-control textarea::placeholder {
+    color: var(--gray-200);
+}
+
+.form-group .form-control textarea {
+    resize: none;
+}
+
+.form-group .form-control input:focus,
+.form-group .form-control textarea:focus {
+    outline: none;
+    border-color: var(--green-500);
+}
+
+/* utils */
 .back-to-top {
     position: fixed;
     display: flex;
