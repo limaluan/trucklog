@@ -1,13 +1,18 @@
 :root {
-    --bg-body: #f0f0f5; /* Background Body default */
-
     --green-100: #e2f5ef;
     --green-300: #e3f9e7;
     --green-500: #3cbd96; /* Buttons background */
     --green-700: #204945; /* Headings and topics */
 
-    --black-300: #5a5f6a; /* Nav Links */
-    --black-400: #777e90; /* Sub-texts and Input-Placeholders */
+    --gray-400: #5a5f6a; /* Nav Links */
+    --gray-300: #777e90; /* Sub-texts */
+    --gray-200: #c9c9c9; /* Input-Borders and Input-Placeholders */
+    --gray-100: #e5e5e5; /* Input-Borders */
+
+    --red-500: #e74c3c; /* Error messages */
+
+    --black: #000000;
+    --white: #ffffff;
 }
 
 /* --REGRAS GERAIS */
@@ -25,7 +30,8 @@ html {
 }
 
 body {
-    background-color: #ffffff;
+    background-color: var(--white);
+    font-size: 1.6rem;
 }
 
 a {
@@ -42,8 +48,8 @@ button {
     all: unset;
     cursor: pointer;
     background-color: var(--green-500);
-    color: #ffffff;
-    font-size: 1.6rem;
+    color: var(--white);
+    font-size: inherit;
     border-radius: 1rem;
     padding: 1rem 2rem;
     transition: filter 200ms;
@@ -78,7 +84,7 @@ button:hover {
 }
 
 .section-subtitle {
-    color: var(--black-400);
+    color: var(--gray-300);
     font-size: 1.6rem;
     font-weight: 500;
 }
@@ -114,7 +120,7 @@ button:hover {
     display: flex;
     font-size: 1.6rem;
     gap: 5rem;
-    color: var(--black-300);
+    color: var(--gray-400);
 }
 
 .header-content a:hover {
@@ -292,7 +298,218 @@ button:hover {
 
 .functionality-item p {
     font-size: 1.8rem;
-    color: var(--black-400);
+    color: var(--gray-300);
+}
+
+/* PRODUCT FORM SECTION */
+.product-form-container {
+    background-color: var(--green-300);
+}
+
+.product-form-content {
+    margin-bottom: 12rem;
+    padding: 8.4rem 0 1.8rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.product-form-content .section-subtitle {
+    color: var(--green-700);
+    opacity: 75%;
+}
+
+.product-form-content form {
+    max-width: 45rem;
+    box-shadow: 0px 3.62573px 3.62573px rgba(60, 189, 150, 0.22);
+    align-self: stretch;
+}
+
+.product-form-content div img {
+    margin-top: 4.8rem;
+    width: 30rem;
+}
+
+.label-container {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+#name {
+    margin-bottom: 1.6rem;
+}
+
+.label-container i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.label-container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 4px;
+    background-color: var(--green-500);
+}
+
+.label-container label {
+    font-weight: 700;
+}
+
+.product-form-content form .options-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.2rem;
+}
+
+.options-group > div {
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+}
+
+.options-group > div div > label {
+    font-weight: 700;
+}
+
+.product-form-content form .button-group {
+    margin-top: auto;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.product-form-content form .button-group button {
+    font-weight: 500;
+}
+
+.product-form-content form .button-group button[type="submit"] {
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    flex: 1;
+}
+
+.product-form-content form .button-group button[type="reset"] {
+    background-color: var(--white);
+    border: 1px solid var(--green-500);
+    color: var(--green-500);
+}
+
+/* forms */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 3rem;
+    background-color: var(--white);
+    border-radius: 1rem;
+    width: 100%;
+    color: var(--gray-300);
+}
+
+.form-group .form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group .form-control > label {
+    font-size: 2rem;
+    color: var(--gray-400);
+    font-weight: 500;
+}
+
+.form-group .form-control input,
+.form-group .form-control textarea {
+    padding: 1rem;
+    border: 2px solid var(--gray-100);
+    border-radius: 0.8rem;
+    font-size: 1.6rem;
+}
+
+.form-group .form-control input:focus:invalid,
+.form-group .form-control textarea:focus:invalid {
+    border-color: var(--red-500);
+}
+
+.form-group .form-control input::placeholder,
+.form-group .form-control textarea::placeholder {
+    color: var(--gray-200);
+}
+
+.form-group .form-control textarea {
+    resize: none;
+}
+
+.form-group .form-control input:focus,
+.form-group .form-control textarea:focus {
+    outline: none;
+    border-color: var(--green-500);
+}
+
+/* main benefits styles section */
+.main-benefits-section {
+    margin-top: 12rem;
+}
+
+.main-benefits-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.benefits-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8.4rem;
+    flex-wrap: wrap;
+    gap: 9.2rem;
+}
+
+.first-row,
+.second-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 9.2rem;
+}
+
+.benefit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 30rem;
+}
+
+.benefit img,
+.benefit i {
+    width: 6rem;
+    margin-bottom: 2rem;
+}
+
+.benefit i {
+    font-size: 6rem;
+}
+
+.benefit h3 {
+    font-size: 2rem;
+    margin-bottom: 1.6rem;
+    color: var(--green-700);
+}
+
+.benefit p {
+    font-size: 1.8rem;
+    text-align: center;
 }
 
 /* main benefits styles section */
@@ -372,6 +589,24 @@ button:hover {
     font-size: 2.5rem;
 }
 
+/* utils */
+.back-to-top {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--green-500);
+    border-radius: 100%;
+    padding: 1rem;
+}
+
+.back-to-top i {
+    font-size: 2.5rem;
+}
+
+/* utils */
 .back-to-top {
     position: fixed;
     display: flex;
@@ -423,7 +658,7 @@ button:hover {
 
 .footer-content nav ul {
     padding: 4.2rem;
-    border-bottom: 1px solid var(--black-300);
+    border-bottom: 1px solid var(--gray-400);
 }
 
 .footer-content nav ul li a:hover:not(.footer-truck-logo) {
@@ -448,7 +683,7 @@ button:hover {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
-    border: 1px solid var(--black-300);
+    border: 1px solid var(--gray-400);
     justify-content: center;
     align-items: center;
     transition: all 0.3s;
