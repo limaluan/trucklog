@@ -67,14 +67,16 @@ button:hover {
     margin: 0 auto;
 }
 
-.title {
-    color: #204945;
-    font-size: 3.6rem;
+.section-title {
+    font-size: 4.8rem;
+    font-weight: bold;
+    color: var(--green-700);
 }
 
-.sub-text {
+.section-subtitle {
     color: var(--black-400);
-    /* font-size: ; <- Necessário testes */
+    font-size: 1.6rem;
+    font-weight: 500;
 }
 
 /* --HEADER */
@@ -87,7 +89,8 @@ button:hover {
 }
 
 .header-content > .logo {
-    height: 100%;
+    width: 100%;
+    max-width: 12rem;
 }
 
 .header-content .bg-item {
@@ -171,7 +174,6 @@ button:hover {
 }
 
 /* Our data section styles */
-
 .our-data-section {
     margin: 6.4rem 0;
     width: 100%;
@@ -201,9 +203,9 @@ button:hover {
 
 .data-title-container h2 {
     margin-top: 0.8rem;
-    font-size: 1.8rem;
     font-weight: 500;
     opacity: 75%;
+    color: var(--green-700);
     color: var(--green-700);
 }
 
@@ -250,22 +252,12 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.how-it-works-heading .title {
-    font-size: 4.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.how-it-works-heading .sub-text {
-    font-size: 2.4rem;
+    margin-bottom: 10rem;
 }
 
 .functionalities-group {
     display: flex;
     justify-content: center;
-    margin-top: 5rem;
     gap: 5rem;
 }
 
@@ -365,4 +357,20 @@ i {
 .benefit p {
     font-size: 1.8rem;
     text-align: center;
+}
+
+.back-to-top {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--green-500);
+    border-radius: 100%;
+    padding: 1rem;
+}
+
+.back-to-top i {
+    font-size: 2.5rem;
 }
