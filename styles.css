@@ -183,9 +183,35 @@ button:hover {
   transform: scale(1.5) translateY(-9vh);
 }
 
+/* --PARTNERS SECTION */
+.partners-container {
+  height: 15rem;
+  margin: 5rem 0;
+  background-color: var(--green-300);
+}
+
+.partners-content {
+  display: flex;
+  gap: 10rem;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.partners-card {
+  max-width: 20rem;
+  /* background-color: #5a5f6a; */
+
+}
+
+.partners-card img {
+  width: 100%;
+  object-fit: cover;
+}
+
 /* --Our data section styles */
 .our-data-section {
-  background-color: var(--green-300);
   margin: 6.4rem 0;
   width: 100%;
   height: 60vh;
@@ -247,6 +273,7 @@ button:hover {
 /* --HOW IT WORKS SECTION */
 .how-it-works-container {
   padding: 5rem 0;
+  background-color: var(--green-300);
 }
 
 .how-it-works-heading {
@@ -300,10 +327,6 @@ button:hover {
 }
 
 /* PRODUCT FORM SECTION */
-.product-form-container {
-  background-color: var(--green-300);
-}
-
 .product-form-content {
   padding: 8rem 0;
   display: flex;
@@ -451,6 +474,7 @@ button:hover {
 /* main benefits styles section */
 .main-benefits-section {
   padding: 5rem 0;
+  background-color: var(--green-300);
 }
 
 .main-benefits-content {
@@ -529,8 +553,6 @@ button:hover {
 
 /* --FOOTER */
 .footer-section {
-  background-color: var(--green-300);
-  /* margin-top: 12rem; */
   padding: 8.4rem;
 }
 
