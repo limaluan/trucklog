@@ -145,15 +145,16 @@ button:hover {
 
 .home-content .title {
     font-size: 4.2rem;
+    text-transform: uppercase;
 }
 
-.text-rectangle {
-    width: fit-content;
-    display: block;
-    padding: 1rem 4rem;
-    border: #204945 2px solid;
-    border-radius: 1.6rem;
-}
+/* .text-rectangle {
+  width: fit-content;
+  display: block;
+  padding: 1rem 4rem;
+  border: #204945 2px solid;
+  border-radius: 1.6rem;
+} */
 
 .home-content .sub-text {
     font-size: 1.6rem;
@@ -183,12 +184,37 @@ button:hover {
     transform: scale(1.5) translateY(-9vh);
 }
 
-/* Our data section styles */
+/* --PARTNERS SECTION */
+.partners-container {
+    height: 15rem;
+    margin: 5rem 0;
+    background-color: var(--green-300);
+}
+
+.partners-content {
+    display: flex;
+    gap: 10rem;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.partners-card {
+    max-width: 20rem;
+    /* background-color: #5a5f6a; */
+}
+
+.partners-card img {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* --Our data section styles */
 .our-data-section {
     margin: 6.4rem 0;
     width: 100%;
     height: 60vh;
-    background-color: var(--green-300);
 }
 
 .our-data-content {
@@ -208,7 +234,6 @@ button:hover {
 .data-title-container h2 {
     margin-top: 0.8rem;
     opacity: 75%;
-    color: var(--green-700);
     color: var(--green-700);
 }
 
@@ -245,10 +270,10 @@ button:hover {
     font-weight: 500;
 }
 
-/* HOW IT WORKS SECTION */
+/* --HOW IT WORKS SECTION */
 .how-it-works-container {
     padding: 5rem 0;
-    margin-top: 6.2rem;
+    background-color: var(--green-300);
 }
 
 .how-it-works-heading {
@@ -302,13 +327,8 @@ button:hover {
 }
 
 /* PRODUCT FORM SECTION */
-.product-form-container {
-    background-color: var(--green-300);
-}
-
 .product-form-content {
-    margin-bottom: 12rem;
-    padding: 8.4rem 0 1.8rem;
+    padding: 8rem 0;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
@@ -453,179 +473,86 @@ button:hover {
 
 /* main benefits styles section */
 .main-benefits-section {
-    margin-top: 12rem;
-}
-
-.main-benefits-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.benefits-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 8.4rem;
-    flex-wrap: wrap;
-    gap: 9.2rem;
-}
-
-.first-row,
-.second-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 9.2rem;
-}
-
-.benefit {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 30rem;
-}
-
-.benefit img,
-.benefit i {
-    width: 6rem;
-    margin-bottom: 2rem;
-}
-
-.benefit i {
-    font-size: 6rem;
-}
-
-.benefit h3 {
-    font-size: 2rem;
-    margin-bottom: 1.6rem;
-    color: var(--green-700);
-}
-
-.benefit p {
-    font-size: 1.8rem;
-    text-align: center;
-}
-
-/* main benefits styles section */
-.main-benefits-section {
-    margin-top: 12rem;
-}
-
-.main-benefits-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.benefits-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 8.4rem;
-    flex-wrap: wrap;
-    gap: 9.2rem;
-}
-
-.first-row,
-.second-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 9.2rem;
-}
-
-.benefit {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 30rem;
-}
-
-.benefit img,
-.benefit i {
-    width: 6rem;
-    margin-bottom: 2rem;
-}
-
-.benefit i {
-    font-size: 6rem;
-}
-
-.benefit h3 {
-    font-size: 2rem;
-    margin-bottom: 1.6rem;
-    color: var(--green-700);
-}
-
-.benefit p {
-    font-size: 1.8rem;
-    text-align: center;
-}
-
-.back-to-top {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    bottom: 2rem;
-    right: 2rem;
-    background-color: var(--green-500);
-    border-radius: 100%;
-    padding: 1rem;
-}
-
-.back-to-top i {
-    font-size: 2.5rem;
-}
-
-/* utils */
-.back-to-top {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    bottom: 2rem;
-    right: 2rem;
-    background-color: var(--green-500);
-    border-radius: 100%;
-    padding: 1rem;
-}
-
-.back-to-top i {
-    font-size: 2.5rem;
-}
-
-/* utils */
-.back-to-top {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    bottom: 2rem;
-    right: 2rem;
-    background-color: var(--green-500);
-    border-radius: 100%;
-    padding: 1rem;
-}
-
-.back-to-top i {
-    font-size: 2.5rem;
-}
-
-.footer-section {
+    padding: 5rem 0;
     background-color: var(--green-300);
-    margin-top: 12rem;
+}
+
+.main-benefits-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.benefits-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8.4rem;
+    flex-wrap: wrap;
+    gap: 9.2rem;
+}
+
+.first-row,
+.second-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 9.2rem;
+}
+
+.benefit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 30rem;
+}
+
+.benefit img,
+.benefit i {
+    width: 6rem;
+    margin-bottom: 2rem;
+}
+
+.benefit i {
+    font-size: 6rem;
+}
+
+.benefit h3 {
+    font-size: 2rem;
+    margin-bottom: 1.6rem;
+    color: var(--green-700);
+}
+
+.benefit p {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* --UTILS */
+.back-to-top {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--green-500);
+    color: #ffffff;
+    border-radius: 100%;
+    padding: 1rem;
+}
+
+.back-to-top i {
+    font-size: 2.5rem;
+}
+
+/* --FOOTER */
+.footer-section {
     padding: 8.4rem;
 }
 
