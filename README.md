@@ -11,11 +11,11 @@ Projeto desenvolvido através do programa vem ser da DBC Company durante o módu
 </p>
 
 <p align="center">
-  <img alt="imagem do site pronto" src="./assets/done-css-project.png">
+  <img alt="imagem do site pronto" src="./assets/full-website-photo.png">
 </p>
 
 <p align="center">
-  <a href="" target="_blank">😁 -> Acesse o deploy do projeto!</a>
+  <a href="https://trucklog.vercel.app/" target="_blank">😁 -> Acesse o deploy do projeto!</a>
 </p>
 
 <br>
@@ -25,7 +25,7 @@ Projeto desenvolvido através do programa vem ser da DBC Company durante o módu
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 -   HTML
--   CSS
+-   CSS (Flexbox)
 -   Git e Github
 -   Phosphor Icons - CDN
 
@@ -34,6 +34,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 O objetivo desta task era criarmos uma Landing Page baseado em um tema de uma empresa cliente da DBC.
 
 > Nosso tema foi: Landing Page de Sistema de controle de rotas e abastecimento com gestão de frotas.
+
+-   Board
+    -   [Trello](https://trello.com/invite/b/GgHQludT/ATTI31cc9fe907da6ac40fec6ff4af4f0437278ADC48/truckgo)
+-   Design
+    -   [Figma](https://www.figma.com/file/FwkYMhKGb1aMaJJGCuktUZ/TruckLog---App?node-id=0%3A1&t=YdRgavpASouSpN8x-1)
 
 ## 🔘 Licença
 
