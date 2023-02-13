@@ -186,9 +186,14 @@ button:hover {
 
 /* --PARTNERS SECTION */
 .partners-container {
-    height: 15rem;
     margin: 5rem 0;
     background-color: var(--green-300);
+    padding: 3rem;
+}
+
+.partners-heading {
+    text-align: center;
+    margin-bottom: 2.4rem;
 }
 
 .partners-content {
