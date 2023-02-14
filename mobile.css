@@ -1,0 +1,73 @@
+body {
+}
+
+html {
+  font-size: 50%;
+}
+
+.desktop, nav.desktop {
+  display: none;
+}
+
+.mobile {
+  display: initial;
+}
+
+/* --HEADER */
+.header-content .logo {
+}
+
+/* --HOME */
+.home-content {
+  height: fit-content;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.home-content .text-section {
+  width: 100%;
+}
+
+.home-content .sub-text {
+  font-size: 1.6rem;
+  width: 100%;
+  line-height: 3rem;
+}
+
+.home-content .mobile { /* Imagem */
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.home-content button {
+  margin: 0 auto;
+}
+
+/* --OUR DATA */
+.data-container {
+  flex-direction: column;
+}
+
+.our-data-section {
+  height: fit-content;
+}
+
+/* --HOW IT WORKS */
+.functionalities-group {
+  flex-direction: column;
+}
+
+/* --FORM */
+.product-form-content {
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin: 1.5rem auto 0 auto;
+}
+
+.header-content {
+  justify-content: center;
+  text-align: center;
+}
