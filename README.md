@@ -35,6 +35,8 @@ O objetivo desta task era criarmos uma Landing Page baseado em um tema de uma em
 
 > Nosso tema foi: Landing Page de Sistema de controle de rotas e abastecimento com gestão de frotas.
 
+- Pesquisa de UX Writing
+  - [Google Docs](https://docs.google.com/document/d/1ontmQ_qB8j491NnT3CsPw-lCrYg9HHDQ6SQwGpKq87M/edit)
 -   Board
     -   [Trello](https://trello.com/invite/b/GgHQludT/ATTI31cc9fe907da6ac40fec6ff4af4f0437278ADC48/truckgo)
 -   Design
