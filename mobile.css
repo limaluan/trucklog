@@ -1,5 +1,3 @@
-body {}
-
 html {
   font-size: 50%;
 }
@@ -12,9 +10,6 @@ nav.desktop {
 .mobile {
   display: initial;
 }
-
-/* --HEADER */
-.header-content .logo {}
 
 /* --HOME */
 .home-content {
@@ -34,7 +29,6 @@ nav.desktop {
 }
 
 .home-content .mobile {
-  /* Imagem */
   max-width: 60%;
   margin: 0 auto;
 }
@@ -88,6 +82,7 @@ nav.desktop {
 .product-form-content {
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .form-group {
@@ -96,22 +91,14 @@ nav.desktop {
 
 .header-content {
   justify-content: center;
-  text-align: center;
 }
 
-/*----------FOOTER--------*/
-
+/* BENEFITS */
 .first-row,
 .second-row {
   display: flex;
-  justify-content: start;
-  align-items: self-start;
-
-  gap: 1.5em;
-}
-
-.main-benefits-section .section-title {
-  font-size: 4rem;
+    align-items: start;
+    gap: 1.5em;
 }
 
 .benefit h3,
@@ -119,29 +106,15 @@ nav.desktop {
   font-size: 1.5rem;
 }
 
+/* --FOOTER*/
 .footer-section {
   padding-top: 2rem;
 }
 
-.footer-content nav ul {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
 .footer-content nav ul li a {
   font-size: 2rem;
-
 }
 
 .footer-truck-logo img {
   width: 12rem;
-
-}
-
-
-
-.footer-content nav ul li:nth-child(4) {
-  order: -1;
 }
