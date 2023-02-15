@@ -76,6 +76,12 @@ nav.desktop {
 .functionalities-group {
   flex-direction: column;
   text-align: center;
+  width: 100%;
+  align-items: center;
+}
+
+.functionalities-group hr {
+  width: 100%;
 }
 
 /* --FORM */
@@ -92,6 +98,8 @@ nav.desktop {
   justify-content: center;
   text-align: center;
 }
+
+/*----------FOOTER--------*/
 
 .first-row,
 .second-row {
