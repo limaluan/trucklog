@@ -5,7 +5,8 @@ html {
   font-size: 50%;
 }
 
-.desktop, nav.desktop {
+.desktop,
+nav.desktop {
   display: none;
 }
 
@@ -34,13 +35,25 @@ html {
   line-height: 3rem;
 }
 
-.home-content .mobile { /* Imagem */
+.home-content .mobile {
+  /* Imagem */
   max-width: 60%;
   margin: 0 auto;
 }
 
 .home-content button {
   margin: 0 auto;
+}
+
+/* --PARTNERS SECTION */
+.partners-content {
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 5rem;
+}
+
+.partners-card {
+  width: 30%;
 }
 
 /* --OUR DATA */
@@ -52,9 +65,19 @@ html {
   height: fit-content;
 }
 
+.our-data-content {
+  padding: 0;
+}
+
 /* --HOW IT WORKS */
+.how-it-works-heading {
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
 .functionalities-group {
   flex-direction: column;
+  text-align: center;
 }
 
 /* --FORM */
