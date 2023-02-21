@@ -1,0 +1,179 @@
+:root {
+  --green-100: #e2f5ef;
+  --green-300: #e3f9e7;
+  --green-500: #3cbd96; /* Buttons background */
+  --green-700: #204945; /* Headings and topics */
+  --gray-400: #5a5f6a; /* Nav Links */
+  --gray-300: #777e90; /* Sub-texts */
+  --gray-200: #c9c9c9; /* Input-Borders and Input-Placeholders */
+  --gray-100: #e5e5e5; /* Input-Borders */
+  --red-500: #e74c3c; /* Error messages */
+  --black: #000000;
+  --white: #ffffff;
+}
+
+/* --REGRAS GERAIS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+html {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f0f0f5;
+  font-size: 1.6rem;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  background-color: var(--green-500);
+  color: var(--white);
+  font-size: inherit;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  transition: filter 200ms;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Anybody", cursive;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button:hover {
+  filter: brightness(0.8);
+}
+
+button.desktop a.login {
+  all: unset;
+  text-decoration: none;
+}
+
+.mobile {
+  display: none;
+}
+
+[class$=container] {
+  width: 100%;
+}
+
+[class$=content] {
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  margin-bottom: 1rem;
+}
+.header-content svg {
+  height: 1.6rem;
+}
+.header-content svg:hover {
+  cursor: pointer;
+}
+.header-content h3 {
+  display: flex;
+  align-items: center;
+}
+.header-content .selected {
+  filter: invert(69%) sepia(7%) saturate(3545%) hue-rotate(111deg) brightness(94%) contrast(77%);
+}
+
+ul {
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+ul svg {
+  transform: translateY(0.2rem);
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--gray-100);
+  border-radius: 3rem;
+  padding: 1rem 2rem;
+}
+.user img {
+  height: 5rem;
+  border-radius: 1rem;
+}
+.user .user-img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 5rem;
+  background: url("https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg");
+  background-size: cover;
+}
+.user:hover {
+  cursor: pointer;
+}
+
+main {
+  height: 90vh;
+}
+
+.user-trail {
+  background-color: #d8d8d8;
+  color: #8d91ab;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 1rem;
+}
+.user-trail + h2 {
+  margin-top: 4rem;
+}
+
+.empty-section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.empty-section img {
+  filter: invert(69%) sepia(7%) saturate(3545%) hue-rotate(111deg) brightness(94%) contrast(77%);
+}/*# sourceMappingURL=empty-dashboard.styles.css.map */
