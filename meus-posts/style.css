@@ -132,13 +132,16 @@ button:hover {
 
 /* --Navegação-- */
 .navega {
-  background-color: #f5f5f7;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
   color: #5a5f6a;
-  font-size: 1em;
-  padding: 0.2em 1em 0.2em 0.2em;
-  margin: 2em 0 0 5em;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: start;
+  padding-top: 1rem;
+}
+
+.navega * {
+  background-color: #f5f5f7;
 }
 
 .barra-top {
@@ -172,7 +175,6 @@ button:hover {
 }
 .barra-top .top-right p {
   font-size: 1rem;
-  margin-right: 10vw;
 }
 
 .dash1 {

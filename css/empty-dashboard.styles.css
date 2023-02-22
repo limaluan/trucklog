@@ -108,13 +108,13 @@ button.desktop a.login {
   filter: invert(69%) sepia(7%) saturate(3545%) hue-rotate(111deg) brightness(94%) contrast(77%);
 }
 
-ul {
+.nav-links {
   display: flex;
   gap: 5rem;
   justify-content: center;
   align-items: center;
 }
-ul svg {
+.nav-links svg {
   transform: translateY(0.2rem);
 }
 
@@ -153,7 +153,7 @@ main {
 
 .user-trail {
   background-color: #d8d8d8;
-  color: #8d91ab;
+  color: #4d4d4d;
   border-radius: 0.5rem;
   padding: 0.5rem 2rem;
   width: -moz-fit-content;

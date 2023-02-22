@@ -117,7 +117,7 @@ button.desktop a.login {
 }
 
 // --Nav
-ul {
+.nav-links {
   display: flex;
   gap: 5rem;
   justify-content: center;
@@ -167,7 +167,7 @@ main {
 
 .user-trail {
   background-color: #d8d8d8;
-  color: #8d91ab;
+  color: #4d4d4d;
   border-radius: 0.5rem;
   padding: 0.5rem 2rem;
   width: fit-content;
