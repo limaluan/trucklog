@@ -37,9 +37,6 @@ a {
   cursor: pointer;
   color: inherit;
 }
-a:hover {
-  text-decoration: underline;
-}
 
 ul {
   list-style: none;
@@ -99,6 +96,9 @@ button:hover {
   justify-content: space-between;
   height: 10vh;
   margin-bottom: 1rem;
+}
+.header-content a:hover {
+  text-decoration: underline;
 }
 .header-content svg {
   height: 1.6rem;
