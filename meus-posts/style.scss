@@ -38,10 +38,6 @@ a {
   all: unset;
   cursor: pointer;
   color: inherit;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 ul {
@@ -103,6 +99,10 @@ button:hover {
   justify-content: space-between;
   height: 10vh;
   margin-bottom: 1rem;
+
+  a:hover {
+    text-decoration: underline;
+  }
 
   svg {
     height: 1.6rem;
