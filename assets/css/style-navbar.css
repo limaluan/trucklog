@@ -1,0 +1,153 @@
+/* --Navegação-- */
+.navega {
+    width: 100%;
+    color: #5a5f6a;
+    font-size: 1.6rem;
+    display: flex;
+    padding-top: 2rem;
+    justify-content: start;
+  }
+  .navega * {
+    background-color: #f5f5f7;
+    padding: 0.5rem;
+  }
+  
+  .barra-top {
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+  }
+  .barra-top .voltar {
+    text-align: center;
+    margin: 0 2em 0 0;
+  }
+  .barra-top .title-top {
+    width: 100vw;
+    font-size: 1rem;
+  }
+  .barra-top .adicionar {
+    margin-left: 30vw;
+  }
+  .barra-top .top-right {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .barra-top .top-right h2 {
+    font-size: 1.3rem;
+    background-color: var(--green-500);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 20px;
+    opacity: 80%;
+    margin: 0 1.5vw;
+  }
+  .barra-top .top-right p {
+    font-size: 1rem;
+  }
+  
+  .dash1 {
+    margin: 3em auto;
+    width: 80vw;
+    padding: 20px;
+    background-color: #eafff9;
+  }
+  .dash1 .identify {
+    display: flex;
+  }
+  .dash1 .identify img {
+    border-radius: 50px;
+  }
+  .dash1 .identify h3 {
+    align-items: flex-start;
+    margin: 1rem 0 0 -5rem;
+  }
+  .dash1 .identify .cargo {
+    margin-left: 1em;
+    margin-top: 1rem;
+    background-color: #777e90;
+    align-self: center;
+    padding: 5px;
+    border-radius: 40%;
+    color: #fff;
+  }
+  .dash1 .identify .data {
+    font-size: 1.2rem;
+    position: absolute;
+    left: 80%;
+    text-align: center;
+  }
+  .dash1 .texto {
+    padding: 20px 30px;
+    text-align: justify;
+  }
+  .dash1 .anexos {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    border-top: 1px solid #204945;
+  }
+  .dash1 .anexos button {
+    margin-left: 10px;
+    padding: 10px;
+  }
+  
+  .dash2 {
+    margin: 3em auto;
+    width: 80vw;
+    padding: 20px;
+    background-color: #fdfdfd;
+  }
+  .dash2 .identify {
+    display: flex;
+  }
+  .dash2 .identify img {
+    border-radius: 50px;
+  }
+  .dash2 .identify h3 {
+    align-items: flex-start;
+    margin: 1rem 0 0 -6rem;
+  }
+  .dash2 .identify .cargo {
+    margin-left: 1em;
+    margin-top: 1rem;
+    background-color: var(--green-500);
+    align-self: center;
+    padding: 5px;
+    border-radius: 40%;
+    color: #fff;
+  }
+  .dash2 .identify .data {
+    font-size: 1.2rem;
+    position: absolute;
+    left: 80%;
+    text-align: center;
+  }
+  .dash2 .texto {
+    padding: 30px 20px;
+    height: 15vh;
+    text-align: justify;
+  }
+  
+  .mensagem {
+    margin: 3em auto;
+    display: flex;
+    width: 80vw;
+  }
+  .mensagem .botoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 1rem;
+  }
+  .mensagem textarea {
+    border: 2px solid #2a5548;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  
+  .anexados {
+    margin: -1.4em auto;
+    width: 80vw;
+    height: 10vh;
+  }
+  
