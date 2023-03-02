@@ -67,6 +67,16 @@
             <h1 class="h1-login">Crie sua conta</h1>
             <h3 class="h3-login">Insira os dados necessários:</h3>
 
+            <div class="i-name">
+              <input
+                type="text"
+                placeholder="Digite seu nome"
+                name="name"
+                id="name"
+                required
+              />
+              <i class="fa-solid fa-a"></i>
+            </div>
             <div class="i-email">
               <input
                 type="email"
@@ -108,9 +118,12 @@
               <p class="text-info-login">
                 <a class="form-link" href="./index.html">Já possui conta?</a>
               </p>
-
-              <a class="form-link" href="../empty-dashboard/index.html"
-                ><button class="form-button">
+              <p class="text-info-login">
+                <a class="form-link" href="./usersList.html">Listar usuários</a>
+              </p>
+              <!-- <a class="form-link" href="../empty-dashboard/index.html" -->
+              <a class="form-link"
+                ><button class="form-button" onclick="criar()">
                   Criar
                   <i class="fa-solid fa-arrow-right-to-bracket"></i></button
               ></a>
@@ -124,5 +137,6 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+    <script src="./scriptLogin.js"></script>
   </body>
 </html>
