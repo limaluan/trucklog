@@ -93,4 +93,13 @@
 
 #simulation-completed {
     margin: 50px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+#simulation-completed tr{
+    font-size: medium;
+}
+
+.bg-light-green{
+    background: var(--green-300);
 }
