@@ -1,0 +1,96 @@
+/* SIMULATION FORM SECTION */
+.simulation-form-content {
+    padding: 8rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.simulation-form-content .section-subtitle {
+    color: var(--green-700);
+    opacity: 75%;
+}
+
+.simulation-form-content form {
+    max-width: 45rem;
+    box-shadow: 0px 3.62573px 3.62573px rgba(60, 189, 150, 0.22);
+    align-self: stretch;
+}
+
+.simulation-form-content div img {
+    margin-top: 4.8rem;
+    width: 30rem;
+}
+
+.label-container {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+#name {
+    margin-bottom: 1.6rem;
+}
+
+.label-container i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.label-container>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 4px;
+    background-color: var(--green-500);
+}
+
+.label-container label {
+    font-weight: 700;
+}
+
+.simulation-form-content form .options-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.2rem;
+}
+
+.options-group>div {
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+}
+
+.options-group>div div>label {
+    font-weight: 700;
+}
+
+.simulation-form-content form .button-group {
+    margin-top: auto;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.simulation-form-content form .button-group button {
+    font-weight: 500;
+}
+
+.simulation-form-content form .button-group button[type="submit"] {
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    flex: 1;
+}
+
+.simulation-form-content form .button-group button[type="reset"] {
+    background-color: var(--white);
+    border: 1px solid var(--green-500);
+    color: var(--green-500);
+}
+
+#simulation-completed {
+    margin: 50px;
+}
