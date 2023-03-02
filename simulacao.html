@@ -12,7 +12,7 @@
   <link rel="shortcut icon" href="./assets/truck-green.png" type="image/PNG" />
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="style-simulation.css" />
+  <link rel="stylesheet" href="assets/css/style-simulation.css" />
   <!-- CSS Breakpoint -->
   <link rel="stylesheet" href="./mobile.css" media="(max-width: 800px)" />
   <!-- Fonts -->
@@ -35,10 +35,10 @@
       <img class="bg-item" src="./assets/bg-item1.svg" aria-hidden="true" />
       <img class="logo" src="./assets/truck-log-logo.svg" alt="Caminhão da TruckLog" />
       <nav class="desktop">
-        <a href="#our-data-section">Nossos Dados</a>
-        <a href="#how-it-works-container">Como funciona</a>
-        <a href="#main-benefits-section">Benefícios</a>
-        <a href="#">FAQ</a>
+        <a href="index.html#our-data-section">Nossos Dados</a>
+        <a href="index.html#how-it-works-container">Como funciona</a>
+        <a href="index.html#main-benefits-section">Benefícios</a>
+        <a href="index.html#faq-section">FAQ</a>
       </nav>
       <button class="desktop">
         <a href="./login/index.html" class="login">Faça Login</a>
@@ -76,8 +76,8 @@
           </div>
           <div class="button-group">
             <!-- <button type="" onclick="dispararPesquisaCeps()">Calcular</button> -->
-            <input type="button" value="Simular" onclick="dispararPesquisaCeps()">
-            <input type="button" value="Limpar" onclick="limparPesquisaCeps()">
+            <input type="button" class="btn btn-outline-success" value="Simular" onclick="dispararPesquisaCeps()">
+            <input type="button" class="btn btn-outline-danger" value="Limpar" onclick="limparPesquisaCeps()">
             <!-- <button type="" onclick="limparPesquisaCeps()">Limpar</button> -->
           </div>
         </form>
@@ -85,7 +85,7 @@
     </section>
 
     <section id="simulation-completed">
-      <div class="form-control text-center">
+      <div class="">
         <div id="resposta"></div>
         <!-- <table class="table table-striped">
           <thead>
@@ -132,47 +132,60 @@
           </tbody>
         </table> -->
       </div>
-      <div>
+      <!-- <div>
         <button type="reset" onclick="">Limpar</button>
-      </div>
+      </div> -->
     </section>
 
     <footer class="footer-section">
       <div class="footer-content">
         <nav>
           <ul>
-            <li class="desktop"><a href="#">Benefícios</a></li>
-            <li class="desktop"><a href="#">Dados</a></li>
-            <li class="desktop"><a href="#">Home</a></li>
+            <li class="desktop"><a href="index.html#main-benefits-section">Benefícios</a></li>
+            <li class="desktop"><a href="index.html#our-data-section">Dados</a></li>
+            <li class="desktop"><a href="index.html#home-container">Home</a></li>
             <li>
-              <a href="" class="footer-truck-logo"><img src="./assets/truck-log-logo.svg" alt="truck log logo" /></a>
+              <a href="index.html#" class="footer-truck-logo"><img src="./assets/truck-log-logo.svg" alt="truck log logo" /></a>
             </li>
-            <li class="desktop"><a href="#">Parceiros</a></li>
-            <li class="desktop"><a href="#">Como funciona</a></li>
-            <li class="desktop"><a href="#">Contrate</a></li>
+            <li class="desktop"><a href="index.html#partners-container">Parceiros</a></li>
+            <li class="desktop"><a href="index.html#how-it-works-container">Como funciona</a></li>
+            <li class="desktop"><a href="index.html#product-form-container">Contrate</a></li>
           </ul>
         </nav>
 
         <div class="social-media-container">
           <div>
-            <a href="#"><i class="ph-whatsapp-logo" title="logo da empresa whatsapp"></i></a>
+            <a href="https://api.whatsapp.com/" target="_blank"
+              ><i class="ph-whatsapp-logo" title="logo da empresa whatsapp"></i
+            ></a>
           </div>
           <div>
-            <a href="#"><i class="ph-linkedin-logo" title="logo da empresa linkedin"></i></a>
+            <a href="http://linkedin.com/" target="_blank"
+              ><i class="ph-linkedin-logo" title="logo da empresa linkedin"></i
+            ></a>
           </div>
           <div>
-            <a href="#"><i class="ph-instagram-logo" title="logo da empresa instagram"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"
+              ><i
+                class="ph-instagram-logo"
+                title="logo da empresa instagram"
+              ></i
+            ></a>
           </div>
           <div>
-            <a href="#"><i class="ph-facebook-logo" title="logo da empresa facebook"></i></a>
+            <a href="https://www.facebook.com/" target="_blank"
+              ><i class="ph-facebook-logo" title="logo da empresa facebook"></i
+            ></a>
           </div>
           <div>
-            <a href="#"><i class="ph-envelope" title="logo representando um envelope"></i></a>
+            <a href="mailto:trucklog@email.com.br" target="_blank"
+              ><i class="ph-envelope" title="logo representando um envelope"></i
+            ></a>
           </div>
         </div>
 
         <div class="footer-info-container">
-          <span>2010 - 2022 <a href="">Privacy - Terms</a></span>
+          <span>2010 - 2022 <a href="#" onclick="alertPoliticaDePrivacidade()">Privacy - Terms</a></span>
         </div>
       </div>
     </footer>

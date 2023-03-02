@@ -103,3 +103,17 @@
 .bg-light-green{
     background: var(--green-300);
 }
+
+/* Resposta */
+#resposta {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5px;
+}
+
+#resposta div {
+    margin: 5px;
+    border-radius: 5px;
+}
+
