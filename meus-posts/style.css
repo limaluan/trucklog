@@ -202,108 +202,82 @@ button:hover {
 
 .dash1 {
   margin: 3em auto;
-  width: 80vw;
+  display: flex;
+  width: 60vw;
   padding: 20px;
-  background-color: #eafff9;
 }
-.dash1 .identify {
-  display: flex;
-}
-.dash1 .identify img {
-  border-radius: 50px;
-}
-.dash1 .identify h3 {
-  align-items: flex-start;
-  margin: 1rem 0 0 -5rem;
-}
-.dash1 .identify .cargo {
-  margin-left: 1em;
-  margin-top: 1rem;
-  background-color: #777e90;
-  align-self: center;
-  padding: 5px;
-  border-radius: 40%;
-  color: #fff;
-}
-.dash1 .identify .data {
-  font-size: 1.2rem;
-  position: absolute;
-  left: 80%;
-  text-align: center;
-}
-.dash1 .texto {
-  padding: 20px 30px;
-  text-align: justify;
-}
-.dash1 .anexos {
-  display: flex;
-  padding: 10px;
+.dash1 div {
+  width: 60vw;
   align-items: center;
-  border-top: 1px solid #204945;
-}
-.dash1 .anexos button {
-  margin-left: 10px;
-  padding: 10px;
-}
-
-.dash2 {
-  margin: 3em auto;
-  width: 80vw;
-  padding: 20px;
-  background-color: #fdfdfd;
-}
-.dash2 .identify {
-  display: flex;
-}
-.dash2 .identify img {
-  border-radius: 50px;
-}
-.dash2 .identify h3 {
-  align-items: flex-start;
-  margin: 1rem 0 0 -6rem;
-}
-.dash2 .identify .cargo {
-  margin-left: 1em;
-  margin-top: 1rem;
-  background-color: var(--green-500);
-  align-self: center;
-  padding: 5px;
-  border-radius: 40%;
-  color: #fff;
-}
-.dash2 .identify .data {
-  font-size: 1.2rem;
-  position: absolute;
-  left: 80%;
-  text-align: center;
-}
-.dash2 .texto {
-  padding: 30px 20px;
-  height: 15vh;
-  text-align: justify;
-}
-
-.mensagem {
-  margin: 3em auto;
-  display: flex;
-  width: 80vw;
-}
-.mensagem .botoes {
+  background-color: #a9cfc4;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  margin: 0 1rem;
+  padding: 10px 10px 0px 10px;
+  border-bottom: 5rem solid #fff;
 }
-.mensagem textarea {
-  border: 2px solid #2a5548;
-  border-radius: 20px;
+.dash1 h2 {
+  align-self: start;
+  font-size: 3rem;
+  background-color: #fff;
+  padding: 5px 10px;
+  margin-left: -10px;
+  margin-bottom: 50px;
+}
+.dash1 p1 {
+  align-self: start;
+  margin-top: -40px;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+.dash1 span {
+  align-self: flex-end;
+  background-color: #045801;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 2rem;
+}
+.dash1 p {
+  font-size: 20px;
+  color: #696969;
+}
+.dash1 p5 {
+  font-size: 2em;
+  background-color: #3cbd96;
   padding: 10px;
+  border-radius: 20px;
+  color: #fff;
+  margin: -50px 0 10px 0;
+}
+.dash1 p3 {
+  color: #fff;
+  font-size: 2rem;
+}
+.dash1 p4 {
+  margin: 20px;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #0e3a00;
+  width: 60vw;
+  text-align: center;
+  padding: 5px;
 }
 
-.anexados {
-  margin: -1.4em auto;
-  width: 80vw;
-  height: 10vh;
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form input {
+  font-size: 2.5rem !important;
+  border-radius: 5px;
+}
+form button {
+  font-size: 2.5rem !important;
+  border-radius: 5px;
+  align-self: center;
+  margin-top: 10px;
+  background-color: #3cbd96 !important;
 }
 
 /* --FOOTER */

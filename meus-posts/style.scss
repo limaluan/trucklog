@@ -23,7 +23,7 @@
 }
 
 html {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
@@ -61,7 +61,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Anybody", cursive;
+  font-family: 'Anybody', cursive;
 }
 
 button:hover {
@@ -72,11 +72,11 @@ button:hover {
   display: none;
 }
 
-[class$="container"] {
+[class$='container'] {
   width: 100%;
 }
 
-[class$="content"] {
+[class$='content'] {
   max-width: 80vw;
   margin: 0 auto;
 }
@@ -159,7 +159,7 @@ button:hover {
     width: 5rem;
     height: 5rem;
     border-radius: 5rem;
-    background: url("https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg");
+    background: url('https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg');
     background-size: cover;
   }
 
@@ -224,113 +224,82 @@ button:hover {
 
 .dash1 {
   margin: 3em auto;
-  width: 80vw;
-  padding: 20px;
-  background-color: #eafff9;
-
-  .identify {
-    display: flex;
-
-    img {
-      border-radius: 50px;
-    }
-    h3 {
-      align-items: flex-start;
-      margin: 1rem 0 0 -5rem;
-    }
-    .cargo {
-      margin-left: 1em;
-      margin-top: 1rem;
-      background-color: #777e90;
-      align-self: center;
-      padding: 5px;
-      border-radius: 40%;
-      color: #fff;
-    }
-    .data {
-      font-size: 1.2rem;
-      position: absolute;
-      left: 80%;
-      text-align: center;
-    }
-  }
-  .texto {
-    padding: 20px 30px;
-    text-align: justify;
-  }
-  .anexos {
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    border-top: 1px solid #204945;
-
-    button {
-      margin-left: 10px;
-      padding: 10px;
-    }
-  }
-}
-
-.dash2 {
-  margin: 3em auto;
-  width: 80vw;
-  padding: 20px;
-  background-color: #fdfdfd;
-
-  .identify {
-    display: flex;
-
-    img {
-      border-radius: 50px;
-    }
-    h3 {
-      align-items: flex-start;
-      margin: 1rem 0 0 -6rem;
-    }
-    .cargo {
-      margin-left: 1em;
-      margin-top: 1rem;
-      background-color: var(--green-500);
-      align-self: center;
-      padding: 5px;
-      border-radius: 40%;
-      color: #fff;
-    }
-    .data {
-      font-size: 1.2rem;
-      position: absolute;
-      left: 80%;
-      text-align: center;
-    }
-  }
-
-  .texto {
-    padding: 30px 20px;
-    height: 15vh;
-    text-align: justify;
-  }
-}
-
-.mensagem {
-  margin: 3em auto;
   display: flex;
-  width: 80vw;
-  .botoes {
+  width: 60vw;
+  padding: 20px;
+  div {
+    width: 60vw;
+    align-items: center;
+    background-color: #a9cfc4;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    margin: 0 1rem;
+    padding: 10px 10px 0px 10px;
+    border-bottom: 5rem solid #fff;
   }
-  textarea {
-    border: 2px solid #2a5548;
-    border-radius: 20px;
+  h2 {
+    align-self: start;
+    font-size: 3rem;
+    background-color: #fff;
+    padding: 5px 10px;
+    margin-left: -10px;
+    margin-bottom: 50px;
+  }
+  p1 {
+    align-self: start;
+    margin-top: -40px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+  }
+  span {
+    align-self: flex-end;
+    background-color: #045801;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 2rem;
+  }
+  p {
+    font-size: 20px;
+    color: #696969;
+  }
+  p5 {
+    font-size: 2em;
+    background-color: #3cbd96;
     padding: 10px;
+    border-radius: 20px;
+    color: #fff;
+    margin: -50px 0 10px 0;
+  }
+  p3 {
+    color: #fff;
+    font-size: 2rem;
+  }
+  p4 {
+    margin: 20px;
+    font-size: 2rem;
+    color: #fff;
+    background-color: #0e3a00;
+    width: 60vw;
+    text-align: center;
+    padding: 5px;
   }
 }
-.anexados {
-  margin: -1.4em auto;
-  width: 80vw;
-  height: 10vh;
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  input {
+    font-size: 2.5rem !important;
+    border-radius: 5px;
+  }
+  button {
+    font-size: 2.5rem !important;
+    border-radius: 5px;
+    align-self: center;
+    margin-top: 10px;
+    background-color: #3cbd96 !important;
+  }
 }
 /* --FOOTER */
 .footer-section {
