@@ -23,7 +23,7 @@
 }
 
 html {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
@@ -50,7 +50,7 @@ button {
   background-color: var(--green-500);
   color: var(--white);
   font-size: inherit;
-  border-radius: 1rem;
+  border-radius: 1rem !important;
   padding: 1rem 2rem;
   transition: filter 200ms;
 }
@@ -61,7 +61,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Anybody", cursive;
+  font-family: 'Anybody', cursive;
 }
 
 button:hover {
@@ -69,18 +69,18 @@ button:hover {
 }
 button.desktop a.login {
   all: unset;
-  text-decoration: none;
+  color: #fff !important;
 }
 
 .mobile {
   display: none;
 }
 
-[class$="container"] {
+[class$='container'] {
   width: 100%;
 }
 
-[class$="content"] {
+[class$='content'] {
   max-width: 80vw;
   margin: 0 auto;
 }
@@ -121,7 +121,135 @@ button.desktop a.login {
 }
 
 .header-content button {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header-content nav {
+  display: flex;
+  font-size: 1.6rem;
+  gap: 5rem;
+  color: var(--gray-400);
+}
+
+.header-content a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+a {
+  text-decoration: none !important;
+  color: #000 !important;
+  font-size: 1.8rem !important;
+}
+a:hover {
+  transform: scale(1.1);
+}
+/* --REGRAS GERAIS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--white);
+  font-size: 1.6rem;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  background-color: var(--green-500);
+  color: var(--white);
+  font-size: inherit;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  transition: filter 200ms;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Anybody', cursive;
+}
+
+button:hover {
+  filter: brightness(0.8);
+}
+button.desktop a.login {
+  all: unset;
+  text-decoration: none;
+}
+
+.mobile {
+  display: none;
+}
+
+[class$='container'] {
+  width: 100%;
+}
+
+[class$='content'] {
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 4.8rem;
+  font-weight: bold;
+  color: var(--green-700);
+}
+
+.section-subtitle {
+  color: var(--gray-300);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+/* --HEADER */
+.header-content {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 15vh;
+}
+
+.header-content > .logo {
+  width: 100%;
+  max-width: 12rem;
+}
+
+.header-content .bg-item {
+  position: absolute;
+  opacity: 32%;
+  left: 0;
+  top: -5rem;
+  width: 40vw;
+  z-index: -1;
+}
+
+.header-content button {
+  font-family: 'Poppins', sans-serif;
 }
 
 .header-content nav {
@@ -168,13 +296,13 @@ button.desktop a.login {
 }
 
 .home-content .image-section::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   right: 0;
   width: 50%;
   height: 100%;
-  background-image: url("./assets/bg-world.svg");
+  background-image: url('./assets/bg-world.svg');
   background-size: cover;
   z-index: -1;
 }
@@ -260,7 +388,7 @@ button.desktop a.login {
 }
 
 .data strong {
-  font-family: "Anybody", sans-serif;
+  font-family: 'Anybody', sans-serif;
   font-size: 6.4rem;
   color: var(--green-500);
 }
@@ -411,14 +539,14 @@ button.desktop a.login {
   font-weight: 500;
 }
 
-.product-form-content form .button-group button[type="submit"] {
+.product-form-content form .button-group button[type='submit'] {
   display: flex;
   justify-content: center;
   font-weight: 700;
   flex: 1;
 }
 
-.product-form-content form .button-group button[type="reset"] {
+.product-form-content form .button-group button[type='reset'] {
   background-color: var(--white);
   border: 1px solid var(--green-500);
   color: var(--green-500);
@@ -558,6 +686,7 @@ button.desktop a.login {
 
 /* --FOOTER */
 .footer-section {
+  margin-top: 10vh;
   padding: 8.4rem;
 }
 
