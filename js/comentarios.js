@@ -10,6 +10,7 @@ const postContainer = document.querySelector("#post-container");
 const commentsContainer = document.querySelector("#comments-container");
 
 const commentForm = document.querySelector("#comment-form");
+const sendCommentBtn = document.querySelector("#send-comment");
 const emailInput = document.querySelector("#email");
 const bodyInput = document.querySelector("#body");
 
@@ -18,7 +19,7 @@ const postId = urlSearchParams.get("id");
 
 async function getAllPosts() {
   const response = await fetch(url);
-  const data = await response.json();  
+  const data = await response.json();
   loadingElement.classList.add("hide");
 
   data.map((post) => {
@@ -32,7 +33,7 @@ async function getAllPosts() {
     title.innerText = post.title;
     body.innerText = post.body;
     link.innerText = "Comentar post";
-    link.setAttribute("href", `./enviar-comentario06.html?id=${post.id}`); 
+    link.setAttribute("href", `./enviar-comentario06.html?id=${post.id}`);
 
     div.appendChild(title);
     div.appendChild(body);
@@ -97,21 +98,15 @@ async function postComment(comment) {
   createComment(data);
 }
 
-if (!postId) {
-  getAllPosts();
-} else {
-  getPost(postId);
+commentForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-  commentForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  let comment = {
+    email: emailInput.value,
+    body: bodyInput.value,
+  };
 
-    let comment = {
-      email: emailInput.value,
-      body: bodyInput.value,
-    };
+  comment = JSON.stringify(comment);
 
-    comment = JSON.stringify(comment);
-
-    postComment(comment);
-  });
-}
+  postComment(comment);
+});

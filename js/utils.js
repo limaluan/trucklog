@@ -3,7 +3,6 @@ const coll = document.getElementsByClassName("collapsible");
 
 for (let i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", () => {
-    console.log("TESTE");
     coll[i].classList.toggle("active");
     let content = coll[i].nextElementSibling;
     if (content.style.maxHeight) {

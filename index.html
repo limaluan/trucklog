@@ -384,7 +384,7 @@
       <section id="faq-section">
         <div class="faq-section-content">
           <div class="data-title-container">
-            <h1 class="section-title">Perguntas frequentes</h1>
+            <h1 class="section-title">Perguntas Frequentes</h1>
             <h2 class="section-subtitle">Como podemos ajudá-lo?</h2>
           </div>
 
@@ -454,6 +454,50 @@
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="feedback-section">
+        <div class="feedback-section-content">
+          <div class="data-title-container">
+            <h1 class="section-title">Feedbacks & Avaliações</h1>
+            <h2 class="section-subtitle">
+              Ajude-nos a melhorar nossos serviços deixando uma opinião ou
+              crítica construtiva.
+            </h2>
+          </div>
+          <div class="feedback-container">
+            <form method="post" id="comment-form">
+              <div>
+                <label for="email">Seu e-mail:</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Digite seu e-mail"
+                  required
+                  class="form-control"
+                />
+              </div>
+              <div>
+                <label for="body">Comentário:</label>
+                <textarea
+                  name="body"
+                  id="body"
+                  placeholder="Digite seu comentário"
+                  required
+                  class="form-control"
+                ></textarea>
+              </div>
+              <input
+                id="send-comment"
+                type="submit"
+                value="Comentar"
+                class="btn btn-danger"
+              />
+            </form>
+            <div id="comments-container"></div>
           </div>
         </div>
       </section>
@@ -534,7 +578,8 @@
         </div>
       </div>
     </footer>
-    <script src="js/setHref.js"></script>
-    <script src="js/utils.js"></script>
+    <script src="./js/setHref.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/comentarios.js"></script>
   </body>
 </html>
