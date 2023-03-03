@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />  
+    <link rel="stylesheet" href="../simulacao/styles copy.css" />
+    <link rel="stylesheet" href="../simulacao/styles.css" />
+    
+    <title>Simulação</title>
+    
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header class="header-container">
+        <div class="header-content">
+          <img class="bg-item" src="./assets/bg-item1.svg" aria-hidden="true" />
+          <a href="../index.html"><img 
+            class="logo" 
+            style="width: 120px;"
+            src="./assets/truck-log-logo.svg"
+            alt="Caminhão da TruckLog"
+          /></a>
+          <nav class="desktop">
+            <a href="../quem somos/quemsomos.html" style="color: black;">Nossos Dados</a>
+            <a href="../simulacao/simular.html" style="color: black;">Como funciona</a>
+            <a href="#" style="color: black;">Benefícios</a>
+            <a href="#" style="color: black;">FAQ</a>
+          </nav>
+          <button class="btn btn-success">
+            <a href="../login/index.html" class="login" style="padding: 15px; font-size: large; color: #ffffff;">Faça Login</a>
+          </button>
+        </div>
+      </header>
+   
+      <div class="row">
+        <div class="col-6 col-svg">
+          <svg
+            class="svg-truck"
+            width="200"
+            height="440"
+            viewBox="0 0 350 440"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M-126 0H314C333.882 0 350 16.1177 350 36V404C350 423.882 333.882 440 314 440H-126V0Z"
+              fill="#EBF6ED"
+            />
+          </svg>
+
+          <img
+            src="assets/truck.png"
+            alt="TruckLog"
+            class="img-fluid img-truck"
+          />
+        </div>
+        <div class="col-6 col-form">
+          <svg
+            class="svg-form"
+            width="254"
+            height="918"
+            viewBox="0 0 254 918"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M163.791 778.548C206.274 882.683 250.226 923.145 270 917.483L270 259L270 0C236.209 67.377 -18.9184 403.379 1.11964 527.263C27.7416 691.852 110.686 648.378 163.791 778.548Z"
+              fill="#BFE3C6"
+              fill-opacity="0.32"
+            />
+          </svg>
+
+          <div
+            
+          >
+          <h1 class="h1-login">Veja Como Funciona Nosso Sistema</h1>
+            <h1 class="h1-login">Aqui Você PodeSimular o Transporte de Uma Encomenda</h1>
+            <p style="font-size: large;"><b>Nesse campo você pode ver como nossos serviços funcionam fazendo uma simulação de envio de uma encomenda.</b></p>
+            <h3 class="h3-login" style="font-size: x-large;">Insira os dados :</h3>
+
+            <div>
+                <label for="cep" style="font-size: large;"><b>CEP de origem:</b></label>
+                <input type="text" id="cep"  name="cep-origem" style="font-size: 16px;"><br>
+          
+                <label for="cep2" style="font-size: medium;"><b>CEP de destino:</b> </label>
+                <input type="text" id="cep2" name="cep-destino" style="font-size: 16px; margin-top: 0.5%; margin-left: 12px;"><br>
+          
+                <label for="peso" style="font-size: large;"><b>Peso (kg):</b> </label>
+                <input type="text" id="peso" name="peso" style="font-size: 16px; margin-top: 0.5%; margin-left: 45px;"><br>
+                <div class="button">
+                    <a class="btn btn-success" style="padding: 2%; font-size: large; margin-top: 3px; margin-left: 131px;" aria-current="page" id="botao-enviar" onclick="buscarCep(); buscarCep2(); calcularFrete()">Calcular frete</a>
+                    <a class="btn btn-success" style="padding: 2%; font-size: large; margin-top: 3px;" onclick="location.reload()">Limpar</a>
+                  </div>
+              <div id="resposta"></div>
+              <div id="resposta2"></div>
+              <div id="resultado"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+              <script src="JS/calculo.js"></script>
+              <script src="JS/script.js"></script>
+              <script src="JS/script2.js"></script>
+    <script></script>
+  </body>
+</html>
