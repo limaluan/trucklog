@@ -650,3 +650,43 @@ button.desktop a.login {
   color: var(--green-700);
   border-bottom: 2.5px solid #3cbd96;
 }
+
+.txt-align{
+  margin-top: 2rem;
+  text-align: start;
+}
+
+.cmb{
+  margin-bottom: 1.7rem;
+}
+
+.fleet-container {
+  padding: 5rem 0;
+  background-color: var(--green-300);
+}
+
+.fleet-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10rem;
+}
+
+.carrossel {
+  margin: 0 auto;
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1.7s ease-in-out;
+}
+.slide.active {
+  opacity: 1;
+}
