@@ -15,7 +15,7 @@ Projeto desenvolvido através do programa vem ser da DBC Company durante o módu
 </p>
 
 <p align="center">
-  <a href="https://trucklog.vercel.app/" target="_blank">😁 -> Acesse o deploy do projeto!</a>
+  <a href="https://trucklog-qa.vercel.app/" target="_blank">😁 -> Acesse o deploy do projeto!</a>
 </p>
 
 <br>
