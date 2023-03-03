@@ -50,7 +50,7 @@ button {
   background-color: var(--green-500);
   color: var(--white);
   font-size: inherit;
-  border-radius: 1rem;
+  border-radius: 1rem !important;
   padding: 1rem 2rem;
   transition: filter 200ms;
 }
@@ -68,7 +68,7 @@ button:hover {
   filter: brightness(0.8);
 }
 button.desktop a.login {
-  text-decoration: none;
+  all: unset;
   color: #fff !important;
 }
 
@@ -139,6 +139,9 @@ a {
   text-decoration: none !important;
   color: #000 !important;
   font-size: 1.8rem !important;
+}
+a:hover {
+  transform: scale(1.1);
 }
 /* --MENSAGEM */
 section {
