@@ -1,0 +1,36 @@
+@media (max-width: 736px) {
+  .col-6.col-form {
+    width: 100%;
+  }
+  img.img-truck {
+    position: absolute;
+    width: 17em;
+
+    top: 4em;
+    left: 55%;
+    z-index: -1;
+  }
+  .text-password {
+    width: 75%;
+  }
+  .form-login-mobile {
+    margin-left: 5rem !important;
+  }
+  .info-button-mobile {
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse;
+    align-content: end;
+  }
+  .text-info-login,
+  .form-link {
+    margin-top: 1rem !important;
+  }
+  .form-link {
+    align-self: flex-end;
+  }
+}
+@media (max-width: 1000px) {
+  .col-6.col-form {
+    width: 100%;
+  }
+}
