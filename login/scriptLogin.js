@@ -20,25 +20,28 @@ const listar = async () => {
       }
       var cont = parseInt(userList.quantidade);
       const parar = parseInt(cont);
-      var lista = [];
       document.querySelector("#quantidade").innerText = `(${cont})`;
-      const pUsername = document.querySelector("#username");
-      const pUserEmail = document.querySelector("#userEmail");
-
+      const ul = document.querySelector("#resposta");
       for (i = 0; i < parar; i++) {
-        lista.push(i + 1 + " " + userList.usuarios[i].nome);
-      }
+        const li = document.createElement("li");
+        li.classList.add("d-flex", "border-bottom");
+        li.innerHTML = `<img
+                      width="32"
+                      height="32"
+                      class="flex-shrink-0 me-2 rounded"
+                      style="background-color: ${randomColor()};"
+                    />
 
-      document.getElementById(
-        "resposta"
-      ).innerHTML = `<div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">${"Usuários"}</h5>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b>Lista:</b> ${lista}</li>
-                    </ul>
-                </div><br>`;
+                    <p class="pb-3 mb-3 small lh-sm">
+                      <strong
+                        class="d-block text-gray-dark"
+                      >${userList.usuarios[i].nome}</strong>
+                      <strong
+                        class="d-block text-primary fst-italic"
+                      >${userList.usuarios[i].email}</strong>
+                    </p>`;
+        ul.appendChild(li);
+      }
     });
 };
 
@@ -83,4 +86,11 @@ const clearInputs = () => {
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
   document.getElementById("phone").value = "";
+};
+
+const randomColor = () => {
+  const red = Math.floor(Math.random() * 255);
+  const green = Math.floor(Math.random() * 255);
+  const blue = Math.floor(Math.random() * 255);
+  return `rgb(${red}, ${green}, ${blue})`;
 };

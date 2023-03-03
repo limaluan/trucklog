@@ -40,6 +40,16 @@ button {
   transition: filter 200ms;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul#resposta {
+  font-size: 1.5rem;
+}
+
 .img-truck {
   position: absolute;
   width: 577px;
@@ -162,7 +172,6 @@ a {
   color: var(--green-700);
   font-size: medium;
   font-weight: bold;
-  margin-top: 5rem;
   transition: color 0.2s;
   cursor: pointer;
 }
