@@ -37,7 +37,7 @@ async function getAllUsers() {
 getAllUsers();
 
 async function pesquisarUser() {
-  if (person.trim() === '') {
+  if (person === '') {
     users.innerHTML = ``;
   }
   const response = await fetch('https://jsonplaceholder.typicode.com/users');
