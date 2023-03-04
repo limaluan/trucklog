@@ -73,11 +73,19 @@
             </div>
 
             <input id="cep-destino" name="cep" type="text" placeholder="4100000" required pattern="\d{8}" value="41601105"/>
+
+            <div class="label-container">
+              <div><i class="ph-envelope"></i></div>
+              <label for="peso">Peso da carga</label>
+            </div>
+
+            <input id="peso" name="peso" type="number" placeholder="0"/>
           </div>
           <div class="button-group">
             <!-- <button type="" onclick="dispararPesquisaCeps()">Calcular</button> -->
-            <input type="button" class="btn btn-outline-success" value="Simular" onclick="dispararPesquisaCeps()">
-            <input type="button" class="btn btn-outline-danger" value="Limpar" onclick="limparPesquisaCeps()">
+            <input type="button" class="btn btn-outline-success" value="Consultar CEPs" onclick="dispararPesquisaCeps()">
+            <input type="button" class="btn btn-outline-danger" value="Limpar CEPs" onclick="limparPesquisaCeps()">
+            <input type="button" class="btn btn-outline-success" value="Calcular frete" onclick="calcularFrete()">
             <!-- <button type="" onclick="limparPesquisaCeps()">Limpar</button> -->
           </div>
         </form>
