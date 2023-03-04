@@ -552,6 +552,7 @@ button.desktop a.login {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 5rem 0;
 }
 
 .questions-container {
@@ -597,11 +598,27 @@ button.desktop a.login {
 }
 
 /* Feedbacks */
+.feedback-section {
+  padding: 5rem 0;
+  background-color: var(--green-300);
+}
+
 .feedback-section-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.feedback-container {
+  padding: 3rem;
+}
+
+.feedback-container form {
+  /* max-width: 80rem; */
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0px 3.62573px 3.62573px rgba(60, 189, 150, 0.22);
 }
 
 /* --UTILS */

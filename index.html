@@ -82,7 +82,7 @@
         </div>
       </section>
 
-      <section id="partners-container">
+      <section id="partners-container" class="partners-container">
         <div class="partners-heading">
           <h1 class="section-title">Parceiros</h1>
           <h2 class="section-subtitle">Eles também contam conosco</h2>
@@ -164,7 +164,7 @@
         </div>
       </section>
 
-      <section id="how-it-works-container">
+      <section id="how-it-works-container" class="how-it-works-container">
         <div class="how-it-works-content">
           <div class="how-it-works-heading">
             <h1 class="section-title">Como funciona</h1>
@@ -313,7 +313,7 @@
         </div>
       </section>
 
-      <section id="main-benefits-section">
+      <section id="main-benefits-section" class="main-benefits-section">
         <div class="main-benefits-content">
           <div class="data-title-container">
             <h1 class="section-title">Principais Benefícios</h1>
@@ -468,7 +468,7 @@
         </div>
       </section>
 
-      <section id="feedback-section">
+      <section id="feedback-section" class="feedback-section">
         <div class="feedback-section-content">
           <div class="data-title-container">
             <h1 class="section-title">Feedbacks & Avaliações</h1>
@@ -478,20 +478,26 @@
             </h2>
           </div>
           <div class="feedback-container">
-            <form method="post" id="comment-form">
-              <div>
-                <label for="email">Seu e-mail:</label>
+            <form class="form-group" method="post" id="comment-form">
+              <div class="form-control">
+                <div class="label-container">
+                  <div><i class="ph-envelope"></i></div>
+                  <label for="email-comment">Seu e-mail</label>
+                </div>
                 <input
                   type="email"
-                  name="email"
-                  id="email"
+                  name="email-comment"
+                  id="email-comment"
                   placeholder="Digite seu e-mail"
                   required
                   class="form-control"
                 />
               </div>
-              <div>
-                <label for="body">Comentário:</label>
+              <div class="form-control">
+                <div class="label-container">
+                  <div><i class="ph-envelope"></i></div>
+                  <label for="body">Comentário</label>
+                </div>
                 <textarea
                   name="body"
                   id="body"
@@ -500,12 +506,7 @@
                   class="form-control"
                 ></textarea>
               </div>
-              <input
-                id="send-comment"
-                type="submit"
-                value="Comentar"
-                class="btn btn-danger"
-              />
+              <button id="send-comment" type="submit">Comentar</button>
             </form>
             <div id="comments-container"></div>
           </div>
