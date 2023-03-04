@@ -448,6 +448,7 @@ button.desktop a.login {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  font-size: 2rem;
 }
 
 .form-group .form-control>label {
@@ -461,7 +462,7 @@ button.desktop a.login {
   padding: 1rem;
   border: 2px solid var(--gray-100);
   border-radius: 0.8rem;
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 
 .form-group .form-control input:focus:invalid,
