@@ -127,7 +127,7 @@ async function calcularFrete() {
     console.log(origem);
     console.log(destino);
 
-    await fetch(`http://dev.virtualearth.net/REST/v1/Routes?wp.0=${origem}&wp.1=${destino}&key=AjhiccnPfgp0nSj_Cs-kKMMB74LWNPDpiwNiRrjM6LTkClBkpGfffR3AvGq0MGdG`, {
+    await fetch(`https://dev.virtualearth.net/REST/v1/Routes?wp.0=${origem}&wp.1=${destino}&key=AjhiccnPfgp0nSj_Cs-kKMMB74LWNPDpiwNiRrjM6LTkClBkpGfffR3AvGq0MGdG`, {
         method: 'GET',
         headers: {
             // 'Content-Type': 'application/json'
