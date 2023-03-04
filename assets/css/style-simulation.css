@@ -91,6 +91,14 @@
     color: var(--green-500);
 }
 
+.btn-outline-success{
+    font-size: 2rem;
+}
+
+.btn-outline-danger{
+    font-size: 2rem;
+}
+
 #simulation-completed {
     margin: 50px;
 }
