@@ -561,19 +561,13 @@ button.desktop a.login {
   justify-content: center;
   width: 75%;
   padding: 3rem;
-  background-color: var(--white);
   gap: 2rem;
-}
-
-.question-title {
-  color: var(--green-500);
 }
 
 .collapsible {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--white);
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
@@ -583,22 +577,9 @@ button.desktop a.login {
   outline: none;
 }
 
-.collapsible:after {
-  /* Unicode para o sinal "mais" (+) */
-  content: "\02795";
-  font-size: 1.5rem;
-  color: var(--white);
-}
-
-.active:after {
-  /* Unicode para o sinal "menos" (-) */
-  content: "\2796";
-}
-
 .active,
 .collapsible:hover {
   background-color: var(--green-700);
-  color: var(--white);
 }
 
 .question-answer {
@@ -607,6 +588,12 @@ button.desktop a.login {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+}
+
+.question-answer p {
+  font-size: 1.8rem;
+  text-align: justify;
+  padding: 2rem;
 }
 
 /* Feedbacks */

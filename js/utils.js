@@ -12,3 +12,12 @@ for (let i = 0; i < coll.length; i++) {
     }
   });
 }
+
+/* Script para mudar o ícone do collapsible */
+const collapsibleList = document.querySelectorAll(".collapsible");
+collapsibleList.forEach((collapsible) => {
+  collapsible.addEventListener("click", () => {
+    collapsible.firstElementChild.classList.toggle("bi-dash-lg");
+    collapsible.firstElementChild.classList.toggle("bi-plus-lg");
+  });
+});
