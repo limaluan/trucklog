@@ -144,10 +144,12 @@ a:hover {
   transform: scale(1.1);
 }
 /* --MENSAGEM */
+h3 {
+  margin: 20px 0 !important;
+}
 section {
   font-size: 2rem;
   margin-top: 10vh;
-  height: 100vh;
 }
 section input,
 textarea {
@@ -166,8 +168,8 @@ section .btn {
   font-size: 2.5rem !important;
   background-color: #3cbd96 !important;
   border: none !important;
-  width: 10vw !important;
-  margin-top: 10px;
+  width: 15vw !important;
+  margin-top: 1.25rem;
 }
 
 section .btn:hover {
@@ -178,38 +180,47 @@ section .btn:hover {
   margin: 8vh auto;
   display: flex;
   width: 40vw;
-  height: 26vh;
   flex-direction: column;
-  color: #fafafa;
+  color: #000000;
   padding: 35px 5px;
   border-radius: 10px;
 }
-#dataPost {
-  position: absolute;
-  font-size: 1.8rem;
-  left: 76vw;
-  top: 71vh;
-}
-#postName {
-  margin-left: 5px;
-}
-#postEmail {
-  margin-left: 5px;
-  margin-top: 8px;
-}
-#postComent {
-  margin: 50px auto;
-}
-.b2tao2 {
-  display: flex;
-}
-#hide {
-  background-color: #fff;
-  width: 10vw !important;
-  height: 60px;
+
+#messages {
   color: #fff;
-  margin: -60px auto;
-  border: none !important;
+  width: 50vw;
+}
+#messages div {
+  background-color: #3cbd96;
+  margin: 10px;
+  padding: 2rem;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+#messages h2 {
+  font-size: 1.2em;
+  border-bottom: 1px solid #fff;
+  padding-left: 1.25rem;
+  margin-left: -1.9rem;
+  width: 25vw;
+}
+#messages p {
+  font-size: 1.5rem;
+  margin-top: -20px;
+}
+#messages p1 {
+  align-self: center;
+  margin-top: 20px;
+}
+#messages p3 {
+  position: absolute;
+  left: 61vw;
+  width: 12vw;
+  font-size: 1.5rem;
+  text-align: end;
+  margin-top: -10px;
 }
 /* --FOOTER */
 .footer-section {

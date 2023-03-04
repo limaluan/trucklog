@@ -97,8 +97,8 @@ nav.desktop {
 .first-row,
 .second-row {
   display: flex;
-    align-items: start;
-    gap: 1.5em;
+  align-items: start;
+  gap: 1.5em;
 }
 
 .benefit h3,
@@ -117,4 +117,14 @@ nav.desktop {
 
 .footer-truck-logo img {
   width: 12rem;
+}
+
+#messages h2 {
+  font-size: 1.9rem;
+}
+#messages p3 {
+  position: absolute;
+  left: 59vw;
+  font-size: 1.2rem;
+  margin-top: -5px;
 }
