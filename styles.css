@@ -55,14 +55,7 @@ button {
   transition: filter 200ms;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Anybody', cursive;
-}
+
 
 button:hover {
   filter: brightness(0.8);
@@ -484,6 +477,72 @@ a:hover {
   border-color: var(--green-500);
 }
 
+/*quem somos style selector*/
+.main-quem-section {
+  padding: 5rem 0;
+  background-color: var(--green-300);
+}
+
+.main-quem-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.quem-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8.4rem;
+  flex-wrap: wrap;
+  gap: 9.2rem;
+}
+
+.first-row,
+.second-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 9.2rem;
+}
+
+.quem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 30rem;
+}
+
+.benefit img,
+.benefit i {
+  width: 6rem;
+  margin-bottom: 2rem;
+}
+
+.benefit i {
+  font-size: 6rem;
+}
+
+.quem h3 {
+  font-size: 2rem;
+  margin-bottom: 1.6rem;
+  color: var(--green-700);
+}
+
+.quem p {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+
+
+
+
 /* main benefits styles section */
 .main-benefits-section {
   padding: 5rem 0;
@@ -681,11 +740,12 @@ a:hover {
 }
 
 .carrossel {
-  margin: 0 auto;
-  width: 500px;
-  height: 300px;
+  margin:  auto;
+  width: 1000px;
+  height: 400px;
   overflow: hidden;
   position: relative;
+  
 }
 
 .slides {
@@ -693,8 +753,10 @@ a:hover {
   top: 0;
   left: 0;
   opacity: 0;
-  transition: opacity 1.7s ease-in-out;
+  transition: opacity 1s ;
+  mask-repeat: calc();
 }
-.slide.active {
+
+.slides.active {
   opacity: 1;
 }

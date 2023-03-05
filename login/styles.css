@@ -55,15 +55,6 @@ button {
   transition: filter 200ms;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Anybody', cursive;
-}
-
 button:hover {
   filter: brightness(0.8);
 }
@@ -126,8 +117,9 @@ button.desktop a.login {
 
 .header-content nav {
   display: flex;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   gap: 5rem;
+  margin-right: 26.5rem;
   color: var(--gray-400);
 }
 
@@ -147,8 +139,8 @@ a:hover {
 .img-truck {
   position: absolute;
   width: 577px;
-  bottom: 5em;
-  left: -4em;
+  margin-top: 10rem;
+  left: -3em;
   z-index: -1;
 }
 
@@ -175,7 +167,7 @@ a:hover {
   font-weight: 500;
 }
 .form-login {
-  margin-top: 10rem;
+  margin-top: 2rem;
 }
 .i-email,
 .i-password,
@@ -199,7 +191,7 @@ input[type='tel'] {
   line-height: 4rem;
   font-size: medium;
   border: 1px transparent;
-  border-radius: 10px;
+  border-radius: 14px;
   box-shadow: 0 0 0px var(--black);
   background-color: var(--gray-100);
   transition: border 0.3s;
@@ -220,7 +212,7 @@ a {
   all: unset;
   cursor: pointer;
 
-  margin-top: 5rem;
+  margin-top: 1rem;
 }
 .form-button {
   display: inline-flex;
@@ -235,7 +227,7 @@ a {
   align-items: center;
   justify-content: space-between;
   width: 7.5rem;
-  margin-top: -1rem;
+  margin-top: -5rem;
   transition: background 0.3s;
 }
 
@@ -247,7 +239,7 @@ a {
   color: var(--green-700);
   font-size: medium;
   font-weight: bold;
-  margin-top: 5rem;
+  margin-top: 1rem;
   transition: color 0.2s;
   cursor: pointer;
 }

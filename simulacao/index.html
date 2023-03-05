@@ -2,9 +2,20 @@
 <html lang="pt-br">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+    <link
+    rel="shortcut icon"
+    href="../assets/truck-green.png"
+    type="image/PNG"
+  />
     <link rel="stylesheet" href="../simulacao/styles copy.css" />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="../styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;500;700&family=Poppins&family=Red+Hat+Display:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
     <script src="../userLogado.js" async></script>
     <title>Simulação</title>
     
@@ -88,16 +99,10 @@
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M163.791 778.548C206.274 882.683 250.226 923.145 270 917.483L270 259L270 0C236.209 67.377 -18.9184 403.379 1.11964 527.263C27.7416 691.852 110.686 648.378 163.791 778.548Z"
-              fill="#BFE3C6"
-              fill-opacity="0.32"
-            />
+           
           </svg>
 
-          <div
-            
-          >
+          <div>
           <h1 class="h1-login">Veja Como Funciona Nosso Sistema</h1>
             <h1 class="h1-login">Aqui Você PodeSimular o Transporte de Uma Encomenda</h1>
             <p style="font-size: large;"><b>Nesse campo você pode ver como nossos serviços funcionam fazendo uma simulação de envio de uma encomenda.</b></p>
@@ -105,20 +110,23 @@
 
             <div>
                 <label for="cep" style="font-size: large;"><b>CEP de origem:</b></label>
-                <input type="text" id="cep"  name="cep-origem" style="font-size: 16px;"><br>
+                <input type="text" id="cep"  name="cep-origem" style="font-size: 16px; border-radius: 9px;"><br>
           
                 <label for="cep2" style="font-size: medium;"><b>CEP de destino:</b> </label>
-                <input type="text" id="cep2" name="cep-destino" style="font-size: 16px; margin-top: 0.5%; margin-left: 12px;"><br>
+                <input type="text" id="cep2" name="cep-destino" style="font-size: 16px;border-radius: 9px; margin-top: 0.5%; margin-left: 12px;"><br>
           
                 <label for="peso" style="font-size: large;"><b>Peso (kg):</b> </label>
-                <input type="text" id="peso" name="peso" style="font-size: 16px; margin-top: 0.5%; margin-left: 45px;"><br>
+                <input type="text" id="peso" name="peso" style="font-size: 16px; margin-top: 0.5%; margin-left: 45px; border-radius: 9px;"><br>
                 <div class="button">
-                    <a class="btn btn-success" style="padding: 2%; font-size: large; margin-top: 3px; margin-left: 131px;" aria-current="page" id="botao-enviar" onclick="buscarCep(); buscarCep2(); calcularFrete()">Calcular frete</a>
-                    <a class="btn btn-success" style="padding: 2%; font-size: large; margin-top: 3px;" onclick="location.reload()">Limpar</a>
+                    <a class="btn btn-success" style="padding: 1.5%; font-size: large; margin-top: 3px; margin-left: 131px;border-radius: 13px;"  id="botao-enviar" onclick="buscarCep(); buscarCep2(); calcularFrete()"><b style="color: aliceblue;">Calcular frete</b></a>
+                    <a class="btn btn-success" style="padding: 1.5%; font-size: large; margin-top: 3px; border-radius: 13px;" onclick="location.reload()"><b style="color: aliceblue;">Limpar</b> </a>
                   </div>
-              <div id="resposta"></div>
-              <div id="resposta2"></div>
-              <div id="resultado"></div>
+                <br>  
+              <div>
+              <span id="resposta"></span>
+              <span id="resposta2"></span>
+              <span id="resultado"></span>
+              </div>
               </div>
             </div>
           </div>
@@ -126,7 +134,61 @@
       </div>
       
     </section>
-    
+   <div style="margin-top: 15rem;">
+    <footer class="footer-section">
+      <div class="footer-content">
+        <nav>
+          <ul>
+            <li class="desktop"><a href="../quem somos/index.html">Quem somos</a></li>
+            <li class="desktop"><a href="../index.html">Home</a></li>
+            <li>
+              <a href="" class="footer-truck-logo"
+                ><img src="../assets/truck-log-logo.svg" alt="truck log logo"
+              /></a>
+            </li>
+            <li class="desktop"><a href="../simulacao/index.html">Como funciona</a></li>
+            <li class="desktop"><a href="../beneficios/index.html">Benefícios</a></li>
+            <li class="desktop"><a href="../login/index.html">Login</a></li>
+          </ul>
+        </nav>
+
+        <div class="social-media-container">
+          <div>
+            <a href="#"
+              ><i class="ph-whatsapp-logo" title="logo da empresa whatsapp"></i
+            ></a>
+          </div>
+          <div>
+            <a href="#"
+              ><i class="ph-linkedin-logo" title="logo da empresa linkedin"></i
+            ></a>
+          </div>
+          <div>
+            <a href="#"
+              ><i
+                class="ph-instagram-logo"
+                title="logo da empresa instagram"
+              ></i
+            ></a>
+          </div>
+          <div>
+            <a href="#"
+              ><i class="ph-facebook-logo" title="logo da empresa facebook"></i
+            ></a>
+          </div>
+          <div>
+            <a href="#"
+              ><i class="ph-envelope" title="logo representando um envelope"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer-info-container">
+          <span>2010 - 2022 <a href="">Privacy - Terms</a></span>
+        </div>
+      </div>
+    </footer>
+  </div>
     
               <script src="JS/calculo.js"></script>
               <script src="JS/script.js"></script>
