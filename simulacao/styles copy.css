@@ -14,12 +14,7 @@
   --black: #000000;
   --white: #ffffff;
 }
-html {
-  font-family: "Red Hat Display", sans-serif;
-  font-size: 62.5%;
-  -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
-}
+
 
 button {
   all: unset;
@@ -56,7 +51,7 @@ button {
 .h1-login {
   color: var(--green-700);
   font-weight: bold;
-  padding-bottom: 5rem;
+  padding-bottom: 2rem;
 }
 .h3-login {
   color: var(--green-700);
@@ -65,41 +60,7 @@ button {
 .form-login {
   margin-top: 10rem;
 }
-.i-email,
-.i-password,
-.i-number {
-  position: relative;
-}
-.i-email i,
-.i-password i,
-.i-number i {
-  position: absolute;
-  left: 0;
-  top: 2rem;
-  padding-left: 2rem;
-  color: var(--gray-300);
-  scale: 1.5;
-  color: var(--green-700);
-}
-input[type="email"],
-input[type="password"],
-input[type="tel"] {
-  line-height: 4rem;
-  font-size: medium;
-  border: 1px transparent;
-  border-radius: 10px;
-  box-shadow: 0 0 0px var(--black);
-  background-color: var(--gray-100);
-  transition: border 0.3s;
-  padding: 0.5rem 5rem;
-  width: 75%;
-}
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="tel"]:focus {
-  box-shadow: 0 0 15px var(--green-700);
-  outline: 0;
-}
+
 input[type="button"],
 a {
   all: unset;
@@ -124,7 +85,7 @@ a {
   justify-content: space-between;
   width: 7.5rem;
   margin-top: -1rem;
-  transition: background 0.3s;
+
 }
 
 .form-button:hover {

@@ -17,9 +17,14 @@ fetch(urlTrucks)
         let allUrlImages = [];
         for (let index = 0; index < allImages.length; index++) {
             allUrlImages[index] = allImages[index].urls.small;
-        }
+        
+    }
         document.getElementById("imgT1").src = allUrlImages[4];
         document.getElementById("imgT2").src = allUrlImages[1];
         document.getElementById("imgT3").src = allUrlImages[7];
-        var slideInterval = setInterval(nextSlide, 2500);
-    })
+        
+ })
+
+ 
+    setInterval(nextSlide, 2500);
+    
