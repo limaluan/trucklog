@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />  
     <link rel="stylesheet" href="../simulacao/styles copy.css" />
     <link rel="stylesheet" href="./styles.css" />
-    
+    <script src="../userLogado.js" async></script>
     <title>Simulação</title>
     
 
@@ -40,7 +40,17 @@
           <a href="../beneficios/index.html">Benefícios</a>
           <a href="../faq/index.html">Mensagens</a>
         </nav>
-        <a href="../login/index.html" class="login">
+        <div class="btn-group" id="dropdown-user">
+          <button type="button" id="user-name" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Action
+          </button>
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Sair</a></li>
+          </ul>
+        </div>
+        <a href="../login/index.html" id="login-btn" class="login">
           <button class="desktop " style="font-size: 2rem;">
             Faça Login
           </button> </a>

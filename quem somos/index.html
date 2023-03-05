@@ -6,6 +6,12 @@
     <title>Quem Somos</title>
     <link rel="stylesheet" href="../simulacao/styles copy.css" />
     <link rel="stylesheet" href="./styles.css  ">
+    <script src="../userLogado.js" async></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;500;700&family=Poppins&family=Red+Hat+Display:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
  </head>
   <body style="background-color: rgb(255, 255, 255);">
     <header class="header-container">
@@ -24,7 +30,17 @@
           <a href="../beneficios/index.html">Benefícios</a>
           <a href="../faq/index.html">Mensagens</a>
         </nav>
-        <a href="../login/index.html" class="login">
+        <div class="btn-group" id="dropdown-user">
+          <button type="button" id="user-name" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Action
+          </button>
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Sair</a></li>
+          </ul>
+        </div>
+        <a href="../login/index.html" id="login-btn" class="login">
           <button class="desktop " style="font-size: 2rem;">
             Faça Login
           </button> </a>
@@ -85,13 +101,8 @@
                Nobis exercitationem sit perspiciatis corrupti voluptatem amet. 
              Quasi, soluta eius aperiam illo similique exercitationem.</p>    
      </div>
-            
-     
-
-
-  
-        
-        
     </section>
+    <script src="./login/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
 </html>

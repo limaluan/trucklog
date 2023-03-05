@@ -50,10 +50,20 @@
           <a href="../beneficios/index.html">Benefícios</a>
           <a href="../faq/index.html">Mensagens</a>
         </nav>
-        <a href="../login/index.html" class="login">
+        <div class="btn-group" id="dropdown-user">
+          <button type="button" id="user-name" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Action
+          </button>
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Sair</a></li>
+          </ul>
+        </div>
+        <a href="./login/index.html" class="login" id="login-btn">
           <button class="desktop " style="font-size: 2rem;">
             Faça Login
-          </button> </a>
+          </button></a>
         </a> 
       </div>
     </header>
@@ -152,6 +162,8 @@
         </div>
       </div>
     </footer>
+    <script src="../login/login.js"></script>
+    <script src="../userLogado.js"></script>
     <script src="./js/script.js"></script>
   </body>
   <script
