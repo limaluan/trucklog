@@ -3,7 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0.0" />  
+    <link
+    rel="shortcut icon"
+    href="../assets/truck-green.png"
+    type="image/PNG"
+  />
+
     <link
     rel="shortcut icon"
     href="../assets/truck-green.png"
@@ -16,7 +24,14 @@
         href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;500;700&family=Poppins&family=Red+Hat+Display:wght@400;500;700&display=swap"
         rel="stylesheet" />
     <script src="https://unpkg.com/phosphor-icons"></script>
-    
+
+    <link rel="stylesheet" href="../styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;500;700&family=Poppins&family=Red+Hat+Display:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script src="../userLogado.js" async></script>
+
     <title>Simulação</title>
     
 
@@ -51,7 +66,17 @@
           <a href="../beneficios/index.html">Benefícios</a>
           <a href="../faq/index.html">Mensagens</a>
         </nav>
-        <a href="../login/index.html" class="login">
+        <div class="btn-group" id="dropdown-user">
+          <button type="button" id="user-name" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Action
+          </button>
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Sair</a></li>
+          </ul>
+        </div>
+        <a href="../login/index.html" id="login-btn" class="login">
           <button class="desktop " style="font-size: 2rem;">
             Faça Login
           </button> </a>
