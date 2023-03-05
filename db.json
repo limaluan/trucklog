@@ -5,6 +5,12 @@
       "email": "js@Hotmail.com",
       "comentario": "Ótimo Produto!",
       "id": 1
+    },
+    {
+      "nome": "João Soares",
+      "email": "joao@dbc.com",
+      "comentario": "Ótimos profissionais.",
+      "id": 2
     }
   ]
 }
