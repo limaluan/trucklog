@@ -24,7 +24,7 @@
 }
 
 html {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
@@ -36,9 +36,9 @@ body {
 }
 
 a {
-  all: unset;
-  cursor: pointer;
-  color: inherit;
+  text-decoration: none !important;
+  color: #000 !important;
+  font-size: 3rem !important;
 }
 
 ul {
@@ -62,7 +62,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Anybody", cursive;
+  font-family: 'Anybody', cursive;
 }
 
 a:hover {
@@ -81,11 +81,11 @@ button.desktop a.login {
   display: none;
 }
 
-[class$="container"] {
+[class$='container'] {
   width: 100%;
 }
 
-[class$="content"] {
+[class$='content'] {
   max-width: 80vw;
   margin: 0 auto;
 }
@@ -152,7 +152,7 @@ button.desktop a.login {
     width: 5rem;
     height: 5rem;
     border-radius: 5rem;
-    background: url("https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg");
+    background: url('https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg');
     background-size: cover;
   }
 

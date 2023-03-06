@@ -16,12 +16,13 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
   list-style: none;
 }
 
 html {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
@@ -33,9 +34,9 @@ body {
 }
 
 a {
-  all: unset;
-  cursor: pointer;
-  color: inherit;
+  all: unset !important;
+  cursor: pointer !important;
+  font-size: 1.8rem !important;
 }
 
 ul {
@@ -59,13 +60,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Anybody", cursive;
+  font-family: 'Anybody', cursive;
 }
 
 a:hover {
-  text-decoration: underline;
+  transform: scale(1.1);
 }
-
 button:hover {
   filter: brightness(0.8);
 }
@@ -79,11 +79,11 @@ button.desktop a.login {
   display: none;
 }
 
-[class$=container] {
+[class$='container'] {
   width: 100%;
 }
 
-[class$=content] {
+[class$='content'] {
   max-width: 80vw;
   margin: 0 auto;
 }
@@ -91,6 +91,7 @@ button.desktop a.login {
 .header-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 10vh;
   margin-bottom: 1rem;
 }
@@ -104,8 +105,15 @@ button.desktop a.login {
   display: flex;
   align-items: center;
 }
+.header-content nav {
+  display: flex;
+  font-size: 1.6rem;
+  gap: 5rem;
+  color: var(--gray-400);
+}
 .header-content .selected {
-  filter: invert(69%) sepia(7%) saturate(3545%) hue-rotate(111deg) brightness(94%) contrast(77%);
+  filter: invert(69%) sepia(7%) saturate(3545%) hue-rotate(111deg)
+    brightness(94%) contrast(77%);
 }
 
 .nav-links {
@@ -140,7 +148,7 @@ button.desktop a.login {
   width: 5rem;
   height: 5rem;
   border-radius: 5rem;
-  background: url("https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg");
+  background: url('https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg');
   background-size: cover;
 }
 .user:hover {
@@ -175,5 +183,6 @@ main {
   gap: 1rem;
 }
 .empty-section img {
-  filter: invert(69%) sepia(7%) saturate(3545%) hue-rotate(111deg) brightness(94%) contrast(77%);
-}/*# sourceMappingURL=empty-dashboard.styles.css.map */
+  filter: invert(69%) sepia(7%) saturate(3545%) hue-rotate(111deg)
+    brightness(94%) contrast(77%);
+} /*# sourceMappingURL=empty-dashboard.styles.css.map */

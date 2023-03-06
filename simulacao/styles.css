@@ -19,11 +19,11 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Red Hat Display', sans-serif;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
@@ -31,9 +31,15 @@ html {
 
 body {
   background-color: var(--white);
-  font-size:rem;
+  font-size: rem;
+  display: flex;
+  flex-direction: column;
 }
 
+.contain {
+  margin: 0 auto !important;
+  text-align: center;
+}
 a {
   all: unset;
   cursor: pointer;
@@ -60,8 +66,6 @@ h2,
 h3,
 h4,
 h5,
-
-
 button:hover {
   filter: brightness(0.8);
 }
@@ -136,8 +140,6 @@ a:hover {
   transform: scale(1.1);
 }
 
-
-
 /* --HEADER */
 .header-content {
   padding: 1rem;
@@ -177,3 +179,6 @@ a:hover {
   text-decoration: underline;
 }
 
+.contain input {
+  margin-left: 0 !important;
+}

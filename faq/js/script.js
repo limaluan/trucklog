@@ -10,7 +10,6 @@ const hour = date.getHours();
 const min = date.getMinutes();
 
 function postComment() {
-  
   if (nomeUser.value === '') {
     return alert('Digite o Nome !');
   } else if (emailUser.value === '') {
@@ -28,10 +27,7 @@ function postComment() {
       },
     })
       .then(function (response) {
-        return response.json();
-      })
-      .then(function (response) {
-        return response.json();
+        return console.log(response.json());
       })
       .then(function (data) {
         nome = document.getElementById('postName');

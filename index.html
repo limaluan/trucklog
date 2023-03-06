@@ -44,10 +44,11 @@
           />
         </a>
         <nav class="desktop">
-          <a href="./quem somos/index.html">Quem Somos</a>
+          <a href="./quem-somos/index.html">Quem Somos</a>
           <a href="./simulacao/index.html">Como funciona</a>
           <a href="./beneficios/index.html">Benefícios</a>
           <a href="./faq/index.html">Mensagens</a>
+          <a  onclick="verificarLogin()">Dashboard</a>
         </nav>
         <div class="btn-group" id="dropdown-user">
           <button type="button" id="user-name" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -62,7 +63,7 @@
         <a href="./login/index.html" class="login" id="login-btn">
           <button class="desktop " style="font-size: 2rem;">
             Faça Login
-          </button></a>
+          </button>
         </a> 
       </div>
     </header>
@@ -85,7 +86,7 @@
               controlar as suas frotas, além de trazer inúmeros benefícios ao
               adquirir nossos serviços.
             </p>
-          <a href="../trucklog/quem somos/index.html">
+          <a href="../trucklog/quem-somos/index.html">
            <button >Saiba mais</button>
           </a>
           </article>
@@ -252,18 +253,18 @@
 
       <section class="fleet-container">
         <div class="fleet-heading">
-          <h1 class="section-title">Nossa frota</h1>
-          <h2 class="section-subtitle">Conheça nossa frota de caminhões</h2>
+          <h1 class="section-title" style="margin-bottom: 0;">Nossa frota</h1>
+          <h2 class="section-subtitle" style="margin-bottom: -10rem;">Conheça nossa frota de caminhões</h2>
         </div>
         <div class="carrossel">
           <div>
-            <img style="margin-left: 20rem; width: 60rem;" class="slides" id="imgT1" src="imagem1.jpg" />
-            <img style="margin-left: 20rem; width: 60rem;" class="slides" id="imgT2" src="imagem2.jpg" />
-            <img style="margin-left: 20rem; width: 60rem;" class="slides" id="imgT3" src="imagem3.jpg" />
+            <img style="margin-left: 20rem; width: 60rem; border-radius: 20px;" class="slides" id="imgT1" src="imagem1.jpg" />
+            <img style="margin-left: 20rem; width: 60rem;border-radius: 20px;" class="slides" id="imgT2" src="imagem2.jpg" />
+            <img style="margin-left: 20rem; width: 60rem;border-radius: 20px;" class="slides" id="imgT3" src="imagem3.jpg" />
           </div>
         </div>
       </section>
-      <script src="carrossel.js"></script>
+      <script src="./js-carrousel/carrossel.js"></script>
       <section class="product-form-container">
         <div class="product-form-content">
           <div>
@@ -423,7 +424,7 @@
       <div class="footer-content">
         <nav>
           <ul>
-            <li class="desktop"><a href="./quem somos/index.html">Quem somos</a></li>
+            <li class="desktop"><a href="./quem-somos/index.html">Quem somos</a></li>
             <li class="desktop"><a href="#">Home</a></li>
             <li>
               <a href="" class="footer-truck-logo"
@@ -472,7 +473,7 @@
         </div>
       </div>
     </footer>
-    <script src="./login/login.js"></script>
+    <script src="./login/js/login.js"></script>
     <script src="userLogado.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>

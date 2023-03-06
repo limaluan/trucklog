@@ -9,6 +9,7 @@ async function getAllUsers() {
   console.log(String(person));
 
   data.map((user) => {
+    
     const div = document.createElement('div');
     const name = document.createElement('h2');
     const email = document.createElement('span');

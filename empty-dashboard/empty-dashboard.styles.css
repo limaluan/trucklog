@@ -33,9 +33,9 @@ body {
 }
 
 a {
-  all: unset;
-  cursor: pointer;
-  color: inherit;
+  text-decoration: none !important;
+  color: #000 !important;
+  font-size: 3rem !important;
 }
 
 ul {

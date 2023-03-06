@@ -12,29 +12,24 @@
     type="image/PNG"
   />
 
-    <link
-    rel="shortcut icon"
-    href="../assets/truck-green.png"
-    type="image/PNG"
-  />
+
     <link rel="stylesheet" href="../simulacao/styles copy.css" />
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="../styles.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+    crossorigin="anonymous"
+  />
     <link
         href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;500;700&family=Poppins&family=Red+Hat+Display:wght@400;500;700&display=swap"
         rel="stylesheet" />
     <script src="https://unpkg.com/phosphor-icons"></script>
 
     <link rel="stylesheet" href="../styles.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;500;700&family=Poppins&family=Red+Hat+Display:wght@400;500;700&display=swap"
-        rel="stylesheet" />
-    <script src="https://unpkg.com/phosphor-icons"></script>
-    <script src="../userLogado.js" async></script>
 
     <title>Simulação</title>
     
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -61,10 +56,11 @@
           />
         </a>
         <nav class="desktop">
-          <a href="../quem somos/index.html">Quem Somos</a>
-          <a href="../simulacao/index.html">Como funciona</a>
+          <a href="../quem-somos/index.html">Quem Somos</a>
           <a href="../beneficios/index.html">Benefícios</a>
           <a href="../faq/index.html">Mensagens</a>
+        <a href="../meus-posts/index.html">Dashboard</a>
+
         </nav>
         <div class="btn-group" id="dropdown-user">
           <button type="button" id="user-name" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,14 +69,15 @@
             <span class="visually-hidden">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Sair</a></li>
+            <li><a class="dropdown-item" onclick="deslogar()" href="#">Sair</a></li>
           </ul>
         </div>
-        <a href="../login/index.html" id="login-btn" class="login">
+        <a href="../login/index.html" class="login" id="login-btn">
           <button class="desktop " style="font-size: 2rem;">
             Faça Login
-          </button> </a>
+          </button>
         </a> 
+       
       </div>
     </header>
       <div class="row">
@@ -105,36 +102,25 @@
             class="img-fluid img-truck"
           />
         </div>
-        <div class="col-6 col-form">
-          <svg
-            class="svg-form"
-            width="254"
-            height="918"
-            viewBox="0 0 254 918"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-           
-          </svg>
-
-          <div>
+          <body class="contain" >
           <h1 class="h1-login">Veja Como Funciona Nosso Sistema</h1>
             <h1 class="h1-login">Aqui Você PodeSimular o Transporte de Uma Encomenda</h1>
-            <p style="font-size: large;"><b>Nesse campo você pode ver como nossos serviços funcionam fazendo uma simulação de envio de uma encomenda.</b></p>
+            <p style="font-size: 1.5rem ;  "><b>Nesse campo você pode ver como nossos serviços funcionam fazendo uma simulação de envio de uma encomenda.</b></p>
             <h3 class="h3-login" style="font-size: x-large;">Insira os dados :</h3>
 
-            <div>
-                <label for="cep" style="font-size: large;"><b>CEP de origem:</b></label>
-                <input type="text" id="cep"  name="cep-origem" style="font-size: 16px; border-radius: 9px;"><br>
+            <div class='contain'style="display: flex; flex-direction: column; width: 10vw; align-items: flex-start; justify-content: start; margin: 0;">
+                <label for="cep" style="font-size: 1.5rem;"><b>CEP de origem:</b></label>
+                <input type="text" id="cep"  name="cep-origem" style="font-size: 16px;margin: 0; border-radius: 9px;"><br>
           
-                <label for="cep2" style="font-size: medium;"><b>CEP de destino:</b> </label>
+                <label for="cep2" style="font-size: 1.5rem;"><b>CEP de destino:</b> </label>
                 <input type="text" id="cep2" name="cep-destino" style="font-size: 16px;border-radius: 9px; margin-top: 0.5%; margin-left: 12px;"><br>
           
-                <label for="peso" style="font-size: large;"><b>Peso (kg):</b> </label>
+                <label for="peso" style="font-size: 1.5rem;"><b>Peso (kg):</b> </label>
                 <input type="text" id="peso" name="peso" style="font-size: 16px; margin-top: 0.5%; margin-left: 45px; border-radius: 9px;"><br>
-                <div class="button">
-                    <a class="btn btn-success" style="padding: 1.5%; font-size: large; margin-top: 3px; margin-left: 131px;border-radius: 13px;"  id="botao-enviar" onclick="buscarCep(); buscarCep2(); calcularFrete()"><b style="color: aliceblue;">Calcular frete</b></a>
-                    <a class="btn btn-success" style="padding: 1.5%; font-size: large; margin-top: 3px; border-radius: 13px;" onclick="location.reload()"><b style="color: aliceblue;">Limpar</b> </a>
+                <div class="buttons" style="display: flex; gap: 1rem; width: 50vw; align-items: center; margin-left: -35%;
+                ">
+                    <a class="btn btn-success" style="padding:  10px; font-size: 10px; margin-top: 3px; border-radius: 13px; width: 15rem; align-items: center;"  id="botao-enviar" onclick="buscarCep(); buscarCep2(); calcularFrete()"><b style="color: aliceblue;">Calcular frete</b></a>
+                    <a class="btn btn-success" style="padding: 10px; font-size: 10px; margin-top: 3px; border-radius: 13px; width: 10rem; align-items: center;" onclick="location.reload()"><b style="color: aliceblue;">Limpar</b> </a>
                   </div>
                 <br>  
               <div>
@@ -142,19 +128,17 @@
               <span id="resposta2"></span>
               <span id="resultado"></span>
               </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            
+            </body>
+        
       
     </section>
    <div style="margin-top: 15rem;">
-    <footer class="footer-section">
+    <footer class="footer-section" style="margin-top: 10vh; text-align: center; margin-left: -20vw;" >
       <div class="footer-content">
         <nav>
           <ul>
-            <li class="desktop"><a href="../quem somos/index.html">Quem somos</a></li>
+            <li class="desktop"><a href="../quem-somos/index.html">Quem somos</a></li>
             <li class="desktop"><a href="../index.html">Home</a></li>
             <li>
               <a href="" class="footer-truck-logo"
@@ -164,6 +148,9 @@
             <li class="desktop"><a href="../simulacao/index.html">Como funciona</a></li>
             <li class="desktop"><a href="../beneficios/index.html">Benefícios</a></li>
             <li class="desktop"><a href="../login/index.html">Login</a></li>
+            <li class="desktop">
+              <a href="../meus-posts/index.html">Dashboard</a>
+            </li>
           </ul>
         </nav>
 
@@ -204,10 +191,11 @@
       </div>
     </footer>
   </div>
-    
-              <script src="JS/calculo.js"></script>
-              <script src="JS/script.js"></script>
-              <script src="JS/script2.js"></script>
-    <script></script>
+  <script src="../userLogado.js" ></script>
+  <script src="../login/js/login.js"></script>
+  <script src="JS/calculo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="JS/script.js"></script>
+  <script src="JS/script2.js"></script>
   </body>
 </html>

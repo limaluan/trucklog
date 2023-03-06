@@ -21,7 +21,7 @@
 }
 
 html {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
@@ -59,7 +59,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Anybody", cursive;
+  font-family: 'Anybody', cursive;
 }
 
 button:hover {
@@ -70,15 +70,73 @@ button:hover {
   display: none;
 }
 
-[class$=container] {
+[class$='container'] {
   width: 100%;
 }
 
-[class$=content] {
+[class$='content'] {
   max-width: 80vw;
   margin: 0 auto;
 }
 
+/* --HEADER */
+.header-content {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 15vh;
+}
+
+.header-content > .logo {
+  width: 100%;
+  max-width: 12rem;
+}
+
+.header-content .bg-item {
+  position: absolute;
+  opacity: 32%;
+  left: 0;
+  top: -5rem;
+  width: 40vw;
+  z-index: -1;
+}
+
+.header-content button {
+  font-family: 'Poppins', sans-serif;
+}
+#user-name {
+  margin-top: -1.5rem !important;
+  background-color: var(--green-500);
+  border: none;
+  font-size: 1.8rem !important;
+  border-radius: 1rem !important;
+  padding: 1rem 2rem;
+  transition: filter 200ms;
+  padding: 1rem 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header-content nav {
+  display: flex;
+  font-size: 1.6rem;
+  gap: 5rem;
+  color: var(--gray-400);
+}
+
+.header-content a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+a {
+  text-decoration: none !important;
+  color: #000 !important;
+  font-size: 1.8rem !important;
+}
+
+.desktop a:hover {
+  transform: scale(1.1);
+}
 .section-title {
   font-size: 4.8rem;
   font-weight: bold;
@@ -111,7 +169,8 @@ button:hover {
   align-items: center;
 }
 .header-content .selected {
-  filter: invert(69%) sepia(7%) saturate(3545%) hue-rotate(111deg) brightness(94%) contrast(77%);
+  filter: invert(69%) sepia(7%) saturate(3545%) hue-rotate(111deg)
+    brightness(94%) contrast(77%);
 }
 
 .nav-links {
@@ -146,7 +205,7 @@ button:hover {
   width: 5rem;
   height: 5rem;
   border-radius: 5rem;
-  background: url("https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg");
+  background: url('https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg');
   background-size: cover;
 }
 .user:hover {
@@ -373,4 +432,4 @@ form button {
 .footer-info-container span a:hover {
   color: var(--green-700);
   border-bottom: 2.5px solid #3cbd96;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
