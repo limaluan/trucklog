@@ -33,6 +33,14 @@ export const LandingPageContainer = styled.div`
     display: flex;
   }
 
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: initial;
+  }
+
   .title {
     font-size: 4.8rem;
     color: ${(props) => props.theme["green-700"]};
@@ -98,7 +106,7 @@ export const LandingPageContainer = styled.div`
     font-size: 2rem;
   }
 
-  .intro .text-section + img {
+  .notebookManImg {
     /* Notebook man */
     z-index: -1;
     width: 50%;
@@ -393,5 +401,146 @@ export const LandingPageContainer = styled.div`
 
   footer img:hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
+
+    .mobile {
+      display: initial;
+    }
+
+    .desktop {
+      display: none !important;
+    }
+
+    .content {
+      width: 95vw;
+    }
+
+    .title,
+    .intro .text-section h1 {
+      font-size: 3rem;
+    }
+
+    .subtitle,
+    .intro .text-section p {
+      font-size: 1.6rem;
+    }
+
+    /* -- HEADER */
+    .header {
+      flex-direction: column;
+      gap: 1rem;
+      height: 15vh;
+
+      .logo {
+        width: 100%;
+      }
+
+      .backgroundObject {
+        width: 100%;
+        top: -55vh;
+      }
+    }
+
+    /* -- INTRO SECTION */
+    .intro {
+      flex-direction: column;
+      height: 85vh;
+      align-items: center;
+      text-align: center;
+
+      button {
+        margin: auto;
+      }
+    }
+
+    .notebookManImg {
+      margin: auto;
+    }
+
+    /* -- PARTNERS SECTION */
+    .partners {
+      justify-content: center;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .partners .text-section {
+      text-align: center;
+    }
+
+    .partners .cards {
+      gap: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+
+      div:last-child {
+        grid-column: 1/3;
+        margin: auto;
+      }
+    }
+
+    /* -- DATA SECTION */
+    .data.content {
+      height: auto;
+      gap: 5rem;
+      padding: 2rem 0;
+    }
+
+    .data.content .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+    }
+
+    /* -- WORK SECTION */
+    .work.content {
+      gap: 5rem;
+    }
+
+    .work .cards {
+      flex-direction: column;
+    }
+
+    /* -- BENEFITS SECTION */
+    .benefits {
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      gap: 5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      column-gap: 4rem;
+      row-gap: 2rem;
+    }
+
+    .grid div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 40rem;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .grid div img,
+    .grid div i {
+      font-size: 5rem;
+      width: 5rem;
+    }
+
+    .grid div p,
+    .grid div h1 {
+      font-size: 1.2rem;
+    }
   }
 `;

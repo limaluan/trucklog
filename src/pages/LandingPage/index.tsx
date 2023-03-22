@@ -3,7 +3,7 @@ import { LandingPageContainer } from "./styles";
 import { useNavigate } from "react-router-dom";
 
 import logoImg from "../../assets/truck-log-logo.svg";
-import notebookManImg from "../../assets/notebook-man.svg";
+import notebookManImg from "../../assets/notebook-man.png";
 import backgroundObjectImg from "../../assets/bg-item1.svg";
 import backgroundWorld from "../../assets/bg-world.svg";
 
@@ -28,14 +28,18 @@ export const LandingPage = () => {
     <LandingPageContainer>
       <header className="container">
         <div className="header content">
-          <img src={logoImg} alt="Caminhão verde da TruckLog" />
+          <img
+            className="logo"
+            src={logoImg}
+            alt="Caminhão verde da TruckLog"
+          />
           <img
             className="backgroundObject"
             src={backgroundObjectImg}
             alt=""
             aria-hidden
           />
-          <nav className="header-nav">
+          <nav className="header-nav desktop">
             <a href="#">Nossos Dados</a>
             <a href="#">Como funciona</a>
             <a href="#">Benefícios</a>
@@ -49,6 +53,11 @@ export const LandingPage = () => {
         <div className="intro content">
           <div className="text-section">
             <h1>O MAIOR E MAIS RENTÁVEL APP DE GESTÃO DE FROTAS</h1>
+            <img
+              className="notebookManImg mobile"
+              src={notebookManImg}
+              alt="Homem usando Notebook"
+            />
             <p>
               O TruckLog é um app perfeito para você empresário que busca
               controlar as suas frotas, além de trazer inúmeros benefícios ao
@@ -56,7 +65,11 @@ export const LandingPage = () => {
             </p>
             <button>Saiba mais</button>
           </div>
-          <img src={notebookManImg} alt="Homem usando Notebook" />
+          <img
+            className="notebookManImg desktop"
+            src={notebookManImg}
+            alt="Homem usando Notebook"
+          />
           <img
             src={backgroundWorld}
             className="backgroundObject"
@@ -77,9 +90,6 @@ export const LandingPage = () => {
               <img src={taskgoLogoImg} alt="TaskGo Logo" />
             </div>
             <div className="card">
-              <img src={dbcLogoImg} alt="DBC Logo" />
-            </div>
-            <div className="card">
               <img src={singularLogoImg} alt="Singular Logo" />
             </div>
             <div className="card">
@@ -87,6 +97,9 @@ export const LandingPage = () => {
             </div>
             <div className="card">
               <img src={fibrasulLogoImg} alt="Fibrasul Logo" />
+            </div>
+            <div className="card">
+              <img src={dbcLogoImg} alt="DBC Logo" />
             </div>
           </div>
         </div>
@@ -200,7 +213,7 @@ export const LandingPage = () => {
 
       <section className="container">
         <div className="forms-section content">
-          <div className="text-section">
+          <div className="text-section desktop">
             <div>
               <h1 className="title">Se interessou?</h1>
               <h2 className="subtitle">
@@ -311,13 +324,13 @@ export const LandingPage = () => {
       <footer className="container">
         <div className="footer content">
           <ul>
-            <li>
+            <li className="desktop">
               <a href="#">Benefícios</a>
             </li>
-            <li>
+            <li className="desktop">
               <a href="#">Dados</a>
             </li>
-            <li>
+            <li className="desktop">
               <a href="#">Home</a>
             </li>
             <li>
@@ -325,13 +338,13 @@ export const LandingPage = () => {
                 <img src={logoImg} alt="" />
               </a>
             </li>
-            <li>
+            <li className="desktop">
               <a href="#">Parceiros</a>
             </li>
-            <li>
+            <li className="desktop">
               <a href="#">Taxas</a>
             </li>
-            <li>
+            <li className="desktop">
               <a href="#">Contrate</a>
             </li>
           </ul>
