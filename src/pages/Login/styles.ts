@@ -17,23 +17,7 @@ export const LoginContainer = styled.div`
   input {
     all: unset;
   }
-  
-  .input-container {
-    display: flex;
-    gap: 1rem;
-    
-    padding: 2rem;
-    width: 60%;
-    max-width: 48rem;
-    border-radius: 1rem;
-    background-color: ${(props) => props.theme["gray-100"]};
-    font-size: 1.6rem;
-    
-    i {
-      font-size: 2.5rem;
-    }
-  }
-  
+
   button {
     all: unset;
     background-color: ${(props) => props.theme["green-700"]};
@@ -51,11 +35,11 @@ export const LoginContainer = styled.div`
   button:hover {
     background-color: ${(props) => props.theme["green-500"]};
   }
-  
+
   button i {
     font-size: 2rem;
   }
-  
+
   h1,
   h3 {
     color: ${(props) => props.theme["green-700"]};
@@ -96,6 +80,7 @@ export const LoginContainer = styled.div`
   .bg-object1 {
     position: absolute;
     right: 0;
+    height: 100%;
   }
 
   .bg-object2 {
@@ -111,6 +96,22 @@ export const LoginContainer = styled.div`
     justify-content: center;
     height: 100%;
     gap: 2rem;
+  }
+
+  .input-container {
+    display: flex;
+    gap: 1rem;
+
+    padding: 2rem;
+    width: 60%;
+    max-width: 48rem;
+    border-radius: 1rem;
+    background-color: ${(props) => props.theme["gray-100"]};
+    font-size: 1.6rem;
+
+    i {
+      font-size: 2.5rem;
+    }
   }
 
   .button-section {

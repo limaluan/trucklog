@@ -28,7 +28,7 @@ export const LandingPageContainer = styled.div`
 
   .content {
     width: 100%;
-    max-width: 140rem;
+    max-width: 80vw;
     margin: auto;
     display: flex;
   }
@@ -99,7 +99,9 @@ export const LandingPageContainer = styled.div`
   }
 
   .intro .text-section + img {
+    /* Notebook man */
     z-index: -1;
+    width: 50%;
   }
 
   .intro .backgroundObject {

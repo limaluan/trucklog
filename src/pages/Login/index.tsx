@@ -17,18 +17,22 @@ export const Login = () => {
       </div>
       <form>
         {isLogin ? (
-          <div className="form-section login">
+          <div className="form-section">
             <h1>Login</h1>
             <h3>Insira seus dados de acesso:</h3>
+
             <div className="input-container">
               <i className="ph ph-envelope"></i>
               <input type="text" placeholder="E-mail" />
             </div>
+
             <div className="input-container">
               <i className="ph ph-lock-key"></i>
               <input type="password" placeholder="Senha" />
             </div>
+
             <a href="#">Esqueceu sua senha?</a>
+
             <div className="button-section">
               <a href="#" onClick={() => setIsLogin(false)}>
                 Ainda não possui uma conta?
@@ -39,25 +43,30 @@ export const Login = () => {
             </div>
           </div>
         ) : (
-          <div className="form-section signup">
+          <div className="form-section">
             <h1>Crie sua conta</h1>
             <h3>Insira os dados necessários:</h3>
+
             <div className="input-container">
               <i className="ph ph-envelope"></i>
               <input type="text" placeholder="E-mail" />
             </div>
+
             <div className="input-container">
               <i className="ph ph-lock-key"></i>
               <input type="password" placeholder="Senha" />
             </div>
+
             <p>
               Sua senha deve ter no mínimo 8 caracteres, entre eles: números e
               símbolos
             </p>
+
             <div className="input-container">
               <i className="ph ph-phone"></i>
               <input type="tel" placeholder="(00) 00000-0000" />
             </div>
+
             <div className="button-section">
               <a href="#" onClick={() => setIsLogin(true)}>
                 Já possui conta?

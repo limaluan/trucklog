@@ -67,7 +67,7 @@ export const LandingPage = () => {
       </section>
 
       <section className="partners container">
-        <div className="partners">
+        <div className="partners content">
           <div className="text-section">
             <h1 className="title">Parceiros</h1>
             <h2 className="subtitle">Eles também contam conosco</h2>
