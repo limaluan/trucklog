@@ -1,4 +1,7 @@
 import { LandingPageContainer } from "./styles";
+
+import { useNavigate } from "react-router-dom";
+
 import logoImg from "../../assets/truck-log-logo.svg";
 import notebookManImg from "../../assets/notebook-man.svg";
 import backgroundObjectImg from "../../assets/bg-item1.svg";
@@ -19,6 +22,8 @@ import formsPersonImg from "../../assets/forms-person.svg";
 import snapFingerImg from "../../assets/easy-to-use-icon.png";
 
 export const LandingPage = () => {
+  const navigate = useNavigate();
+
   return (
     <LandingPageContainer>
       <header className="container">
@@ -36,7 +41,7 @@ export const LandingPage = () => {
             <a href="#">Benefícios</a>
             <a href="#">FAQ</a>
           </nav>
-          <button>Faça Login</button>
+          <button onClick={() => navigate("/login")}>Faça Login</button>
         </div>
       </header>
 

@@ -1,0 +1,13 @@
+<svg
+  class="svg-truck"
+  width="350"
+  height="440"
+  viewBox="0 0 350 440"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M-126 0H314C333.882 0 350 16.1177 350 36V404C350 423.882 333.882 440 314 440H-126V0Z"
+    fill="#EBF6ED"
+  />
+</svg>
