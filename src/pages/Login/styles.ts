@@ -16,14 +16,24 @@ export const LoginContainer = styled.div`
 
   input {
     all: unset;
+  }
+  
+  .input-container {
+    display: flex;
+    gap: 1rem;
+    
     padding: 2rem;
     width: 60%;
     max-width: 48rem;
     border-radius: 1rem;
     background-color: ${(props) => props.theme["gray-100"]};
     font-size: 1.6rem;
+    
+    i {
+      font-size: 2.5rem;
+    }
   }
-
+  
   button {
     all: unset;
     background-color: ${(props) => props.theme["green-700"]};
@@ -107,6 +117,7 @@ export const LoginContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 49rem;
+    width: 60%;
+    max-width: 48rem;
   }
 `;
