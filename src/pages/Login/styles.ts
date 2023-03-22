@@ -129,7 +129,6 @@ export const LoginContainer = styled.div`
     .input-container {
       display: flex;
       gap: 1rem;
-
       width: 100%;
     }
 
