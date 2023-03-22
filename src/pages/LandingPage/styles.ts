@@ -509,27 +509,11 @@ export const LandingPageContainer = styled.div`
 
     /* -- BENEFITS SECTION */
     .benefits {
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
       gap: 5rem;
     }
 
     .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      column-gap: 4rem;
       row-gap: 2rem;
-    }
-
-    .grid div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 40rem;
-      text-align: center;
-      gap: 2rem;
     }
 
     .grid div img,

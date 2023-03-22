@@ -121,4 +121,27 @@ export const LoginContainer = styled.div`
     width: 60%;
     max-width: 48rem;
   }
+
+  @media (max-width: 600px) {
+    display: flex;
+    justify-content: center;
+
+    .input-container {
+      display: flex;
+      gap: 1rem;
+
+      width: 100%;
+    }
+
+    .button-section {
+      width: 100%;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .bg-object2,
+    .bg-truck {
+      display: none;
+    }
+  }
 `;
