@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { Header } from "../Header";
 import { SidenavContainer } from "./styles";
 
@@ -9,9 +10,7 @@ interface ISidenavProps {
 export const Sidenav = ({ children }: ISidenavProps) => {
   const sidenav = useRef<HTMLElement>(null);
 
-  const handleOpenSidenav = () => {
-    
-  };
+  const handleOpenSidenav = () => {};
 
   return (
     <>
@@ -19,15 +18,18 @@ export const Sidenav = ({ children }: ISidenavProps) => {
       <div style={{ display: "flex" }}>
         <SidenavContainer ref={sidenav}>
           <h3 className="category">GERENCIAMENTO</h3>
-          <h3 className="item">
+          <Link to={"/colaborador/viagens"} className="item">
             <i className="ph ph-path"></i> Viagens
-          </h3>
-          <h3 className="item">
+          </Link>
+          <Link to={"/colaborador/motoristas"} className="item">
             <i className="ph ph-user"></i> Motoristas
-          </h3>
-          <h3 className="item">
+          </Link>
+          <Link to={""} className="item">
             <i className="ph ph-signpost"></i> Rotas
-          </h3>
+          </Link>
+          <Link to={""} className="item">
+            <i className="ph ph-gas-pump"></i> Postos
+          </Link>
         </SidenavContainer>
         {children}
       </div>
