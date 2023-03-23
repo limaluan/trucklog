@@ -11,7 +11,7 @@ Projeto desenvolvido através do programa vem ser da DBC Company durante o módu
 </p>
 
 <p align="center">
-  <img alt="imagem do site pronto" src="./assets/full-website-photo.png">
+  <img alt="imagem do site pronto" src="https://raw.githubusercontent.com/limaluan/trucklog/old-main/assets/full-website-photo.png">
 </p>
 
 <p align="center">
@@ -24,9 +24,11 @@ Projeto desenvolvido através do programa vem ser da DBC Company durante o módu
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- HTML
-- CSS (Flexbox)
-- Git e Github
+- React
+- TypeScript
+- Vitest
+- Styled Components
+- React Router Dom
 - Phosphor Icons - CDN
 
 ## 💻 Projeto

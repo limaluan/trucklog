@@ -1,11 +1,9 @@
 import { TicketsContainer } from "./styles";
 
 import ticketsEmptyImg from "../../../assets/tickets-empty.svg";
-import { ClientPanelLayout } from "../../../shared/layouts/ClientPanelLayout";
 
 export const Tickets = () => {
   return (
-    <ClientPanelLayout>
       <TicketsContainer>
         <main className="content">
           <div className="user-trail">
@@ -24,6 +22,5 @@ export const Tickets = () => {
           </div>
         </main>
       </TicketsContainer>
-    </ClientPanelLayout>
   );
 };
