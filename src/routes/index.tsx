@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { LandingPage, Login } from "../pages";
-import { Dashboard, Tickets } from "../pages/Collaborator";
+import { Viagens, Motoristas, Postos } from "../pages/Collaborator";
 import { ColaboratorLayout } from "../shared/layouts/CollaboratorLayout";
 
 export const AppRoutes = () => {
@@ -12,9 +12,10 @@ export const AppRoutes = () => {
 
       {/* Collaborator Routes */}
       {/* Privar rotas quando houver sistema de atutenticação */}
-      <Route path="/colaborador/" element={<ColaboratorLayout/>}>
-        <Route path="/colaborador/dashboard" element={<Dashboard />} />
-        <Route path="/colaborador/tickets" element={<Tickets />} />
+      <Route path="/colaborador/" element={<ColaboratorLayout />}>
+        <Route path="/colaborador/viagens" element={<Viagens />} />
+        <Route path="/colaborador/motoristas" element={<Motoristas />} />
+        <Route path="/colaborador/postos" element={<Postos />} />
       </Route>
     </Routes>
   );

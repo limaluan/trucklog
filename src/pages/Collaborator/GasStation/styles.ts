@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DashboardContainer = styled.main`
+export const GasStationContainer = styled.main`
   width: 100%;
 
   input[type="text"] {
@@ -54,13 +54,13 @@ export const DashboardContainer = styled.main`
     }
   }
 
-  .trips-header {
+  .gas-station-header {
     display: grid;
     width: 100%;
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
@@ -73,10 +73,17 @@ export const DashboardContainer = styled.main`
     }
   }
 
-  .trips-body {
-    flex: 1;
-    margin-bottom: 2.5rem;
-    overflow-y: scroll;
+  .gas-station-body {
+    display: grid;
+    width: 100%;
+    font-size: 1.6rem;
+    position: relative;
+    padding: 1.5rem 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .inativo {
+    opacity: 0.4;
   }
 
   .trip {
@@ -85,7 +92,7 @@ export const DashboardContainer = styled.main`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
@@ -94,12 +101,14 @@ export const DashboardContainer = styled.main`
       transition: background-color 0.2s;
     }
 
-    p.finished {
-      color: ${(props) => props.theme.status.success};
+    p.inativo {
+      color: ${(props) => props.theme.status.error};
+      filter: brightness(0.9);
     }
 
-    p.progress {
-      color: ${(props) => props.theme.status.warning};
+    p.ativo {
+      color: ${(props) => props.theme.status.success};
+      filter: brightness(0.9);
     }
   }
 
