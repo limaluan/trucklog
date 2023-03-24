@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CreateTruckModal } from "../../../shared/components/Collaborator/Modals/CreateTruckModal";
-import { useTrucks } from "../../../shared/hooks/useTrucks";
+import { useTrucks } from "../../../shared/hooks";
 import { CaminhoesContainer } from "./styles";
 
 export const Caminhoes = () => {

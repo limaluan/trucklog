@@ -1,7 +1,7 @@
 import Modal from "react-modal";
 import { ModalContainer } from "./styles";
 
-import { useForm, Controller, FieldValues, Field } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { IDriver, useDrivers } from "../../../hooks/useDrivers";
 
 interface ICreateEntityModalPropsDriver {
@@ -9,14 +9,7 @@ interface ICreateEntityModalPropsDriver {
   onRequestClose: () => void;
 }
 
-interface IEditDriver {
-  nome: string;
-  senha: string;
-}
-interface IEditDriverModalProps {
-  isOpen: boolean;
-  onRequestClose: () => void;
-}
+type IEditDriver = Pick<IDriver, 'nome' | 'senha'>;
 
 export function CreateDriverModal({
   isOpen,
@@ -66,7 +59,7 @@ export function CreateDriverModal({
           </select>
           <label htmlFor="email">E-mail</label>
           <input type="email" placeholder="E-mail" {...register("email")} />
-          <button type="submit">Adicionar</button>
+          <button type="submit">Cadastrar</button>
         </form>
       </ModalContainer>
     </Modal>

@@ -121,10 +121,6 @@ export const ViagensContainer = styled.main`
     }
   }
 
-  .trips-header p {
-    width: fit-content;
-  }
-
   li p {
     font-size: 2rem;
     display: flex;

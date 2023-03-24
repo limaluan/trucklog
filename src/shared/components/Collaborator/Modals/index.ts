@@ -1,4 +1,5 @@
 export * from "./CreateTripModal";
 export * from "./CreateDriverModal";
-export * from "./CreateGasStationModal";
-export * from "./EditGasStationModal";
+export * from "./CreateTruckModal";
+export * from "./GasStationModals/CreateGasStationModal";
+export * from "./GasStationModals/EditGasStationModal";
