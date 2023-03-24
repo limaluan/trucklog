@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CreateTripModal } from "../../../shared/components/Collaborator/Modals";
 import { useTrips } from "../../../shared/hooks/useTrips";
-import { DashboardContainer } from "./styles";
+import { ViagensContainer } from "./styles";
 
 export const Viagens = () => {
   const { trips } = useTrips();
@@ -11,7 +11,7 @@ export const Viagens = () => {
   const [isCreateTripModalOpen, setIsCreateTripModalOpen] = useState(false);
 
   return (
-    <DashboardContainer>
+    <ViagensContainer>
       <main className="content">
         <div className="user-trail">
           <span>Meu Painel</span>
@@ -21,7 +21,7 @@ export const Viagens = () => {
 
         <h2 className="title-page">Viagens</h2>
         <button
-          onClick={() => setIsCreateTripModalOpen(true)}
+          // onClick={() => setIsCreateTripModalOpen(true)}
           className="create-button"
         >
           Criar Viagem <i className="ph ph-plus"></i>
@@ -46,7 +46,7 @@ export const Viagens = () => {
           {trips
             .filter((trip) =>
               trip.descricao
-                .toLocaleLowerCase()
+                .toLowerCase()
                 .includes(searchTrip.toLowerCase())
             )
             .map((trip) => (
@@ -71,7 +71,7 @@ export const Viagens = () => {
                     trip.statusViagem === "FINALIZADA" ? "finished" : "progress"
                   }
                 >
-                  {trip.statusViagem.replace("_", " ")}
+                  {trip.statusViagem.replace("_", " ")} <i className="ph ph-pencil"></i>
                 </p>
               </div>
             ))}
@@ -81,6 +81,6 @@ export const Viagens = () => {
         isOpen={isCreateTripModalOpen}
         onRequestClose={() => setIsCreateTripModalOpen(false)}
       />
-    </DashboardContainer>
+    </ViagensContainer>
   );
 };
