@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { CreateDriverModal } from "../../../shared/components/Collaborator/Modals";
+
 import { useDrivers } from "../../../shared/hooks/useDrivers";
 import { MotoristasContainer } from "./styles";
 
@@ -6,6 +8,8 @@ export const Motoristas = () => {
   const { drivers } = useDrivers();
 
   const [searchDriver, setSearchDrivers] = useState("");
+
+  const [isCreateDriverModalOpen, setIsCreateDriverModalOpen] = useState(false);
 
   return (
     <MotoristasContainer>
@@ -17,7 +21,10 @@ export const Motoristas = () => {
         </div>
 
         <h2 className="title-page">Motoristas</h2>
-        <button className="create-button">
+        <button
+          className="create-button"
+          onClick={() => setIsCreateDriverModalOpen(true)}
+        >
           Adicionar Motorista <i className="ph ph-plus"></i>
         </button>
         <input
@@ -68,6 +75,10 @@ export const Motoristas = () => {
             ))}
         </div>
       </main>
+      <CreateDriverModal
+        isOpen={isCreateDriverModalOpen}
+        onRequestClose={() => setIsCreateDriverModalOpen(false)}
+      />
     </MotoristasContainer>
   );
 };

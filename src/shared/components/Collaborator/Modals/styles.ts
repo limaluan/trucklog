@@ -20,7 +20,8 @@ export const ModalContainer = styled.div`
       color: ${(props) => props.theme["green-700"]};
     }
 
-    input {
+    input,
+    select {
       all: unset;
       width: 95%;
       padding: 1rem;
@@ -30,9 +31,9 @@ export const ModalContainer = styled.div`
     }
 
     button {
-        width: fit-content;
-        padding: 1rem 1.5rem;
-        margin: 1.5rem auto 0 auto;
+      width: fit-content;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem auto 0 auto;
     }
   }
 `;

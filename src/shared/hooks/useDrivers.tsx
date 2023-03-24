@@ -11,7 +11,7 @@ interface IDriverProviderProps {
   children: ReactNode;
 }
 
-interface IDriver {
+export interface IDriver {
   nome: string;
   usuario: string;
   senha: string;
@@ -24,6 +24,7 @@ interface IDriver {
 
 interface IDriverContextData {
   drivers: IDriver[];
+  createDriver(data: IDriver): Promise<void>;
 }
 
 const DriversContext = createContext({} as IDriverContextData);
@@ -33,14 +34,39 @@ export function DriversProvider({
 }: IDriverProviderProps): JSX.Element {
   const [driver, setDrivers] = useState<IDriver[]>([]);
 
-  useEffect(() => {
+  async function createDriver(data: IDriver) {
+    try {
+      const response = await fetch(api + "motorista", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        console.log("Motorista cadastrado com sucesso!");
+        getDrivers();
+      } else {
+        console.log("Erro ao cadastrar motorista!");
+      }
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getDrivers = () => {
     fetch(api + "motorista")
       .then((response) => response.json())
       .then((data) => setDrivers(data));
+  };
+
+  useEffect(() => {
+    getDrivers();
   }, []);
 
   return (
-    <DriversContext.Provider value={{ drivers: driver }}>
+    <DriversContext.Provider value={{ drivers: driver, createDriver }}>
       {children}
     </DriversContext.Provider>
   );
