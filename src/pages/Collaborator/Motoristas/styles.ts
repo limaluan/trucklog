@@ -60,7 +60,7 @@ export const MotoristasContainer = styled.div`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 3.2rem 1.5rem 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
@@ -90,7 +90,7 @@ export const MotoristasContainer = styled.div`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
 
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
     i {

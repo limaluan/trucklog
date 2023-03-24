@@ -30,7 +30,7 @@ export interface IEditDriver extends IDriver {
 interface IDriverContextData {
   drivers: IDriver[];
   createDriver(data: IDriver): Promise<void>;
-  editDriver: (data: IEditDriver) => Promise<void>;
+  editDriver: (editDriver: IEditDriver, IdUsuario: number) => Promise<void>;
 }
 
 const DriversContext = createContext({} as IDriverContextData);
@@ -61,21 +61,23 @@ export function DriversProvider({
     }
   }
 
-  const editDriver = async (data: IDriver) => {
-    console.log(data);
+  const editDriver = async (editDriver: IEditDriver, idUsuario: number) => {
+    console.log(idUsuario);
     try {
       const response = await fetch(
-        `${api}/motorista?idMotorista=${data.idUsuario}`,
+        `${api}/motorista?idMotorista=${idUsuario}`,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify(editDriver),
         }
       );
-
+      console.log();
       if (response.ok) {
+        getDrivers();
+
         console.log("Motorista editado com sucesso!");
       } else {
         console.log("Erro ao editar motorista!");

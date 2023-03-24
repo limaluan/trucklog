@@ -20,7 +20,10 @@ export const Caminhoes = () => {
         </div>
 
         <h2 className="title-page">Caminhões</h2>
-        <button onClick={() => setIsCreateTruckModalOpen(true)} className="create-button">
+        <button
+          onClick={() => setIsCreateTruckModalOpen(true)}
+          className="create-button"
+        >
           Cadastrar Caminhão <i className="ph ph-plus"></i>
         </button>
         <input

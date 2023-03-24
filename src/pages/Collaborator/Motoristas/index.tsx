@@ -11,7 +11,13 @@ export const Motoristas = () => {
   const [searchDriver, setSearchDrivers] = useState("");
 
   const [isCreateDriverModalOpen, setIsCreateDriverModalOpen] = useState(false);
+  const [isEditDriverModalOpen, setIsEditDriverModalOpen] = useState(false);
 
+  const handleOpenModal = (idUsuario: number) => {
+    setIsEditDriverModalOpen(true);
+    setIdUsuario(idUsuario);
+  };
+  const [idUsuario, setIdUsuario] = useState(0);
   return (
     <MotoristasContainer>
       <main className="content">
@@ -80,7 +86,7 @@ export const Motoristas = () => {
                         : "finished"
                     }
                   >
-                    <button onClick={() => setIsCreateDriverModalOpen(true)}>
+                    <button onClick={() => handleOpenModal(driver.idUsuario)}>
                       <i className="ph ph-pencil"></i>
                     </button>
                   </div>
@@ -94,8 +100,9 @@ export const Motoristas = () => {
         onRequestClose={() => setIsCreateDriverModalOpen(false)}
       />
       <EditDriverModal
-        isOpen={is}
-        onRequestClose={() => setIsCreateDriverModalOpen(false)}
+        isOpen={isEditDriverModalOpen}
+        onRequestClose={() => setIsEditDriverModalOpen(false)}
+        idUsuario={idUsuario}
       />
     </MotoristasContainer>
   );
