@@ -22,10 +22,15 @@ export interface IDriver {
   statusMotorista: "DISPONIVEL" | "EM_ESTRADA";
 }
 
+export interface IEditDriver extends IDriver {
+  nome: string;
+  senha: string;
+}
+
 interface IDriverContextData {
   drivers: IDriver[];
   createDriver(data: IDriver): Promise<void>;
-  editDriver: (data: IDriver) => Promise<void>;
+  editDriver: (data: IEditDriver) => Promise<void>;
 }
 
 const DriversContext = createContext({} as IDriverContextData);

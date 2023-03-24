@@ -3,6 +3,7 @@ import { CreateDriverModal } from "../../../shared/components/Collaborator/Modal
 
 import { useDrivers } from "../../../shared/hooks/useDrivers";
 import { MotoristasContainer } from "./styles";
+import { EditDriverModal } from "../../../shared/components/Collaborator/Modals/EditDriverModal";
 
 export const Motoristas = () => {
   const { drivers } = useDrivers();
@@ -79,7 +80,7 @@ export const Motoristas = () => {
                         : "finished"
                     }
                   >
-                    <button>
+                    <button onClick={() => setIsCreateDriverModalOpen(true)}>
                       <i className="ph ph-pencil"></i>
                     </button>
                   </div>
@@ -90,6 +91,10 @@ export const Motoristas = () => {
       </main>
       <CreateDriverModal
         isOpen={isCreateDriverModalOpen}
+        onRequestClose={() => setIsCreateDriverModalOpen(false)}
+      />
+      <EditDriverModal
+        isOpen={is}
         onRequestClose={() => setIsCreateDriverModalOpen(false)}
       />
     </MotoristasContainer>

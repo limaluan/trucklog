@@ -3,17 +3,20 @@ import { ModalContainer } from "./styles";
 import { useForm } from "react-hook-form";
 import { useDrivers } from "../../../hooks/useDrivers";
 
-interface ICreateEntityModalProps {
+interface IEditDriver {
+  nome: string;
+  senha: string;
+}
+interface IEditDriverModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
 }
 
-export function CreateDriverModal({
+export function EditDriverModal({
   isOpen,
   onRequestClose,
-}: ICreateEntityModalProps) {
-  const { createDriver } = useDrivers();
-
+}: IEditDriverModalProps) {
+  const { editDriver } = useDrivers();
   const { register, handleSubmit } = useForm();
 
   return (
@@ -25,11 +28,11 @@ export function CreateDriverModal({
       ariaHideApp={false}
     >
       <ModalContainer>
-        <h2>Adicionar Motorista</h2>
+        <h2>Editar Motorista</h2>
         <form
           className="form-container"
           onSubmit={handleSubmit((data) => {
-            createDriver({
+            editDriver({
               nome: data.nome,
               usuario: data.usuario,
               senha: data.senha,
@@ -43,20 +46,9 @@ export function CreateDriverModal({
         >
           <label htmlFor="name">Nome</label>
           <input type="text" placeholder="Nome" {...register("nome")} />
-          <label htmlFor="user">Usuário</label>
-          <input type="text" placeholder="Usuário" {...register("usuario")} />
           <label htmlFor="password">Senha</label>
           <input type="password" placeholder="Senha" {...register("senha")} />
-          <label htmlFor="cnh">Cnh</label>
-          <input type="text" placeholder="CNH" {...register("cnh")} />
-          <label htmlFor="situation">Disponibilidade</label>
-          <select {...register("statusMotorista")}>
-            <option value="DISPONIVEL">Disponível</option>
-            <option value="EM_ESTRADA">Em estrada</option>
-          </select>
-          <label htmlFor="email">E-mail</label>
-          <input type="email" placeholder="E-mail" {...register("email")} />
-          <button type="submit">Adicionar</button>
+          <button type="submit">Editar</button>
         </form>
       </ModalContainer>
     </Modal>
