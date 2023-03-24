@@ -15,14 +15,23 @@ export const Postos = () => {
   const [isEditGasStationModalOpen, setIsEditGasStationModalOpen] =
     useState(false);
 
-  const [isRemoveGasStationModalOpen, setIsRemovetGasStationModalOpen] =
+  const [isRemoveGasStationModalOpen, setIsRemoveGasStationModalOpen] =
     useState(false);
 
   const [idPostoEdit, setIdPostoEdit] = useState(0);
+  const [idPostoRemove, setIdPostoRemove] = useState(0);
+
+  const [gasStationName, setGasStationName] = useState("");
 
   const handleOpenEditModal = (idPosto: number) => {
     setIsEditGasStationModalOpen(true);
     setIdPostoEdit(idPosto);
+  };
+
+  const handleRemoveEditModal = (idPosto: number, namePosto: string) => {
+    setIsRemoveGasStationModalOpen(true);
+    setIdPostoRemove(idPosto);
+    setGasStationName(namePosto);
   };
 
   return (
@@ -98,7 +107,12 @@ export const Postos = () => {
                     </button>
 
                     <button
-                      onClick={() => setIsRemovetGasStationModalOpen(true)}
+                      onClick={() =>
+                        handleRemoveEditModal(
+                          gasStation.idPosto,
+                          gasStation.nome
+                        )
+                      }
                       disabled={gasStation.status === "ATIVO" ? false : true}
                     >
                       <i
@@ -122,6 +136,13 @@ export const Postos = () => {
         isOpen={isEditGasStationModalOpen}
         onRequestClose={() => setIsEditGasStationModalOpen(false)}
         idPosto={idPostoEdit}
+      />
+
+      <RemoveGasStationModal
+        isOpen={isRemoveGasStationModalOpen}
+        onRequestClose={() => setIsRemoveGasStationModalOpen(false)}
+        idPosto={idPostoRemove}
+        namePosto={gasStationName}
       />
     </PostosContainer>
   );

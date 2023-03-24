@@ -10,6 +10,9 @@ export const ModalContainer = styled.div`
     color: ${(props) => props.theme["green-700"]};
   }
 
+  .delete-gas-station-modal {
+  }
+
   .form-container {
     display: flex;
     flex-direction: column;
