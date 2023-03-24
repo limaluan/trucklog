@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { LandingPage, Login } from "../pages";
-import { Viagens, Motoristas, Postos } from "../pages/Collaborator";
+import { Viagens, Motoristas, Caminhoes, Postos } from "../pages/Collaborator";
 import { ColaboratorLayout } from "../shared/layouts/CollaboratorLayout";
 
 export const AppRoutes = () => {
@@ -15,6 +15,7 @@ export const AppRoutes = () => {
       <Route path="/colaborador/" element={<ColaboratorLayout />}>
         <Route path="/colaborador/viagens" element={<Viagens />} />
         <Route path="/colaborador/motoristas" element={<Motoristas />} />
+        <Route path="/colaborador/caminhoes" element={<Caminhoes />} />
         <Route path="/colaborador/postos" element={<Postos />} />
       </Route>
     </Routes>

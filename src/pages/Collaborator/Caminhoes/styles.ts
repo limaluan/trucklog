@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ViagensContainer = styled.main`
+export const CaminhoesContainer = styled.div`
   width: 100%;
 
   input[type="text"] {
@@ -54,13 +54,13 @@ export const ViagensContainer = styled.main`
     }
   }
 
-  .trips-header {
+  .trucks-header {
     display: grid;
     width: 100%;
     font-size: 1.6rem;
     position: relative;
-    padding: 1.5rem 3rem 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    padding: 1.5rem 3.2rem 1.5rem 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
     position: relative;
@@ -75,7 +75,7 @@ export const ViagensContainer = styled.main`
     }
   }
 
-  .trips-body {
+  .trucks-body {
     flex: 1;
     margin-bottom: 2.5rem;
     overflow-y: scroll;
@@ -95,28 +95,54 @@ export const ViagensContainer = styled.main`
     }
   }
 
-  .trip {
+  .truck {
     display: grid;
     width: 100%;
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
+
+    div.error,
+    div.success {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        background-color: transparent;
+        padding: 0;
+      }
+    }
+
+    div.inativo {
+      color: ${(props) => props.theme.status.error};
+      filter: brightness(0.9);
+    }
+
+    div.ativo {
+      color: ${(props) => props.theme.status.success};
+      filter: brightness(0.9);
+    }
 
     :hover {
       background-color: ${(props) => props.theme.background};
       transition: background-color 0.2s;
     }
 
-    p.finished {
+    .error {
       color: ${(props) => props.theme.status.error};
       /* filter: brightness(0.9); */
     }
 
-    p.progress {
+    .warning {
       color: ${(props) => props.theme.status.warning};
+      /* filter: brightness(0.9); */
+    }
+
+    .success {
+      color: ${(props) => props.theme.status.success};
       /* filter: brightness(0.9); */
     }
   }
