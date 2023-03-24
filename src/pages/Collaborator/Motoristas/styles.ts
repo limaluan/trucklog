@@ -54,18 +54,19 @@ export const MotoristasContainer = styled.div`
     }
   }
 
-  .trips-header {
+  .drivers-header {
     display: grid;
     width: 100%;
     font-size: 1.6rem;
     position: relative;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 3.2rem 1.5rem 1rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
     p {
       font-weight: 700;
+      width: fit-content;
 
       :hover {
         cursor: pointer;
@@ -73,7 +74,7 @@ export const MotoristasContainer = styled.div`
     }
   }
 
-  .trips-body {
+  .drivers-body {
     flex: 1;
     margin-bottom: 2.5rem;
     overflow-y: scroll;
@@ -133,10 +134,6 @@ export const MotoristasContainer = styled.div`
         background: transparent;
       }
     }
-  }
-
-  .trips-header p {
-    width: fit-content;
   }
 
   li p {

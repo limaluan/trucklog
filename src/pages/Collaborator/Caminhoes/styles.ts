@@ -147,10 +147,6 @@ export const CaminhoesContainer = styled.div`
     }
   }
 
-  .trips-header p {
-    width: fit-content;
-  }
-
   li p {
     font-size: 2rem;
     display: flex;

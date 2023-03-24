@@ -19,7 +19,7 @@ export function CreateTruckModal({
       ariaHideApp={false}
     >
       <ModalContainer>
-        <h2>Criar viagem</h2>
+        <h2>Cadastrar Caminhão</h2>
         <form className="form-container">
           <label htmlFor="model">Modelo</label>
           <input

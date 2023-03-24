@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useGasStations } from "../../../shared/hooks/useGasStations";
-import { GasStationContainer } from "./styles";
+import { PostosContainer } from "./styles";
 import {
   CreateGasStationModal,
   EditGasStationModal,
@@ -9,13 +9,13 @@ import {
 export const Postos = () => {
   const { gasStations } = useGasStations();
   const [searchGasStation, setGasStation] = useState("");
-  const [isCreateTripModalOpen, setIsCreateTripModalOpen] = useState(false);
+  const [isCreateGasStationModalOpen, setIsCreateGasStationModalOpen] = useState(false);
   const [isEditGasStationModalOpen, setIsEditGasStationModalOpen] =
     useState(false);
-  const [isDisabled, setIsDisabled] = useState(false);
+  // const [isDisabled, setIsDisabled] = useState(false);
 
   return (
-    <GasStationContainer>
+    <PostosContainer>
       <main className="content">
         <div className="user-trail">
           <span>Meu Painel</span>
@@ -25,10 +25,10 @@ export const Postos = () => {
 
         <h2 className="title-page">Postos</h2>
         <button
-          onClick={() => setIsCreateTripModalOpen(true)}
+          onClick={() => setIsCreateGasStationModalOpen(true)}
           className="create-button"
         >
-          Criar Posto <i className="ph ph-plus"></i>
+          Cadastrar Posto <i className="ph ph-plus"></i>
         </button>
         <input
           value={searchGasStation}
@@ -79,7 +79,7 @@ export const Postos = () => {
                 >
                   {gasStation.status}
                   <button
-                    onClick={() => setIsCreateTripModalOpen(true)}
+                    onClick={() => setIsEditGasStationModalOpen(true)}
                     disabled={gasStation.status === "ATIVO" ? false : true}
                   >
                     <i className="ph ph-pencil"></i>
@@ -91,14 +91,14 @@ export const Postos = () => {
       </main>
 
       <CreateGasStationModal
-        isOpen={isCreateTripModalOpen}
-        onRequestClose={() => setIsCreateTripModalOpen(false)}
+        isOpen={isCreateGasStationModalOpen}
+        onRequestClose={() => setIsCreateGasStationModalOpen(false)}
       />
 
       <EditGasStationModal
-        isOpen={isCreateTripModalOpen}
-        onRequestClose={() => setIsCreateTripModalOpen(false)}
+        isOpen={isEditGasStationModalOpen}
+        onRequestClose={() => setIsEditGasStationModalOpen(false)}
       />
-    </GasStationContainer>
+    </PostosContainer>
   );
 };

@@ -26,7 +26,7 @@ export const Motoristas = () => {
           className="create-button"
           onClick={() => setIsCreateDriverModalOpen(true)}
         >
-          Adicionar Motorista <i className="ph ph-plus"></i>
+          Cadastrar Motorista <i className="ph ph-plus"></i>
         </button>
         <input
           value={searchDriver}
@@ -35,7 +35,7 @@ export const Motoristas = () => {
           placeholder="Procurar motoristas"
         />
 
-        <div className="trips-header">
+        <div className="drivers-header">
           <p>
             Nome <i className="ph ph-arrow-down"></i>
           </p>
@@ -44,7 +44,7 @@ export const Motoristas = () => {
           <p>E-mail</p>
         </div>
 
-        <div className="trips-body">
+        <div className="drivers-body">
           {drivers
             .filter((driver) =>
               driver.nome

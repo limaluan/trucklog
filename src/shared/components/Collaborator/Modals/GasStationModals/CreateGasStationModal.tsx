@@ -1,6 +1,6 @@
 import Modal from "react-modal";
-import { useGasStations } from "../../../hooks/useGasStations";
-import { ModalContainer } from "./styles";
+import { useGasStations } from "../../../../hooks/useGasStations";
+import { ModalContainer } from "../styles";
 import { FieldValues, useForm } from "react-hook-form";
 
 interface ICreateEntityModalProps {
@@ -54,7 +54,7 @@ export function CreateGasStationModal({
             {...register("valorCombustivel")}
           />
 
-          <button type="submit">Enviar posto</button>
+          <button type="submit">Cadastrar</button>
         </form>
       </ModalContainer>
     </Modal>

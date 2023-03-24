@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const GasStationContainer = styled.main`
+export const PostosContainer = styled.main`
   width: 100%;
   overflow-x: hidden;
 
@@ -67,6 +67,7 @@ export const GasStationContainer = styled.main`
 
     p {
       font-weight: 700;
+      width: fit-content;
 
       :hover {
         cursor: pointer;
@@ -123,22 +124,18 @@ export const GasStationContainer = styled.main`
         padding: 0;
       }
     }
+
     button:disabled {
       cursor: not-allowed;
     }
+
     div.inativo {
       color: ${(props) => props.theme.status.error};
-      filter: brightness(0.9);
     }
 
     div.ativo {
       color: ${(props) => props.theme.status.success};
-      filter: brightness(0.9);
     }
-  }
-
-  .trips-header p {
-    width: fit-content;
   }
 
   li p {
