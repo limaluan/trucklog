@@ -76,7 +76,8 @@ export function GasStationProvider({
     gasStationdata: IGasStationData,
     idPosto: number
   ) => {
-    console.log("entrou", gasStationdata);
+    // gasStationdata.valorCombustivel = parseInt(gasStationdata.valorCombustivel, 10);
+    console.log(idPosto);
     try {
       const response = await fetch(
         api + `/posto?idColaborador=42&idPosto=${idPosto}`,
@@ -88,6 +89,13 @@ export function GasStationProvider({
           body: JSON.stringify(gasStationdata),
         }
       );
+
+      if (response.ok) {
+        alert("Posto cadastrado!");
+        getGasStations();
+      } else {
+        alert("Ocorreu um erro no cadastrado!");
+      }
     } catch (error) {}
   };
 

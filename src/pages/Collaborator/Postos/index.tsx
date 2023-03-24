@@ -9,10 +9,17 @@ import {
 export const Postos = () => {
   const { gasStations } = useGasStations();
   const [searchGasStation, setGasStation] = useState("");
-  const [isCreateGasStationModalOpen, setIsCreateGasStationModalOpen] = useState(false);
+  const [isCreateGasStationModalOpen, setIsCreateGasStationModalOpen] =
+    useState(false);
   const [isEditGasStationModalOpen, setIsEditGasStationModalOpen] =
     useState(false);
-  // const [isDisabled, setIsDisabled] = useState(false);
+
+  const [idPostoEdit, setIdPostoEdit] = useState(0);
+
+  const handleOpenEditModal = (idPosto: number) => {
+    setIsEditGasStationModalOpen(true);
+    setIdPostoEdit(idPosto);
+  };
 
   return (
     <PostosContainer>
@@ -79,7 +86,7 @@ export const Postos = () => {
                 >
                   {gasStation.status}
                   <button
-                    onClick={() => setIsEditGasStationModalOpen(true)}
+                    onClick={() => handleOpenEditModal(gasStation.idPosto)}
                     disabled={gasStation.status === "ATIVO" ? false : true}
                   >
                     <i className="ph ph-pencil"></i>
@@ -98,6 +105,7 @@ export const Postos = () => {
       <EditGasStationModal
         isOpen={isEditGasStationModalOpen}
         onRequestClose={() => setIsEditGasStationModalOpen(false)}
+        idPosto={idPostoEdit}
       />
     </PostosContainer>
   );
