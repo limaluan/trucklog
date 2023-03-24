@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MotoristasContainer = styled.div`
+export const CaminhoesContainer = styled.div`
   width: 100%;
 
   input[type="text"] {
@@ -54,19 +54,20 @@ export const MotoristasContainer = styled.div`
     }
   }
 
-  .drivers-header {
+  .trucks-header {
     display: grid;
     width: 100%;
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 3.2rem 1.5rem 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
+    position: relative;
 
     p {
-      font-weight: 700;
       width: fit-content;
+      font-weight: 700;
 
       :hover {
         cursor: pointer;
@@ -74,25 +75,17 @@ export const MotoristasContainer = styled.div`
     }
   }
 
-  .drivers-body {
+  .trucks-body {
     flex: 1;
     margin-bottom: 2.5rem;
     overflow-y: scroll;
-  }
 
-  .EM_ESTRADA {
-    opacity: 0.4;
-  }
+    p {
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+    }
 
-  .driver {
-    display: grid;
-    width: 100%;
-    font-size: 1.6rem;
-    position: relative;
-    padding: 1.5rem 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-
-    border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
     i {
       padding: 0.5rem;
       border-radius: 0.5rem;
@@ -100,11 +93,22 @@ export const MotoristasContainer = styled.div`
       background-color: ${(props) => props.theme.status.warning};
       cursor: pointer;
     }
-    div.sucess,
-    div.finished {
+  }
+
+  .truck {
+    display: grid;
+    width: 100%;
+    font-size: 1.6rem;
+    position: relative;
+    padding: 1.5rem 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5rem;
+    border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
+
+    div.error,
+    div.success {
       display: flex;
       justify-content: space-between;
-      margin-left: 1.5rem;
 
       button {
         background-color: transparent;
@@ -112,27 +116,34 @@ export const MotoristasContainer = styled.div`
       }
     }
 
+    div.inativo {
+      color: ${(props) => props.theme.status.error};
+      filter: brightness(0.9);
+    }
+
+    div.ativo {
+      color: ${(props) => props.theme.status.success};
+      filter: brightness(0.9);
+    }
+
     :hover {
       background-color: ${(props) => props.theme.background};
       transition: background-color 0.2s;
     }
 
-    p.finished {
+    .error {
       color: ${(props) => props.theme.status.error};
-      filter: brightness(0.9);
+      /* filter: brightness(0.9); */
     }
 
-    p.sucess {
-      color: ${(props) => props.theme.status.success};
-      filter: brightness(0.9);
+    .warning {
+      color: ${(props) => props.theme.status.warning};
+      /* filter: brightness(0.9); */
     }
-    .containerEmail {
-      display: flex;
-      justify-content: space-between;
-      button {
-        padding: 0;
-        background: transparent;
-      }
+
+    .success {
+      color: ${(props) => props.theme.status.success};
+      /* filter: brightness(0.9); */
     }
   }
 
