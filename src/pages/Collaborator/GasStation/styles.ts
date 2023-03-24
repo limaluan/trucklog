@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export const ViagensContainer = styled.main`
+export const GasStationContainer = styled.main`
   width: 100%;
+  overflow-x: hidden;
 
   input[type="text"] {
     all: unset;
@@ -54,19 +55,17 @@ export const ViagensContainer = styled.main`
     }
   }
 
-  .trips-header {
+  .gas-station-header {
     display: grid;
     width: 100%;
     font-size: 1.6rem;
     position: relative;
-    padding: 1.5rem 3rem 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    padding: 1.5rem 3.2rem 1.5rem 1rem;
+    grid-template-columns: 1.5fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
-    position: relative;
 
     p {
-      width: fit-content;
       font-weight: 700;
 
       :hover {
@@ -75,7 +74,7 @@ export const ViagensContainer = styled.main`
     }
   }
 
-  .trips-body {
+  .gas-station-body {
     flex: 1;
     margin-bottom: 2.5rem;
     overflow-y: scroll;
@@ -95,13 +94,17 @@ export const ViagensContainer = styled.main`
     }
   }
 
+  .inativo {
+    opacity: 0.4;
+  }
+
   .trip {
     display: grid;
     width: 100%;
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
@@ -110,14 +113,27 @@ export const ViagensContainer = styled.main`
       transition: background-color 0.2s;
     }
 
-    p.finished {
+    div.inativo,
+    div.ativo {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        background-color: transparent;
+        padding: 0;
+      }
+    }
+    button:disabled {
+      cursor: not-allowed;
+    }
+    div.inativo {
       color: ${(props) => props.theme.status.error};
-      /* filter: brightness(0.9); */
+      filter: brightness(0.9);
     }
 
-    p.progress {
-      color: ${(props) => props.theme.status.warning};
-      /* filter: brightness(0.9); */
+    div.ativo {
+      color: ${(props) => props.theme.status.success};
+      filter: brightness(0.9);
     }
   }
 
