@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTrips } from "../../../shared/hooks/useTrips";
 import { DashboardContainer } from "./styles";
 
-export const Dashboard = () => {
+export const Viagens = () => {
   const { trips } = useTrips();
 
   const [searchTrip, setSearchTrip] = useState("");
@@ -50,7 +50,6 @@ export const Dashboard = () => {
                   {new Date(Date.parse(trip.dataInicio))
                     .toLocaleDateString("pt-BR")
                     .split("/")
-                    .reverse()
                     .map((value) => value.padStart(2, "0"))
                     .join("-")}
                 </p>
@@ -58,41 +57,6 @@ export const Dashboard = () => {
                   {new Date(Date.parse(trip.dataFim))
                     .toLocaleDateString("pt-BR")
                     .split("/")
-                    .reverse()
-                    .map((value) => value.padStart(2, "0"))
-                    .join("-")}
-                </p>
-                <p
-                  className={
-                    trip.statusViagem === "FINALIZADA" ? "finished" : "progress"
-                  }
-                >
-                  {trip.statusViagem.replace("_", " ")}
-                </p>
-              </div>
-            ))}
-            {trips
-            .filter((trip) =>
-              trip.descricao
-                .toLocaleLowerCase()
-                .includes(searchTrip.toLowerCase())
-            )
-            .map((trip) => (
-              <div className="trip" key={trip.idViagem}>
-                <p>{trip.descricao}</p>
-                <p>
-                  {new Date(Date.parse(trip.dataInicio))
-                    .toLocaleDateString("pt-BR")
-                    .split("/")
-                    .reverse()
-                    .map((value) => value.padStart(2, "0"))
-                    .join("-")}
-                </p>
-                <p>
-                  {new Date(Date.parse(trip.dataFim))
-                    .toLocaleDateString("pt-BR")
-                    .split("/")
-                    .reverse()
                     .map((value) => value.padStart(2, "0"))
                     .join("-")}
                 </p>
