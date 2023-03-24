@@ -8,16 +8,16 @@ interface ICreateEntityModalProps {
   onRequestClose: () => void;
 }
 
-interface ICreateGasStation {
+interface IEditGasStation {
   nome: string;
   valorCombustivel: string;
 }
 
-export function CreateGasStationModal({
+export function EditGasStationModal({
   isOpen,
   onRequestClose,
 }: ICreateEntityModalProps) {
-  const { addNewGasStation } = useGasStations();
+  // const { editGasStations } = useGasStations();
   const { register, handleSubmit } = useForm();
 
   return (
@@ -29,15 +29,15 @@ export function CreateGasStationModal({
       ariaHideApp={false}
     >
       <ModalContainer>
-        <h2>Cadastrar Posto</h2>
+        <h2>Edite os dados do Posto</h2>
         <form
           className="form-container"
-          onSubmit={handleSubmit((data: FieldValues) =>
-            addNewGasStation({
-              nome: data.nome,
-              valorCombustivel: data.valorCombustivel,
-            })
-          )}
+          // onSubmit={handleSubmit((data: FieldValues) =>
+          //   editGasStations({
+          //     nome: data.nome,
+          //     valorCombustivel: data.valorCombustivel,
+          //   })
+          // )}
         >
           <label htmlFor="nome">Nome do Posto</label>
           <input
@@ -54,7 +54,7 @@ export function CreateGasStationModal({
             {...register("valorCombustivel")}
           />
 
-          <button type="submit">Enviar posto</button>
+          <button type="submit">Editar Posto</button>
         </form>
       </ModalContainer>
     </Modal>

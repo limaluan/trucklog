@@ -1,12 +1,18 @@
 import { useState } from "react";
 import { useGasStations } from "../../../shared/hooks/useGasStations";
 import { GasStationContainer } from "./styles";
-import { CreateGasStationModal } from "../../../shared/components/Collaborator/Modals";
+import {
+  CreateGasStationModal,
+  EditGasStationModal,
+} from "../../../shared/components/Collaborator/Modals";
 
 export const Postos = () => {
   const { gasStations } = useGasStations();
   const [searchGasStation, setGasStation] = useState("");
   const [isCreateTripModalOpen, setIsCreateTripModalOpen] = useState(false);
+  const [isEditGasStationModalOpen, setIsEditGasStationModalOpen] =
+    useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   return (
     <GasStationContainer>
@@ -66,18 +72,30 @@ export const Postos = () => {
                     })}
                   </p>
                 </div>
-                <p
+                <div
                   className={
                     gasStation.status === "ATIVO" ? "ativo" : "inativo"
                   }
                 >
                   {gasStation.status}
-                </p>
+                  <button
+                    onClick={() => setIsCreateTripModalOpen(true)}
+                    disabled={gasStation.status === "ATIVO" ? false : true}
+                  >
+                    <i className="ph ph-pencil"></i>
+                  </button>
+                </div>
               </div>
             ))}
         </div>
       </main>
+
       <CreateGasStationModal
+        isOpen={isCreateTripModalOpen}
+        onRequestClose={() => setIsCreateTripModalOpen(false)}
+      />
+
+      <EditGasStationModal
         isOpen={isCreateTripModalOpen}
         onRequestClose={() => setIsCreateTripModalOpen(false)}
       />
