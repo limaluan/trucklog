@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CreateTripModal } from "../../../shared/components/Collaborator/Modals";
 import { useTrips } from "../../../shared/hooks/useTrips";
 import { DashboardContainer } from "./styles";
 
@@ -6,6 +7,8 @@ export const Viagens = () => {
   const { trips } = useTrips();
 
   const [searchTrip, setSearchTrip] = useState("");
+
+  const [isCreateTripModalOpen, setIsCreateTripModalOpen] = useState(false);
 
   return (
     <DashboardContainer>
@@ -17,7 +20,10 @@ export const Viagens = () => {
         </div>
 
         <h2 className="title-page">Viagens</h2>
-        <button className="create-button">
+        <button
+          onClick={() => setIsCreateTripModalOpen(true)}
+          className="create-button"
+        >
           Criar Viagem <i className="ph ph-plus"></i>
         </button>
         <input
@@ -71,6 +77,10 @@ export const Viagens = () => {
             ))}
         </div>
       </main>
+      <CreateTripModal
+        isOpen={isCreateTripModalOpen}
+        onRequestClose={() => setIsCreateTripModalOpen(false)}
+      />
     </DashboardContainer>
   );
 };
