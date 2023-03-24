@@ -60,7 +60,7 @@ export const MotoristasContainer = styled.div`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
@@ -89,9 +89,27 @@ export const MotoristasContainer = styled.div`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
+    i {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      color: ${(props) => props.theme.white};
+      background-color: ${(props) => props.theme.status.warning};
+      cursor: pointer;
+    }
+    div.sucess,
+    div.finished {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 1.5rem;
+
+      button {
+        background-color: transparent;
+        padding: 0;
+      }
+    }
 
     :hover {
       background-color: ${(props) => props.theme.background};
@@ -106,6 +124,14 @@ export const MotoristasContainer = styled.div`
     p.sucess {
       color: ${(props) => props.theme.status.success};
       filter: brightness(0.9);
+    }
+    .containerEmail {
+      display: flex;
+      justify-content: space-between;
+      button {
+        padding: 0;
+        background: transparent;
+      }
     }
   }
 

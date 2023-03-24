@@ -70,7 +70,20 @@ export const Motoristas = () => {
                 >
                   {driver.statusMotorista.replace("_", " ")}
                 </p>
-                <p>{driver.email}</p>
+                <div className="containerEmail">
+                  {driver.email}
+                  <div
+                    className={
+                      driver.statusMotorista === "DISPONIVEL"
+                        ? "succes"
+                        : "finished"
+                    }
+                  >
+                    <button>
+                      <i className="ph ph-pencil"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
         </div>

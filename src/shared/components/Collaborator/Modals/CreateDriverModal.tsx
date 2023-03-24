@@ -3,10 +3,21 @@ import { ModalContainer } from "./styles";
 
 import { useForm, Controller, FieldValues, Field } from "react-hook-form";
 import { IDriver, useDrivers } from "../../../hooks/useDrivers";
+
 interface ICreateEntityModalPropsDriver {
   isOpen: boolean;
   onRequestClose: () => void;
 }
+
+interface IEditDriver {
+  nome: string;
+  senha: string;
+}
+interface IEditDriverModalProps {
+  isOpen: boolean;
+  onRequestClose: () => void;
+}
+
 export function CreateDriverModal({
   isOpen,
   onRequestClose,
@@ -45,7 +56,7 @@ export function CreateDriverModal({
           <label htmlFor="user">Usuário</label>
           <input type="text" placeholder="Usuário" {...register("usuario")} />
           <label htmlFor="password">Senha</label>
-          <input type="text" placeholder="Senha" {...register("senha")} />
+          <input type="password" placeholder="Senha" {...register("senha")} />
           <label htmlFor="cnh">Cnh</label>
           <input type="text" placeholder="CNH" {...register("cnh")} />
           <label htmlFor="situation">Disponibilidade</label>
@@ -61,3 +72,42 @@ export function CreateDriverModal({
     </Modal>
   );
 }
+
+// export function EditDriverModal({
+//   isOpen,
+//   onRequestClose,
+// }: IEditDriverModalProps) {
+//   const { editDriver } = useDrivers();
+
+//   const { register, handleSubmit } = useForm();
+
+//   return (
+//     // <Modal
+//   isOpen={isOpen}
+//   onRequestClose={onRequestClose}
+//   className="modal-content"
+//   overlayClassName="modal-overlay"
+//   ariaHideApp={false}
+// >
+//   <ModalContainer>
+//     <h2>Editar Motorista</h2>
+//     <form
+//       className="form-container"
+//       onSubmit={handleSubmit((data: IEditDriver) => {
+//         editDriver({
+//           nome: data.nome,
+//           senha: data.senha,
+//         });
+//       })}
+//     >
+//       <label htmlFor="name">Nome</label>
+//       <input type="text" placeholder="Nome" {...register("nome")} />
+
+//       <label htmlFor="password">Senha</label>
+//       <input type="text" placeholder="Senha" {...register("senha")} />
+
+//       <button type="submit">Adicionar</button>
+//     </form>
+//   </ModalContainer>
+// </Modal>
+//);
