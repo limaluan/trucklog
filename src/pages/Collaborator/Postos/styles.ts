@@ -86,12 +86,17 @@ export const PostosContainer = styled.main`
       flex: 1;
     }
 
-    i {
+    i,
+    .delete-icon {
       padding: 0.5rem;
       border-radius: 0.5rem;
       color: ${(props) => props.theme.white};
       background-color: ${(props) => props.theme.status.warning};
       cursor: pointer;
+    }
+
+    .delete-icon {
+      background-color: ${(props) => props.theme.status.error};
     }
   }
 
@@ -119,9 +124,14 @@ export const PostosContainer = styled.main`
       display: flex;
       justify-content: space-between;
 
-      button {
-        background-color: transparent;
-        padding: 0;
+      .btn-container {
+        display: flex;
+        gap: 0.8rem;
+
+        button {
+          background-color: transparent;
+          padding: 0;
+        }
       }
     }
 
