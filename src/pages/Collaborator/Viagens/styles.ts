@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DashboardContainer = styled.main`
+export const ViagensContainer = styled.main`
   width: 100%;
 
   input[type="text"] {
@@ -59,12 +59,14 @@ export const DashboardContainer = styled.main`
     width: 100%;
     font-size: 1.6rem;
     position: relative;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 3rem 1.5rem 1rem;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
+    position: relative;
 
     p {
+      width: fit-content;
       font-weight: 700;
 
       :hover {
@@ -77,6 +79,20 @@ export const DashboardContainer = styled.main`
     flex: 1;
     margin-bottom: 2.5rem;
     overflow-y: scroll;
+
+    p {
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    i {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      color: ${(props) => props.theme.white};
+      background-color: ${(props) => props.theme.status.warning};
+      cursor: pointer;
+    }
   }
 
   .trip {
@@ -96,12 +112,12 @@ export const DashboardContainer = styled.main`
 
     p.finished {
       color: ${(props) => props.theme.status.error};
-      filter: brightness(0.9);
+      /* filter: brightness(0.9); */
     }
 
     p.progress {
       color: ${(props) => props.theme.status.warning};
-      filter: brightness(0.9);
+      /* filter: brightness(0.9); */
     }
   }
 
