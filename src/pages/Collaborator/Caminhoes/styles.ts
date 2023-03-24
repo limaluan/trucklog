@@ -104,7 +104,7 @@ export const CaminhoesContainer = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
-    
+
     div.error,
     div.success {
       display: flex;

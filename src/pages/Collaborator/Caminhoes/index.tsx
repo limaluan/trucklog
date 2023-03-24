@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { CreateTruckModal } from "../../../shared/components/Collaborator/Modals/CreateTruckModal";
 import { useTrucks } from "../../../shared/hooks/useTrucks";
 import { CaminhoesContainer } from "./styles";
 
 export const Caminhoes = () => {
+  const { trucks } = useTrucks();
+
   const [searchTruck, setSearchTruck] = useState("");
 
-  const { trucks } = useTrucks();
+  const [isCreateTruckModalOpen, setIsCreateTruckModalOpen] = useState(false);
 
   return (
     <CaminhoesContainer>
@@ -17,7 +20,7 @@ export const Caminhoes = () => {
         </div>
 
         <h2 className="title-page">Caminhões</h2>
-        <button className="create-button">
+        <button onClick={() => setIsCreateTruckModalOpen(true)} className="create-button">
           Cadastrar Caminhão <i className="ph ph-plus"></i>
         </button>
         <input
@@ -66,6 +69,10 @@ export const Caminhoes = () => {
             ))}
         </div>
       </main>
+      <CreateTruckModal
+        isOpen={isCreateTruckModalOpen}
+        onRequestClose={() => setIsCreateTruckModalOpen(false)}
+      />
     </CaminhoesContainer>
   );
 };

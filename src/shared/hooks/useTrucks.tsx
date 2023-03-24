@@ -30,14 +30,18 @@ const TrucksContext = createContext({} as ITruckContextData);
 export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
   const [trucks, setTrucks] = useState<ITruck[]>([]);
 
-  useEffect(() => {
+  const getTrucks = () => {
     fetch(api + "caminhao")
       .then((response) => response.json())
       .then((data) => setTrucks(data));
+  };
+
+  useEffect(() => {
+    getTrucks();
   }, []);
 
   return (
-    <TrucksContext.Provider value={{ trucks: trucks }}>
+    <TrucksContext.Provider value={{ trucks }}>
       {children}
     </TrucksContext.Provider>
   );
