@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.9.0",
     "styled-components": "^5.3.9"
   },
@@ -20,6 +21,7 @@
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/react-modal": "^3.13.1",
     "@types/styled-components": "^5.1.26",
     "@vitejs/plugin-react": "^3.1.0",
     "jsdom": "^21.1.1",
@@ -28,4 +30,3 @@
     "vitest": "^0.29.7"
   }
 }
-
