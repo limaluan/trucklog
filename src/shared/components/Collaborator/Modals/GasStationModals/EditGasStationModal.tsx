@@ -6,6 +6,7 @@ import { FieldValues, useForm } from "react-hook-form";
 interface ICreateEntityModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
+  idPosto: number;
 }
 
 interface IEditGasStation {
@@ -16,8 +17,9 @@ interface IEditGasStation {
 export function EditGasStationModal({
   isOpen,
   onRequestClose,
+  idPosto,
 }: ICreateEntityModalProps) {
-  // const { editGasStations } = useGasStations();
+  const { editGasStation } = useGasStations();
   const { register, handleSubmit } = useForm();
 
   return (
@@ -32,12 +34,15 @@ export function EditGasStationModal({
         <h2>Edite os dados do Posto</h2>
         <form
           className="form-container"
-          // onSubmit={handleSubmit((data: FieldValues) =>
-          //   editGasStations({
-          //     nome: data.nome,
-          //     valorCombustivel: data.valorCombustivel,
-          //   })
-          // )}
+          onSubmit={handleSubmit((data: FieldValues) =>
+            editGasStation(
+              {
+                nome: data.nome,
+                valorCombustivel: parseInt(data.valorCombustivel, 10),
+              },
+              idPosto
+            )
+          )}
         >
           <label htmlFor="nome">Nome do Posto</label>
           <input

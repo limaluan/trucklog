@@ -10,6 +10,43 @@ export const ModalContainer = styled.div`
     color: ${(props) => props.theme["green-700"]};
   }
 
+  p {
+    padding: 1rem;
+    text-align: center;
+    border: 1px transparent black;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1px 1px;
+    font-size: 1.6rem;
+
+    strong {
+      color: ${(props) => props.theme["green-700"]};
+    }
+  }
+
+  .delete-gas-station {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+
+    .delete-btn-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 1rem;
+
+      .delete-btn {
+        text-align: center;
+        background-color: ${(props) => props.theme.status.error};
+      }
+
+      .canceal-btn {
+        text-align: center;
+        background-color: ${(props) => props.theme["gray-400"]};
+      }
+    }
+  }
+
   .form-container {
     display: flex;
     flex-direction: column;

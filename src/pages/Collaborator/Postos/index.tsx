@@ -4,15 +4,35 @@ import { PostosContainer } from "./styles";
 import {
   CreateGasStationModal,
   EditGasStationModal,
+  RemoveGasStationModal,
 } from "../../../shared/components/Collaborator/Modals";
 
 export const Postos = () => {
   const { gasStations } = useGasStations();
   const [searchGasStation, setGasStation] = useState("");
-  const [isCreateGasStationModalOpen, setIsCreateGasStationModalOpen] = useState(false);
+  const [isCreateGasStationModalOpen, setIsCreateGasStationModalOpen] =
+    useState(false);
   const [isEditGasStationModalOpen, setIsEditGasStationModalOpen] =
     useState(false);
-  // const [isDisabled, setIsDisabled] = useState(false);
+
+  const [isRemoveGasStationModalOpen, setIsRemoveGasStationModalOpen] =
+    useState(false);
+
+  const [idPostoEdit, setIdPostoEdit] = useState(0);
+  const [idPostoRemove, setIdPostoRemove] = useState(0);
+
+  const [gasStationName, setGasStationName] = useState("");
+
+  const handleOpenEditModal = (idPosto: number) => {
+    setIsEditGasStationModalOpen(true);
+    setIdPostoEdit(idPosto);
+  };
+
+  const handleRemoveEditModal = (idPosto: number, namePosto: string) => {
+    setIsRemoveGasStationModalOpen(true);
+    setIdPostoRemove(idPosto);
+    setGasStationName(namePosto);
+  };
 
   return (
     <PostosContainer>
@@ -78,12 +98,29 @@ export const Postos = () => {
                   }
                 >
                   {gasStation.status}
-                  <button
-                    onClick={() => setIsEditGasStationModalOpen(true)}
-                    disabled={gasStation.status === "ATIVO" ? false : true}
-                  >
-                    <i className="ph ph-pencil"></i>
-                  </button>
+                  <div className="btn-container">
+                    <button
+                      onClick={() => handleOpenEditModal(gasStation.idPosto)}
+                      disabled={gasStation.status === "ATIVO" ? false : true}
+                    >
+                      <i title="Editar Posto" className="ph ph-pencil"></i>
+                    </button>
+
+                    <button
+                      onClick={() =>
+                        handleRemoveEditModal(
+                          gasStation.idPosto,
+                          gasStation.nome
+                        )
+                      }
+                      disabled={gasStation.status === "ATIVO" ? false : true}
+                    >
+                      <i
+                        title="Deletar Posto"
+                        className="ph ph-trash delete-icon"
+                      ></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -98,6 +135,14 @@ export const Postos = () => {
       <EditGasStationModal
         isOpen={isEditGasStationModalOpen}
         onRequestClose={() => setIsEditGasStationModalOpen(false)}
+        idPosto={idPostoEdit}
+      />
+
+      <RemoveGasStationModal
+        isOpen={isRemoveGasStationModalOpen}
+        onRequestClose={() => setIsRemoveGasStationModalOpen(false)}
+        idPosto={idPostoRemove}
+        namePosto={gasStationName}
       />
     </PostosContainer>
   );

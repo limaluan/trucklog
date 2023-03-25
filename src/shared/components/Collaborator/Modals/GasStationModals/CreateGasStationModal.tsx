@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import { useGasStations } from "../../../../hooks/useGasStations";
+import { useGasStations } from "../../../../hooks";
 import { ModalContainer } from "../styles";
 import { FieldValues, useForm } from "react-hook-form";
 
