@@ -58,62 +58,8 @@ export const Motoristas = () => {
 
         <div className="drivers-body">
           {/* {drivers.forEach((driver) => {
-            driver
-              .filter((driver) =>
-                driver.nome
-                  .toLocaleLowerCase()
-                  .includes(searchDriver.toLowerCase())
-              )
-              .sort((item) => {
-                return item.status === "ATIVO" ? -1 : 1;
-              })
-              .map((driver) => (
-                <div className="driver" key={driver.idUsuario}>
-                  <p>{driver.nome}</p>
-                  <p>{driver.cnh}</p>
-                  <p
-                    className={
-                      driver.statusMotorista === "DISPONIVEL"
-                        ? "success"
-                        : "finished"
-                    }
-                  >
-                    {driver.statusMotorista.replace("_", " ")}
-                  </p>
-                  <div className="containerEmail">
-                    <p>{driver.status} </p>
-                    <div />
-
-                    <div
-                      className={
-                        driver.status === "ATIVO" ? "success" : "finished"
-                      }
-                    >
-                      <button
-                        onClick={() =>
-                          handleDeleteModal(driver.idUsuario, driver.nome)
-                        }
-                      >
-                        <i className="ph ph-pencil"></i>
-                      </button>
-                      <div className="btn-container">
-                        <button
-                          onClick={() =>
-                            handleDeleteModal(driver.idUsuario, driver.nome)
-                          }
-                          disabled={driver.status === "ATIVO" ? false : true}
-                        >
-                          <i
-                            title="Deletar Posto"
-                            className="ph ph-trash delete-icon"
-                          ></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ));
-          })} */}
+            <p>{driver.nome}</p>;
+           })} */}
         </div>
       </main>
       <CreateDriverModal

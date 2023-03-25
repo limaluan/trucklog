@@ -11,7 +11,7 @@ interface IDriverProviderProps {
   children: ReactNode;
 }
 
-export interface IDriver {
+export interface IDriver<> {
   nome: string;
   usuario: string;
   senha: string;
@@ -114,7 +114,7 @@ export function DriversProvider({
   };
 
   const getDrivers = () => {
-    fetch(api + "motoristas", {
+    fetch(api + "usuario/motoristas-livres?page=0&size=7", {
       method: "GET",
       headers: {
         Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
@@ -122,7 +122,9 @@ export function DriversProvider({
       },
     })
       .then((response) => response.json())
-      .then((data) => setDrivers(data));
+      .then((data) => {
+        setDrivers(data.elementos), console.log(data.elementos);
+      });
   };
 
   useEffect(() => {
