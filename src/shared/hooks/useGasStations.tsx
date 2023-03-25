@@ -19,6 +19,10 @@ interface IGasStations {
   idUsuario: string;
 }
 
+interface IRemoveGasStationData {
+  idPosto: number;
+}
+
 interface IGasStationContextData {
   gasStations: IGasStations[];
   addNewGasStation: (gasStationdata: IGasStationData) => Promise<void>;
@@ -26,6 +30,7 @@ interface IGasStationContextData {
     gasStationdata: IGasStationData,
     idPosto: number
   ) => Promise<void>;
+  removeGasStation: (idPosto: number) => Promise<void>;
 }
 
 interface IGasStationData {
@@ -76,7 +81,8 @@ export function GasStationProvider({
     gasStationdata: IGasStationData,
     idPosto: number
   ) => {
-    console.log("entrou", gasStationdata);
+    // gasStationdata.valorCombustivel = parseInt(gasStationdata.valorCombustivel, 10);
+    console.log(idPosto);
     try {
       const response = await fetch(
         api + `/posto?idColaborador=42&idPosto=${idPosto}`,
@@ -88,12 +94,45 @@ export function GasStationProvider({
           body: JSON.stringify(gasStationdata),
         }
       );
+
+      if (response.ok) {
+        alert("Posto cadastrado!");
+        getGasStations();
+      } else {
+        alert("Ocorreu um erro no cadastrado!");
+      }
+    } catch (error) {}
+  };
+
+  const removeGasStation = async (idPosto: number) => {
+    try {
+      const response = await fetch(
+        api + `/posto?idColaborador=42&idPosto=${idPosto}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+
+      if (response.ok) {
+        alert("Posto Deletado com sucesso!");
+        getGasStations();
+      } else {
+        alert("Ocorreu um erro no delete!");
+      }
     } catch (error) {}
   };
 
   return (
     <GasStationsContext.Provider
-      value={{ gasStations, addNewGasStation, editGasStation }}
+      value={{
+        gasStations,
+        addNewGasStation,
+        editGasStation,
+        removeGasStation,
+      }}
     >
       {children}
     </GasStationsContext.Provider>
