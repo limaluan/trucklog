@@ -118,12 +118,10 @@ export const CaminhoesContainer = styled.div`
 
     div.inativo {
       color: ${(props) => props.theme.status.error};
-      filter: brightness(0.9);
     }
 
     div.ativo {
       color: ${(props) => props.theme.status.success};
-      filter: brightness(0.9);
     }
 
     :hover {
@@ -145,6 +143,10 @@ export const CaminhoesContainer = styled.div`
       color: ${(props) => props.theme.status.success};
       /* filter: brightness(0.9); */
     }
+  }
+
+  .truck-inativo {
+    opacity: 0.4;
   }
 
   li p {

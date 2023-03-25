@@ -20,7 +20,10 @@ export const Caminhoes = () => {
         </div>
 
         <h2 className="title-page">Caminhões</h2>
-        <button onClick={() => setIsCreateTruckModalOpen(true)} className="create-button">
+        <button
+          onClick={() => setIsCreateTruckModalOpen(true)}
+          className="create-button"
+        >
           Cadastrar Caminhão <i className="ph ph-plus"></i>
         </button>
         <input
@@ -46,7 +49,7 @@ export const Caminhoes = () => {
               truck.modelo.toLowerCase().includes(searchTruck.toLowerCase())
             )
             .map((truck) => (
-              <div className="truck" key={truck.placa}>
+              <div className={`truck truck-${truck.status.toLowerCase()}`} key={truck.placa}>
                 <p>{truck.modelo}</p>
                 <p>{truck.placa}</p>
                 <p>{truck.nivelCombustivel}%</p>
@@ -55,7 +58,7 @@ export const Caminhoes = () => {
                     truck.statusCaminhao === "EM_VIAGEM" ? "warning" : "success"
                   }
                 >
-                  {truck.statusCaminhao}
+                  {truck.statusCaminhao.replace("_", " ")}
                 </p>
                 <div
                   className={truck.status === "INATIVO" ? "error" : "success"}
