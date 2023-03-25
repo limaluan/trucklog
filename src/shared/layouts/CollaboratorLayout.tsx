@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Sidenav } from "../components/Collaborator/";
+import { Sidenav } from "../components/User";
 import {
   GasStationProvider,
   TripsProvider,

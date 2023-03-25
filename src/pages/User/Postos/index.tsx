@@ -5,7 +5,7 @@ import {
   CreateGasStationModal,
   EditGasStationModal,
   RemoveGasStationModal,
-} from "../../../shared/components/Collaborator/Modals";
+} from "../../../shared/components/User/Modals";
 
 export const Postos = () => {
   const { gasStations } = useGasStations();

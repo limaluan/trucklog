@@ -3,7 +3,7 @@ import {
   CreateDriverModal,
   DeleteDriverModal,
   EditDriverModal,
-} from "../../../shared/components/Collaborator/Modals";
+} from "../../../shared/components/User/Modals";
 import { useDrivers } from "../../../shared/hooks/useDrivers";
 import { MotoristasContainer } from "./styles";
 
@@ -17,10 +17,7 @@ export const Motoristas = () => {
   const [isDeleteDriverModalOpen, setIsDeleteDriverModalOpen] = useState(false);
   const [driverName, setDriverName] = useState("");
   const [idUsuario, setIdUsuario] = useState(0);
-  const handleOpenModal = (idUsuario: number) => {
-    setIsEditDriverModalOpen(true);
-    setIdUsuario(idUsuario);
-  };
+
   const handleDeleteModal = (idUsuario: number, driverName: string) => {
     setIsDeleteDriverModalOpen(true);
     setIdUsuario(idUsuario);
