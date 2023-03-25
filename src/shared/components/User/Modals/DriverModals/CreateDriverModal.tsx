@@ -8,7 +8,7 @@ interface ICreateEntityModalPropsDriver {
   onRequestClose: () => void;
 }
 
-type IEditDriver = Pick<IDriver, "nome" | "senha">;
+// type IEditDriver = Pick<IDriver, "nome" | "senha">;
 
 export function CreateDriverModal({
   isOpen,
