@@ -43,7 +43,7 @@ export function DriversProvider({
 
   async function createDriver(data: IDriver) {
     try {
-      const response = await fetch(api + "motorista", {
+      const response = await fetch(api + "motorista/usuarios", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +114,13 @@ export function DriversProvider({
   };
 
   const getDrivers = () => {
-    fetch(api + "motorista")
+    fetch(api + "motoristas", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
+        "content-type": "application/json",
+      },
+    })
       .then((response) => response.json())
       .then((data) => setDrivers(data));
   };
