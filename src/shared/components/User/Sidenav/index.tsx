@@ -18,19 +18,19 @@ export const Sidenav = ({ children }: ISidenavProps) => {
       <div style={{ display: "flex" }}>
         <SidenavContainer ref={sidenav}>
           <h3 className="category">GERENCIAMENTO</h3>
-          <Link to={"/colaborador/viagens"} className="item">
+          <Link to={"/usuario/viagens"} className="item">
             <i className="ph ph-path"></i> Viagens
           </Link>
-          <Link to={"/colaborador/motoristas"} className="item">
+          <Link to={"/usuario/motoristas"} className="item">
             <i className="ph ph-user"></i> Motoristas
           </Link>
           <Link to={""} className="item">
             <i className="ph ph-signpost"></i> Rotas
           </Link>
-          <Link to={"/colaborador/caminhoes"} className="item">
+          <Link to={"/usuario/caminhoes"} className="item">
           <i className="ph ph-truck"></i> Caminhões
           </Link>
-          <Link to={"/colaborador/postos"} className="item">
+          <Link to={"/usuario/postos"} className="item">
             <i className="ph ph-gas-pump"></i> Postos
           </Link>
         </SidenavContainer>

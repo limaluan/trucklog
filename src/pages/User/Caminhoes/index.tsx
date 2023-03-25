@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CreateTruckModal } from "../../../shared/components/Collaborator/Modals/CreateTruckModal";
+import { CreateTruckModal } from "../../../shared/components/User/Modals/CreateTruckModal";
 import { useTrucks } from "../../../shared/hooks";
 import { CaminhoesContainer } from "./styles";
 

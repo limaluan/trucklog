@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CreateDriverModal } from "../../../shared/components/Collaborator/Modals";
+import { CreateDriverModal } from "../../../shared/components/User/Modals";
 
 import { useDrivers } from "../../../shared/hooks/useDrivers";
 import { MotoristasContainer } from "./styles";
