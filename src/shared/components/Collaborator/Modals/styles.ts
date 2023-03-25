@@ -14,10 +14,10 @@ export const ModalContainer = styled.div`
     padding: 1rem;
     text-align: center;
     border: 1px transparent black;
+    background-color: ${(props) => props.theme["gray-100"]};
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1px 1px;
     font-size: 1.6rem;
-
     strong {
       color: ${(props) => props.theme["green-700"]};
     }
@@ -42,7 +42,7 @@ export const ModalContainer = styled.div`
 
       .canceal-btn {
         text-align: center;
-        background-color: ${(props) => props.theme["gray-400"]};
+        background-color: ${(props) => props.theme["gray-300"]};
       }
     }
   }

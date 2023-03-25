@@ -14,7 +14,7 @@ export const AppRoutes = () => {
       {/* Privar rotas quando houver sistema de atutenticação */}
       <Route path="/colaborador/" element={<ColaboratorLayout />}>
         <Route path="/colaborador/viagens" element={<Viagens />} />
-        <Route path="/colaborador/motoristas" element={<Motoristas />} />
+        <Route path="/colaborador/motorista" element={<Motoristas />} />
         <Route path="/colaborador/caminhoes" element={<Caminhoes />} />
         <Route path="/colaborador/postos" element={<Postos />} />
       </Route>

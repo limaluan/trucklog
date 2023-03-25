@@ -18,14 +18,20 @@ export interface IDriver {
   email: string;
   cnh: number;
   idUsuario: number;
-  status: "FINALIZADA" | "EM_ANDAMENTO";
+  status: "ATIVO" | "INATIVO";
   statusMotorista: "DISPONIVEL" | "EM_ESTRADA";
+}
+
+export interface IEditDriver extends IDriver {
+  nome: string;
+  senha: string;
 }
 
 interface IDriverContextData {
   drivers: IDriver[];
   createDriver(data: IDriver): Promise<void>;
-  editDriver: (data: IDriver) => Promise<void>;
+  editDriver: (editDriver: IEditDriver, IdUsuario: number) => Promise<void>;
+  deleteDriver: (idUsuario: number) => Promise<void>;
 }
 
 const DriversContext = createContext({} as IDriverContextData);
@@ -56,24 +62,51 @@ export function DriversProvider({
     }
   }
 
-  const editDriver = async (data: IDriver) => {
-    console.log(data);
+  const editDriver = async (editDriver: IEditDriver, idUsuario: number) => {
+    console.log(idUsuario);
     try {
       const response = await fetch(
-        `${api}/motorista?idMotorista=${data.idUsuario}`,
+        `${api}/motorista?idMotorista=${idUsuario}`,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify(editDriver),
         }
       );
-
+      console.log();
       if (response.ok) {
+        getDrivers();
+
         console.log("Motorista editado com sucesso!");
       } else {
         console.log("Erro ao editar motorista!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteDriver = async (idUsuario: number) => {
+    console.log(idUsuario);
+    try {
+      const response = await fetch(
+        `${api}/motorista?idMotorista=${idUsuario}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log();
+      if (response.ok) {
+        getDrivers();
+
+        console.log("Motorista removido com sucesso!");
+      } else {
+        console.log("Erro ao remover motorista!");
       }
     } catch (error) {
       console.log(error);
@@ -92,7 +125,7 @@ export function DriversProvider({
 
   return (
     <DriversContext.Provider
-      value={{ drivers: driver, createDriver, editDriver }}
+      value={{ drivers: driver, createDriver, editDriver, deleteDriver }}
     >
       {children}
     </DriversContext.Provider>

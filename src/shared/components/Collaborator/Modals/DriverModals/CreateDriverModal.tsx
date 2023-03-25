@@ -1,15 +1,14 @@
 import Modal from "react-modal";
-import { ModalContainer } from "./styles";
-
+import { ModalContainer } from "../styles";
 import { useForm } from "react-hook-form";
-import { IDriver, useDrivers } from "../../../hooks/useDrivers";
+import { IDriver, useDrivers } from "../../../../hooks/useDrivers";
 
 interface ICreateEntityModalPropsDriver {
   isOpen: boolean;
   onRequestClose: () => void;
 }
 
-type IEditDriver = Pick<IDriver, 'nome' | 'senha'>;
+type IEditDriver = Pick<IDriver, "nome" | "senha">;
 
 export function CreateDriverModal({
   isOpen,
@@ -39,7 +38,7 @@ export function CreateDriverModal({
               email: data.email,
               cnh: data.cnh,
               idUsuario: 1,
-              status: "FINALIZADA" || "EM_ANDAMENTO",
+              status: "ATIVO" || "INATIVO",
               statusMotorista: "DISPONIVEL" || "EM_ESTRADA",
             });
           })}
@@ -65,42 +64,3 @@ export function CreateDriverModal({
     </Modal>
   );
 }
-
-// export function EditDriverModal({
-//   isOpen,
-//   onRequestClose,
-// }: IEditDriverModalProps) {
-//   const { editDriver } = useDrivers();
-
-//   const { register, handleSubmit } = useForm();
-
-//   return (
-//     // <Modal
-//   isOpen={isOpen}
-//   onRequestClose={onRequestClose}
-//   className="modal-content"
-//   overlayClassName="modal-overlay"
-//   ariaHideApp={false}
-// >
-//   <ModalContainer>
-//     <h2>Editar Motorista</h2>
-//     <form
-//       className="form-container"
-//       onSubmit={handleSubmit((data: IEditDriver) => {
-//         editDriver({
-//           nome: data.nome,
-//           senha: data.senha,
-//         });
-//       })}
-//     >
-//       <label htmlFor="name">Nome</label>
-//       <input type="text" placeholder="Nome" {...register("nome")} />
-
-//       <label htmlFor="password">Senha</label>
-//       <input type="text" placeholder="Senha" {...register("senha")} />
-
-//       <button type="submit">Adicionar</button>
-//     </form>
-//   </ModalContainer>
-// </Modal>
-//);

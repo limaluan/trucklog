@@ -1,5 +1,7 @@
 export * from "./CreateTripModal";
-export * from "./CreateDriverModal";
+export * from "./DriverModals/CreateDriverModal";
+export * from "./DriverModals/EditDriverModal";
+export * from "./DriverModals/DeleteDriverModal";
 export * from "./CreateTruckModal";
 
 //Gas Station Modals
