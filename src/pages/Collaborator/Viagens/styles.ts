@@ -112,12 +112,10 @@ export const ViagensContainer = styled.main`
 
     p.finished {
       color: ${(props) => props.theme.status.error};
-      /* filter: brightness(0.9); */
     }
 
     p.progress {
       color: ${(props) => props.theme.status.warning};
-      /* filter: brightness(0.9); */
     }
   }
 
