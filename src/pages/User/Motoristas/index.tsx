@@ -1,9 +1,10 @@
 import { useState } from "react";
 import {
   CreateDriverModal,
-  DeleteDriverModal,
   EditDriverModal,
-} from "../../../shared/components/Collaborator/Modals";
+  DeleteDriverModal,
+} from "../../../shared/components/User/Modals/";
+
 import { useDrivers } from "../../../shared/hooks/useDrivers";
 import { MotoristasContainer } from "./styles";
 

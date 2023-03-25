@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CreateTripModal } from "../../../shared/components/Collaborator/Modals";
+import { CreateTripModal } from "../../../shared/components/User/Modals";
 import { useTrips } from "../../../shared/hooks/useTrips";
 import { ViagensContainer } from "./styles";
 

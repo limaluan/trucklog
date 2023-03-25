@@ -16,6 +16,7 @@ export const LoginContainer = styled.div`
 
   input {
     all: unset;
+    width: 100%;
   }
 
   button {
