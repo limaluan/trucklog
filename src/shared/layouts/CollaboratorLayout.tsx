@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { Sidenav } from "../components/User";
 import {
   GasStationProvider,
@@ -7,8 +7,13 @@ import {
   DriversProvider,
 } from "../hooks";
 
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
+
 export const ColaboratorLayout = () => {
-  return (
+  const { token } = useContext(AuthContext);
+
+  return token ? (
     <TripsProvider>
       <TrucksProvider>
         <DriversProvider>
@@ -20,5 +25,7 @@ export const ColaboratorLayout = () => {
         </DriversProvider>
       </TrucksProvider>
     </TripsProvider>
+  ) : (
+    <Navigate to="/login" />
   );
 };
