@@ -60,7 +60,7 @@ export const MotoristasContainer = styled.div`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 3.2rem 1.5rem 1rem;
-    grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
@@ -80,32 +80,34 @@ export const MotoristasContainer = styled.div`
     overflow-y: scroll;
   }
 
-  .EM_ESTRADA {
-    opacity: 0.4;
-  }
-
   .driver {
     display: grid;
     width: 100%;
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
-
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
-    i {
+    i,
+    .delete-icon {
       padding: 0.5rem;
       border-radius: 0.5rem;
       color: ${(props) => props.theme.white};
       background-color: ${(props) => props.theme.status.warning};
       cursor: pointer;
     }
-    div.sucess,
+
+    .delete-icon {
+      background-color: ${(props) => props.theme.status.error};
+    }
+
+    div.success,
     div.finished {
       display: flex;
       justify-content: space-between;
       margin-left: 1.5rem;
-
+      flex-direction: row;
+      gap: 0.8rem;
       button {
         background-color: transparent;
         padding: 0;
@@ -122,13 +124,14 @@ export const MotoristasContainer = styled.div`
       filter: brightness(0.9);
     }
 
-    p.sucess {
+    p.success {
       color: ${(props) => props.theme.status.success};
       filter: brightness(0.9);
     }
     .containerEmail {
       display: flex;
       justify-content: space-between;
+      gap: 0.8rem;
       button {
         padding: 0;
         background: transparent;

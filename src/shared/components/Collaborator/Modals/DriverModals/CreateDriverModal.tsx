@@ -1,7 +1,7 @@
 import Modal from "react-modal";
-import { ModalContainer } from "./styles";
+import { ModalContainer } from "../styles";
 import { useForm } from "react-hook-form";
-import { IDriver, useDrivers } from "../../../hooks/useDrivers";
+import { IDriver, useDrivers } from "../../../../hooks/useDrivers";
 
 interface ICreateEntityModalPropsDriver {
   isOpen: boolean;
@@ -38,7 +38,7 @@ export function CreateDriverModal({
               email: data.email,
               cnh: data.cnh,
               idUsuario: 1,
-              status: "FINALIZADA" || "EM_ANDAMENTO",
+              status: "ATIVO" || "INATIVO",
               statusMotorista: "DISPONIVEL" || "EM_ESTRADA",
             });
           })}

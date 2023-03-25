@@ -1,7 +1,7 @@
 import Modal from "react-modal";
-import { ModalContainer } from "./styles";
+import { ModalContainer } from "../styles";
 import { useForm, FieldValues } from "react-hook-form";
-import { useDrivers } from "../../../hooks/useDrivers";
+import { useDrivers } from "../../../../hooks/useDrivers";
 
 interface IEditDriver {
   nome: string;
@@ -45,7 +45,7 @@ export function EditDriverModal({
                 email: data.email,
                 cnh: data.cnh,
                 idUsuario: data.idUsuario,
-                status: "FINALIZADA" || "EM_ANDAMENTO",
+                status: "ATIVO" || "INATIVO",
                 statusMotorista: "DISPONIVEL" || "EM_ESTRADA",
               },
               idUsuario

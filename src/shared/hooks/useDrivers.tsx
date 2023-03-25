@@ -18,7 +18,7 @@ export interface IDriver {
   email: string;
   cnh: number;
   idUsuario: number;
-  status: "FINALIZADA" | "EM_ANDAMENTO";
+  status: "ATIVO" | "INATIVO";
   statusMotorista: "DISPONIVEL" | "EM_ESTRADA";
 }
 
@@ -31,6 +31,7 @@ interface IDriverContextData {
   drivers: IDriver[];
   createDriver(data: IDriver): Promise<void>;
   editDriver: (editDriver: IEditDriver, IdUsuario: number) => Promise<void>;
+  deleteDriver: (idUsuario: number) => Promise<void>;
 }
 
 const DriversContext = createContext({} as IDriverContextData);
@@ -87,6 +88,31 @@ export function DriversProvider({
     }
   };
 
+  const deleteDriver = async (idUsuario: number) => {
+    console.log(idUsuario);
+    try {
+      const response = await fetch(
+        `${api}/motorista?idMotorista=${idUsuario}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log();
+      if (response.ok) {
+        getDrivers();
+
+        console.log("Motorista removido com sucesso!");
+      } else {
+        console.log("Erro ao remover motorista!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const getDrivers = () => {
     fetch(api + "motorista")
       .then((response) => response.json())
@@ -99,7 +125,7 @@ export function DriversProvider({
 
   return (
     <DriversContext.Provider
-      value={{ drivers: driver, createDriver, editDriver }}
+      value={{ drivers: driver, createDriver, editDriver, deleteDriver }}
     >
       {children}
     </DriversContext.Provider>

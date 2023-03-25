@@ -21,14 +21,14 @@ export const Sidenav = ({ children }: ISidenavProps) => {
           <Link to={"/colaborador/viagens"} className="item">
             <i className="ph ph-path"></i> Viagens
           </Link>
-          <Link to={"/colaborador/motoristas"} className="item">
+          <Link to={"/colaborador/motorista"} className="item">
             <i className="ph ph-user"></i> Motoristas
           </Link>
           <Link to={""} className="item">
             <i className="ph ph-signpost"></i> Rotas
           </Link>
           <Link to={"/colaborador/caminhoes"} className="item">
-          <i className="ph ph-truck"></i> Caminhões
+            <i className="ph ph-truck"></i> Caminhões
           </Link>
           <Link to={"/colaborador/postos"} className="item">
             <i className="ph ph-gas-pump"></i> Postos
