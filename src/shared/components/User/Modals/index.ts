@@ -1,9 +1,9 @@
 export * from "./CreateTripModal";
 
 //Driver Modals
-export * from "./CreateDriverModal";
-export * from "./EditDriverModal";
-export * from "./DeleteDriverModal";
+export * from "./DriverModals/CreateDriverModal";
+export * from "./DriverModals/EditDriverModal";
+export * from "./DriverModals/DeleteDriverModal";
 
 //Truck Modals
 export * from "./CreateTruckModal";
