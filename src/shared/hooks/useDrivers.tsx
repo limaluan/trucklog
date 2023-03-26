@@ -48,6 +48,8 @@ export function DriversProvider({
       const response = await fetch(api + "motorista/usuarios", {
         method: "POST",
         headers: {
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
+
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
@@ -71,6 +73,8 @@ export function DriversProvider({
         {
           method: "PUT",
           headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
+
             "Content-Type": "application/json",
           },
           body: JSON.stringify(editDriver),
