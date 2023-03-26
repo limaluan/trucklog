@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import { api } from "../../utils/api";
+import { AuthContext } from "../context/AuthContext";
 
 interface IGasStationProviderProps {
   children: ReactNode;
@@ -44,9 +45,16 @@ export function GasStationProvider({
   children,
 }: IGasStationProviderProps): JSX.Element {
   const [gasStations, setGasStations] = useState<IGasStations[]>([]);
+  const { token } = useContext(AuthContext);
 
   const getGasStations = () => {
-    fetch(api + "posto")
+    fetch(api + "posto", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-type": "application/json",
+      },
+    })
       .then((response) => response.json())
       .then((data) => setGasStations(data));
   };

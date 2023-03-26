@@ -20,7 +20,6 @@ html {
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
-  font-family: "Red Hat Display", sans-serif;
 }
 
 h1,
