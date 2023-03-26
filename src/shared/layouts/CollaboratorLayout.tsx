@@ -5,6 +5,7 @@ import {
   TripsProvider,
   TrucksProvider,
   DriversProvider,
+  RouteProvider,
 } from "../hooks";
 
 import { AuthContext } from "../context/AuthContext";
@@ -20,9 +21,11 @@ export const ColaboratorLayout = () => {
         <TrucksProvider>
           <DriversProvider>
             <GasStationProvider>
-              <Sidenav>
-                <Outlet />
-              </Sidenav>
+              <RouteProvider>
+                <Sidenav>
+                  <Outlet />
+                </Sidenav>
+              </RouteProvider>
             </GasStationProvider>
           </DriversProvider>
         </TrucksProvider>
