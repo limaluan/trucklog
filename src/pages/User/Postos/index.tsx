@@ -79,7 +79,9 @@ export const Postos = () => {
             .map((gasStation) => (
               <div
                 className={
-                  gasStation.status === "ATIVO" ? "trip ativo" : "trip inativo"
+                  gasStation.status === "ATIVO"
+                    ? "posto ativo"
+                    : "posto inativo"
                 }
                 key={gasStation.idPosto}
               >

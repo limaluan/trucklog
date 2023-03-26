@@ -59,8 +59,8 @@ export const MotoristasContainer = styled.div`
     width: 100%;
     font-size: 1.6rem;
     position: relative;
-    padding: 1.5rem 1rem 1.5rem 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 1.5rem 3.2rem 1.5rem 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
@@ -79,6 +79,9 @@ export const MotoristasContainer = styled.div`
     margin-bottom: 2.5rem;
     overflow-y: scroll;
   }
+  .inativo {
+    opacity: 0.4;
+  }
 
   .driver {
     display: grid;
@@ -86,17 +89,30 @@ export const MotoristasContainer = styled.div`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
     :hover {
       background-color: ${(props) => props.theme.background};
       transition: background-color 0.2s;
     }
 
+    .options-modal .inativo {
+      color: ${(props) => props.theme.status.error};
+    }
+
+    .options-modal .ativo {
+      color: ${(props) => props.theme.status.success};
+    }
+
+    .options {
+      display: flex;
+      gap: 0.8rem;
+    }
+
     .options-modal {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
       .edit-icon {
         padding: 0.5rem;
         border-radius: 0.5rem;
@@ -112,6 +128,12 @@ export const MotoristasContainer = styled.div`
 
         cursor: pointer;
         background-color: ${(props) => props.theme.status.error};
+      }
+
+      .options {
+        button:disabled {
+          cursor: not-allowed;
+        }
       }
     }
   }

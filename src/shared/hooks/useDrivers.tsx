@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import { api } from "../../utils/api";
+import { AuthContext } from "../context/AuthContext";
 
 interface IDriverProviderProps {
   children: ReactNode;
@@ -40,6 +41,7 @@ export function DriversProvider({
   children,
 }: IDriverProviderProps): JSX.Element {
   const [driver, setDrivers] = useState<IDriver[]>([]);
+  const { token } = useContext(AuthContext);
 
   async function createDriver(data: IDriver) {
     try {
@@ -63,7 +65,6 @@ export function DriversProvider({
   }
 
   const editDriver = async (editDriver: IEditDriver, idUsuario: number) => {
-    console.log(idUsuario);
     try {
       const response = await fetch(
         `${api}/motorista?idMotorista=${idUsuario}`,
@@ -91,19 +92,16 @@ export function DriversProvider({
   const deleteDriver = async (idUsuario: number) => {
     console.log(idUsuario);
     try {
-      const response = await fetch(
-        `${api}/motorista?idMotorista=${idUsuario}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`${api}/usuario?idUsuario=${idUsuario}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
       console.log();
       if (response.ok) {
         getDrivers();
-
         console.log("Motorista removido com sucesso!");
       } else {
         console.log("Erro ao remover motorista!");
@@ -114,13 +112,16 @@ export function DriversProvider({
   };
 
   const getDrivers = () => {
-    fetch(api + "usuario/motoristas-livres?page=0&size=7", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
-        "content-type": "application/json",
-      },
-    })
+    fetch(
+      api + "usuario/listar-por-cargo?cargo=ROLE_MOTORISTA&page=0&size=15",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         setDrivers(data.elementos), console.log(data.elementos);

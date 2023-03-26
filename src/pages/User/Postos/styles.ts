@@ -105,7 +105,7 @@ export const PostosContainer = styled.main`
     opacity: 0.4;
   }
 
-  .trip {
+  .posto {
     display: grid;
     width: 100%;
     font-size: 1.6rem;
