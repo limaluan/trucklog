@@ -43,10 +43,10 @@ export function EditDriverModal({
                 usuario: data.usuario,
                 senha: data.senha,
                 email: data.email,
-                cnh: data.cnh,
+                documento: data.cnh,
                 idUsuario: data.idUsuario,
                 status: "ATIVO" || "INATIVO",
-                statusMotorista: "DISPONIVEL" || "EM_ESTRADA",
+                // statusMotorista: "DISPONIVEL" || "EM_ESTRADA",
               },
               idUsuario
             );

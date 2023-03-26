@@ -23,6 +23,11 @@ export const Motoristas = () => {
     setIdUsuario(idUsuario);
     setDriverName(driverName);
   };
+  const handleEditModal = (idUsuario: number, driverName: string) => {
+    setIsEditDriverModalOpen(true);
+    setIdUsuario(idUsuario);
+    setDriverName(driverName);
+  };
 
   return (
     <MotoristasContainer>
@@ -52,14 +57,57 @@ export const Motoristas = () => {
             Nome <i className="ph ph-arrow-down"></i>
           </p>
           <p>CNH</p>
-          <p>Situação</p>
+          <p>Cargo</p>
           <p>Status</p>
         </div>
 
         <div className="drivers-body">
-          {/* {drivers.forEach((driver) => {
-            <p>{driver.nome}</p>;
-           })} */}
+          {drivers
+            .filter((driver) =>
+              driver.nome
+                .toLocaleLowerCase()
+                .includes(searchDriver.toLowerCase())
+            )
+
+            .sort((item) => {
+              return item.status === "ATIVO" ? -1 : 1;
+            })
+            .map((driver) => (
+              <div className="driver" key={driver.idUsuario}>
+                <p>{driver.nome}</p>
+                <p>{driver.documento}</p>
+                <p>{driver.documento}</p>
+
+                <div className="options-modal">
+                  {" "}
+                  <p
+                    className={
+                      driver.status === "ATIVO" ? "active" : "inactive"
+                    }
+                  >
+                    {driver.status}
+                  </p>
+                  <div className="options">
+                    <button
+                      className="edit-icon"
+                      onClick={() =>
+                        handleEditModal(driver.idUsuario, driver.nome)
+                      }
+                    >
+                      <i className="ph ph-pencil"></i>
+                    </button>
+                    <button
+                      className="delete-icon"
+                      onClick={() =>
+                        handleDeleteModal(driver.idUsuario, driver.nome)
+                      }
+                    >
+                      <i className="ph ph-trash"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
         </div>
       </main>
       <CreateDriverModal

@@ -11,15 +11,15 @@ interface IDriverProviderProps {
   children: ReactNode;
 }
 
-export interface IDriver<> {
+export interface IDriver {
   nome: string;
   usuario: string;
   senha: string;
   email: string;
-  cnh: number;
+  documento: number; // Era a CNH
   idUsuario: number;
   status: "ATIVO" | "INATIVO";
-  statusMotorista: "DISPONIVEL" | "EM_ESTRADA";
+  //statusMotorista: "DISPONIVEL" | "EM_ESTRADA"; removido do backend
 }
 
 export interface IEditDriver extends IDriver {
