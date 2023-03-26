@@ -9,22 +9,25 @@ import {
 
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
+import { UserProvider } from "../hooks/useLoginUser";
 
 export const ColaboratorLayout = () => {
   const { token } = useContext(AuthContext);
 
   return token ? (
-    <TripsProvider>
-      <TrucksProvider>
-        <DriversProvider>
-          <GasStationProvider>
-            <Sidenav>
-              <Outlet />
-            </Sidenav>
-          </GasStationProvider>
-        </DriversProvider>
-      </TrucksProvider>
-    </TripsProvider>
+    <UserProvider>
+      <TripsProvider>
+        <TrucksProvider>
+          <DriversProvider>
+            <GasStationProvider>
+              <Sidenav>
+                <Outlet />
+              </Sidenav>
+            </GasStationProvider>
+          </DriversProvider>
+        </TrucksProvider>
+      </TripsProvider>
+    </UserProvider>
   ) : (
     <Navigate to="/login" />
   );
