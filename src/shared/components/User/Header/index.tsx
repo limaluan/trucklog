@@ -1,13 +1,14 @@
 import { HeaderContainer } from "./styles";
 import { AuthContext } from "../../../context/AuthContext";
 import { useContext } from "react";
+import { BasicMenu } from "../userMenu";
 
 interface IHeaderProps {
   handleOpenSidenav: () => void;
 }
 
 export const Header = ({ handleOpenSidenav }: IHeaderProps) => {
-  const { handleLogout } = useContext(AuthContext);
+  const { handleLogout, userLogin } = useContext(AuthContext);
 
   return (
     <HeaderContainer>
@@ -17,7 +18,8 @@ export const Header = ({ handleOpenSidenav }: IHeaderProps) => {
       </div>
 
       <div className="logout-container">
-        <button onClick={() => handleLogout()}>logout</button>
+        {/* <button onClick={() => handleLogout()}>logout</button> */}
+        <BasicMenu />
       </div>
     </HeaderContainer>
   );

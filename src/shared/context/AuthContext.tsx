@@ -9,6 +9,7 @@ interface IChildren {
 interface IAuthContext {
   handleLogin: (user: IUser) => Promise<void>;
   handleLogout: () => void;
+  getLoggedUsers: () => Promise<void>;
   token: string;
   userLogin: string;
 }
@@ -37,13 +38,23 @@ export const AuthProvider = ({ children }: IChildren) => {
 
       if (response.ok) {
         const token = await response.text();
-        const userLogin = user.login;
         localStorage.setItem("token", token);
         setToken(token);
+        navigate("/usuario/dashboard");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-        setUserLogin(userLogin);
-
-        navigate("/usuario/");
+  const getLoggedUsers = async () => {
+    try {
+      const response = await fetch(`${api}/auth/usuario-logado`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (response.ok) {
+        const loggedUser = await response.json();
+        setUserLogin(loggedUser.nome);
       }
     } catch (error) {
       console.error(error);
@@ -58,7 +69,7 @@ export const AuthProvider = ({ children }: IChildren) => {
 
   return (
     <AuthContext.Provider
-      value={{ handleLogin, handleLogout, token, userLogin }}
+      value={{ handleLogin, handleLogout, getLoggedUsers, token, userLogin }}
     >
       {children}
     </AuthContext.Provider>
