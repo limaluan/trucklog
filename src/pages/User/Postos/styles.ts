@@ -22,6 +22,7 @@ export const PostosContainer = styled.main`
     height: 90vh;
     display: flex;
     flex-direction: column;
+    font-family: "Red Hat Display", sans-serif;
   }
 
   .user-trail {

@@ -60,7 +60,7 @@ export const MotoristasContainer = styled.div`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 3.2rem 1.5rem 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
@@ -79,6 +79,9 @@ export const MotoristasContainer = styled.div`
     margin-bottom: 2.5rem;
     overflow-y: scroll;
   }
+  .inativo {
+    opacity: 0.4;
+  }
 
   .driver {
     display: grid;
@@ -86,55 +89,51 @@ export const MotoristasContainer = styled.div`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
-    i,
-    .delete-icon {
-      padding: 0.5rem;
-      border-radius: 0.5rem;
-      color: ${(props) => props.theme.white};
-      background-color: ${(props) => props.theme.status.warning};
-      cursor: pointer;
-    }
-
-    .delete-icon {
-      background-color: ${(props) => props.theme.status.error};
-    }
-
-    div.success,
-    div.finished {
-      display: flex;
-      justify-content: space-between;
-      margin-left: 1.5rem;
-      flex-direction: row;
-      gap: 0.8rem;
-      button {
-        background-color: transparent;
-        padding: 0;
-      }
-    }
-
     :hover {
       background-color: ${(props) => props.theme.background};
       transition: background-color 0.2s;
     }
 
-    p.finished {
+    .options-modal .inativo {
       color: ${(props) => props.theme.status.error};
-      filter: brightness(0.9);
     }
 
-    p.success {
+    .options-modal .ativo {
       color: ${(props) => props.theme.status.success};
-      filter: brightness(0.9);
     }
-    .containerEmail {
+
+    .options {
       display: flex;
-      justify-content: space-between;
       gap: 0.8rem;
-      button {
-        padding: 0;
-        background: transparent;
+    }
+
+    .options-modal {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .edit-icon {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        color: ${(props) => props.theme.white};
+        background-color: ${(props) => props.theme.status.warning};
+        cursor: pointer;
+      }
+
+      .delete-icon {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        color: ${(props) => props.theme.white};
+
+        cursor: pointer;
+        background-color: ${(props) => props.theme.status.error};
+      }
+
+      .options {
+        button:disabled {
+          cursor: not-allowed;
+        }
       }
     }
   }

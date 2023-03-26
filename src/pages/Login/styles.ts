@@ -5,7 +5,9 @@ export const LoginContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 
-  font-family: "Red Hat Display", sans-serif;
+  body {
+    font-family: "Red Hat Display", sans-serif;
+  }
 
   form {
     height: 100vh;
@@ -16,6 +18,7 @@ export const LoginContainer = styled.div`
 
   input {
     all: unset;
+    width: 100%;
   }
 
   button {

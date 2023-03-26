@@ -9,6 +9,7 @@ import { api } from "../../utils/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { IApiError } from "../../@types/api";
+import { AuthContext } from "../context/AuthContext";
 
 interface IGasStationProviderProps {
   children: ReactNode;
@@ -47,12 +48,14 @@ export function GasStationProvider({
   children,
 }: IGasStationProviderProps): JSX.Element {
   const [gasStations, setGasStations] = useState<IGasStations[]>([]);
+  const { token } = useContext(AuthContext);
 
   const getGasStations = () => {
     fetch(api + "posto", {
+      method: "GET",
       headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5Nzg4ODAwLCJleHAiOjE2Nzk5Mzg3MTN9.ElW-GmtSWT7KLNAp_WhwnUeDwzlZJaHZsjDCr7bL7r0",
+        Authorization: `Bearer ${token}`,
+        "Content-type": "application/json",
       },
     })
       .then((response) => response.json())
@@ -63,13 +66,13 @@ export function GasStationProvider({
   }, []);
 
   const addNewGasStation = async (gasStationdata: IGasStationData) => {
-    console.log("entrou", gasStationdata);
+    // console.log("entrou", gasStationdata);
     try {
       const response = await fetch(api + `/posto?idColaborador=42`, {
         method: "POST",
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5Nzg4ODAwLCJleHAiOjE2Nzk5Mzg3MTN9.ElW-GmtSWT7KLNAp_WhwnUeDwzlZJaHZsjDCr7bL7r0",
+            `Bearer ${token}`,
           "Content-type": "application/json",
         },
         body: JSON.stringify(gasStationdata),
@@ -109,7 +112,7 @@ export function GasStationProvider({
           method: "PUT",
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5Nzg4ODAwLCJleHAiOjE2Nzk5Mzg3MTN9.ElW-GmtSWT7KLNAp_WhwnUeDwzlZJaHZsjDCr7bL7r0",
+              `Bearer ${token}`,
             "Content-type": "application/json",
           },
           body: JSON.stringify(gasStationdata),
@@ -143,7 +146,7 @@ export function GasStationProvider({
         method: "DELETE",
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5Nzg4ODAwLCJleHAiOjE2Nzk5Mzg3MTN9.ElW-GmtSWT7KLNAp_WhwnUeDwzlZJaHZsjDCr7bL7r0",
+            `Bearer ${token}`,
           "Content-type": "application/json",
         },
       });

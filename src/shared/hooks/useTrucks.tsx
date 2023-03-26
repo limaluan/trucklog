@@ -9,6 +9,7 @@ import { api } from "../../utils/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { IApiError } from "../../@types/api";
+import { AuthContext } from "../context/AuthContext";
 
 interface ITruckProviderProps {
   children: ReactNode;
@@ -38,12 +39,13 @@ const TrucksContext = createContext({} as ITruckContextData);
 
 export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
   const [trucks, setTrucks] = useState<ITruck[]>([]);
+  const { token } = useContext(AuthContext);
 
   const getTrucks = () => {
     fetch(api + "caminhao", {
       headers: {
         Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5Nzg4ODAwLCJleHAiOjE2Nzk5Mzg3MTN9.ElW-GmtSWT7KLNAp_WhwnUeDwzlZJaHZsjDCr7bL7r0",
+          `Bearer ${token}`,
       },
     })
       .then((response) => response.json())

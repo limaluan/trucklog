@@ -1,9 +1,9 @@
 import { useState } from "react";
 import {
-  DeleteDriverModal,
-  EditDriverModal,
   CreateDriverModal,
-} from "../../../shared/components/User/Modals";
+  EditDriverModal,
+  DeleteDriverModal,
+} from "../../../shared/components/User/Modals/";
 
 import { useDrivers } from "../../../shared/hooks/useDrivers";
 import { MotoristasContainer } from "./styles";
@@ -18,12 +18,14 @@ export const Motoristas = () => {
   const [isDeleteDriverModalOpen, setIsDeleteDriverModalOpen] = useState(false);
   const [driverName, setDriverName] = useState("");
   const [idUsuario, setIdUsuario] = useState(0);
-  const handleOpenModal = (idUsuario: number) => {
-    setIsEditDriverModalOpen(true);
-    setIdUsuario(idUsuario);
-  };
+
   const handleDeleteModal = (idUsuario: number, driverName: string) => {
     setIsDeleteDriverModalOpen(true);
+    setIdUsuario(idUsuario);
+    setDriverName(driverName);
+  };
+  const handleEditModal = (idUsuario: number, driverName: string) => {
+    setIsEditDriverModalOpen(true);
     setIdUsuario(idUsuario);
     setDriverName(driverName);
   };
@@ -38,12 +40,12 @@ export const Motoristas = () => {
         </div>
 
         <h2 className="title-page">Motoristas</h2>
-        <button
+        {/* <button
           className="create-button"
           onClick={() => setIsCreateDriverModalOpen(true)}
         >
           Cadastrar Motorista <i className="ph ph-plus"></i>
-        </button>
+        </button> */}
         <input
           value={searchDriver}
           onChange={(e) => setSearchDrivers(e.target.value)}
@@ -56,7 +58,6 @@ export const Motoristas = () => {
             Nome <i className="ph ph-arrow-down"></i>
           </p>
           <p>CNH</p>
-          <p>Situação</p>
           <p>Status</p>
         </div>
 
@@ -72,43 +73,39 @@ export const Motoristas = () => {
               return item.status === "ATIVO" ? -1 : 1;
             })
             .map((driver) => (
-              <div className="driver" key={driver.idUsuario}>
+              <div
+                className={
+                  driver.status === "ATIVO" ? "driver" : "driver inativo"
+                }
+                key={driver.idUsuario}
+              >
                 <p>{driver.nome}</p>
-                <p>{driver.cnh}</p>
-                <p
-                  className={
-                    driver.statusMotorista === "DISPONIVEL"
-                      ? "success"
-                      : "finished"
-                  }
-                >
-                  {driver.statusMotorista.replace("_", " ")}
-                </p>
-                <div className="containerEmail">
-                  <p>{driver.status} </p>
-                  <div />
+                <p>{driver.documento}</p>
 
-                  <div
-                    className={
-                      driver.status === "ATIVO" ? "success" : "finished"
-                    }
+                <div className="options-modal">
+                  <p
+                    className={driver.status === "ATIVO" ? "ativo" : "inativo"}
                   >
-                    <button onClick={() => handleOpenModal(driver.idUsuario)}>
+                    {driver.status}
+                  </p>
+                  <div className="options">
+                    {/* <button
+                      className="edit-icon"
+                      onClick={() =>
+                        handleEditModal(driver.idUsuario, driver.nome)
+                      }
+                    >
                       <i className="ph ph-pencil"></i>
+                    </button> */}
+                    <button
+                      className="delete-icon"
+                      disabled={driver.status === "INATIVO" ? true : false}
+                      onClick={() =>
+                        handleDeleteModal(driver.idUsuario, driver.nome)
+                      }
+                    >
+                      <i className="ph ph-trash"></i>
                     </button>
-                    <div className="btn-container">
-                      <button
-                        onClick={() =>
-                          handleDeleteModal(driver.idUsuario, driver.nome)
-                        }
-                        disabled={driver.status === "ATIVO" ? false : true}
-                      >
-                        <i
-                          title="Deletar Posto"
-                          className="ph ph-trash delete-icon"
-                        ></i>
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
