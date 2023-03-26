@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }: IChildren) => {
         const token = await response.text();
         localStorage.setItem("token", token);
         setToken(token);
-        navigate("/usuario/");
+        navigate("/usuario/dashboard");
       }
     } catch (error) {
       console.error(error);

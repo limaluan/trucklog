@@ -28,7 +28,11 @@ export function BasicMenu() {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-        sx={{ fontFamily: "Poppins, sans-serif", fontSize: "1.4rem" }}
+        sx={{
+          fontFamily: "Poppins, sans-serif",
+          fontSize: "1.4rem",
+          width: "100%",
+        }}
       >
         {userLogin}
       </Button>
