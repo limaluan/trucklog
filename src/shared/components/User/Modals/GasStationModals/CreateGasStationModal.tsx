@@ -32,12 +32,14 @@ export function CreateGasStationModal({
         <h2>Cadastrar Posto</h2>
         <form
           className="form-container"
-          onSubmit={handleSubmit((data: FieldValues) =>
-            addNewGasStation({
+          onSubmit={handleSubmit(async (data: FieldValues) => {
+            const response = await addNewGasStation({
               nome: data.nome,
               valorCombustivel: data.valorCombustivel,
-            })
-          )}
+            });
+
+            return response && onRequestClose();
+          })}
         >
           <label htmlFor="nome">Nome do Posto</label>
           <input

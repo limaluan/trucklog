@@ -8,6 +8,8 @@ import {
 import { api } from "../../utils/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { IApiError } from "../../@types/api";
+import { AuthContext } from "../context/AuthContext";
 
 interface ITruckProviderProps {
   children: ReactNode;
@@ -21,11 +23,6 @@ interface ITruck {
   statusCaminhao: "ESTACIONADO" | "EM_VIAGEM";
   status: "ATIVO" | "INATIVO";
   idUsuario: number;
-}
-
-interface ICreateTruckErrors {
-  message?: string;
-  errors?: string[];
 }
 
 interface ITruckContextData {
@@ -42,9 +39,15 @@ const TrucksContext = createContext({} as ITruckContextData);
 
 export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
   const [trucks, setTrucks] = useState<ITruck[]>([]);
+  const { token } = useContext(AuthContext);
 
   const getTrucks = () => {
-    fetch(api + "caminhao")
+    fetch(api + "caminhao", {
+      headers: {
+        Authorization:
+          `Bearer ${token}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => setTrucks(data));
   };
@@ -66,7 +69,7 @@ export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
       const data = await response.json();
 
       if (!response.ok) {
-        const error = data as ICreateTruckErrors;
+        const error = data as IApiError;
         error?.errors
           ? error.errors.forEach((errorMsg) => {
               return toast.error(errorMsg);

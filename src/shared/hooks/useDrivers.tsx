@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import { api } from "../../utils/api";
+import { AuthContext } from "../context/AuthContext";
 
 interface IDriverProviderProps {
   children: ReactNode;
@@ -16,10 +17,10 @@ export interface IDriver {
   usuario: string;
   senha: string;
   email: string;
-  cnh: number;
+  documento: number; // Era a CNH
   idUsuario: number;
   status: "ATIVO" | "INATIVO";
-  statusMotorista: "DISPONIVEL" | "EM_ESTRADA";
+  //statusMotorista: "DISPONIVEL" | "EM_ESTRADA"; removido do backend
 }
 
 export interface IEditDriver extends IDriver {
@@ -40,12 +41,15 @@ export function DriversProvider({
   children,
 }: IDriverProviderProps): JSX.Element {
   const [driver, setDrivers] = useState<IDriver[]>([]);
+  const { token } = useContext(AuthContext);
 
   async function createDriver(data: IDriver) {
     try {
-      const response = await fetch(api + "motorista", {
+      const response = await fetch(api + "motorista/usuarios", {
         method: "POST",
         headers: {
+          Authorization: `Bearer ${token}`,
+
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
@@ -56,20 +60,21 @@ export function DriversProvider({
       } else {
         console.log("Erro ao cadastrar motorista!");
       }
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.log(error);
     }
   }
 
   const editDriver = async (editDriver: IEditDriver, idUsuario: number) => {
-    console.log(idUsuario);
     try {
       const response = await fetch(
         `${api}/motorista?idMotorista=${idUsuario}`,
         {
           method: "PUT",
           headers: {
+            Authorization: `Bearer ${token}`,
+
             "Content-Type": "application/json",
           },
           body: JSON.stringify(editDriver),
@@ -91,19 +96,16 @@ export function DriversProvider({
   const deleteDriver = async (idUsuario: number) => {
     console.log(idUsuario);
     try {
-      const response = await fetch(
-        `${api}/motorista?idMotorista=${idUsuario}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`${api}/usuario?idUsuario=${idUsuario}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
       console.log();
       if (response.ok) {
         getDrivers();
-
         console.log("Motorista removido com sucesso!");
       } else {
         console.log("Erro ao remover motorista!");
@@ -114,9 +116,20 @@ export function DriversProvider({
   };
 
   const getDrivers = () => {
-    fetch(api + "motorista")
+    fetch(
+      api + "usuario/listar-por-cargo?cargo=ROLE_MOTORISTA&page=0&size=15",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "content-type": "application/json",
+        },
+      }
+    )
       .then((response) => response.json())
-      .then((data) => setDrivers(data));
+      .then((data) => {
+        setDrivers(data.elementos);
+      });
   };
 
   useEffect(() => {

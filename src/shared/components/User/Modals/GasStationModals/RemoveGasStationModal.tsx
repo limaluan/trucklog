@@ -34,11 +34,14 @@ export function RemoveGasStationModal({
           <div className="delete-btn-container">
             <button
               className="delete-btn"
-              onClick={() => removeGasStation(idPosto)}
+              onClick={async () => {
+                const response = await removeGasStation(idPosto);
+                return response && onRequestClose();
+              }}
             >
               Deletar
             </button>
-            <button className="canceal-btn" onClick={() => alert("cancelar")}>
+            <button className="canceal-btn" onClick={onRequestClose}>
               Cancelar
             </button>
           </div>

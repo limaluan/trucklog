@@ -1,6 +1,6 @@
 import Modal from "react-modal";
-import { ModalContainer } from "./styles";
-import { useDrivers } from "../../../hooks/useDrivers";
+import { ModalContainer } from "../styles";
+import { useDrivers } from "../../../../hooks/useDrivers";
 
 // interface IEditDriver {
 //   nome: string;
