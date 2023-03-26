@@ -32,7 +32,11 @@ export function TripsProvider({ children }: ITripProviderProps): JSX.Element {
   const [trips, setTrips] = useState<ITrip[]>([]);
 
   useEffect(() => {
-    fetch(api + "viagem")
+    fetch(api + "viagem", {
+      headers: {
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5Nzg4ODAwLCJleHAiOjE2Nzk5Mzg3MTN9.ElW-GmtSWT7KLNAp_WhwnUeDwzlZJaHZsjDCr7bL7r0"
+      }
+    })
       .then((response) => response.json())
       .then((data) => setTrips(data));
   }, []);

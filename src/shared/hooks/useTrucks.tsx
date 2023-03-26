@@ -8,6 +8,7 @@ import {
 import { api } from "../../utils/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { IApiError } from "../../@types/api";
 
 interface ITruckProviderProps {
   children: ReactNode;
@@ -21,11 +22,6 @@ interface ITruck {
   statusCaminhao: "ESTACIONADO" | "EM_VIAGEM";
   status: "ATIVO" | "INATIVO";
   idUsuario: number;
-}
-
-interface ICreateTruckErrors {
-  message?: string;
-  errors?: string[];
 }
 
 interface ITruckContextData {
@@ -44,7 +40,12 @@ export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
   const [trucks, setTrucks] = useState<ITruck[]>([]);
 
   const getTrucks = () => {
-    fetch(api + "caminhao")
+    fetch(api + "caminhao", {
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5Nzg4ODAwLCJleHAiOjE2Nzk5Mzg3MTN9.ElW-GmtSWT7KLNAp_WhwnUeDwzlZJaHZsjDCr7bL7r0",
+      },
+    })
       .then((response) => response.json())
       .then((data) => setTrucks(data));
   };
@@ -66,7 +67,7 @@ export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
       const data = await response.json();
 
       if (!response.ok) {
-        const error = data as ICreateTruckErrors;
+        const error = data as IApiError;
         error?.errors
           ? error.errors.forEach((errorMsg) => {
               return toast.error(errorMsg);
