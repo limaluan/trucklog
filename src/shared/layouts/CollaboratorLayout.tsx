@@ -8,7 +8,7 @@ import {
 } from "../hooks";
 
 import { AuthContext } from "../context/AuthContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 export const ColaboratorLayout = () => {
   const { token } = useContext(AuthContext);

@@ -17,6 +17,10 @@ export const CaminhoesContainer = styled.div`
     margin: 0 auto;
   }
 
+  body {
+    font-family: "Red Hat Display", sans-serif;
+  }
+
   main {
     height: 90vh;
     display: flex;

@@ -46,16 +46,15 @@ export const AuthProvider = ({ children }: IChildren) => {
       console.error(error);
     }
   };
+
   const getLoggedUsers = async () => {
     try {
       const response = await fetch(`${api}/auth/usuario-logado`, {
-        method: "GET",
-        headers: { "Content-type": "application/json", Authorization: token },
+        headers: { Authorization: `Bearer ${token}` },
       });
-
       if (response.ok) {
         const loggedUser = await response.json();
-        setUserLogin(loggedUser);
+        setUserLogin(loggedUser.nome);
       }
     } catch (error) {
       console.error(error);
