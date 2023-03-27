@@ -32,16 +32,18 @@ export function EditRouteModal({
         <h3>{descricaoRota}</h3>
         <form
           className="form-container"
-          onSubmit={handleSubmit((data: FieldValues) =>
-            editRoute(
+          onSubmit={handleSubmit(async (data: FieldValues) => {
+            const isOk = await editRoute(
               {
                 descricao: data.descricao,
                 localPartida: data.localPartida,
                 localDestino: data.localDestino,
               },
               idRota
-            )
-          )}
+            );
+
+            isOk && onRequestClose();
+          })}
         >
           <label htmlFor="descricao">Descrição rota</label>
           <input

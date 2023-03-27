@@ -1,10 +1,9 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { IApiError } from "../../@types/api";
+
 import { api } from "../../utils/api";
 import { AuthContext } from "../context/AuthContext";
 
@@ -29,9 +28,9 @@ export interface IRoutes {
 
 interface IRoutesContextData {
   getRoutes: () => void;
-  createRoute: (route: IRoutesData) => Promise<void>;
-  editRoute: (route: IRoutesData, idRota: number) => Promise<void>;
-  deleteRoute: (idRota: number) => Promise<void>;
+  createRoute: (route: IRoutesData) => Promise<boolean>;
+  editRoute: (route: IRoutesData, idRota: number) => Promise<boolean>;
+  deleteRoute: (idRota: number) => Promise<boolean>;
   routes: IRoutes[];
 }
 
@@ -71,12 +70,24 @@ export function RouteProvider({ children }: IRoutesProviderProps): JSX.Element {
         body: JSON.stringify(route),
       });
 
-      if (response.ok) {
-        alert("Rota criada com sucesso!");
-        getRoutes();
+      const data = await response.json();
+
+      if (!response.ok) {
+        const error = data as IApiError;
+        error?.errors
+          ? error.errors.forEach((errorMsg) => {
+              return toast.error(errorMsg);
+            })
+          : toast.error(error.message);
+      } else {
+        toast.success("Rota Cadastrada!");
       }
-    } catch (error) {
-      console.error(error);
+
+      getRoutes();
+      return response.ok;
+    } catch (e) {
+      // console.log(e);
+      return false;
     }
   };
 
@@ -91,12 +102,25 @@ export function RouteProvider({ children }: IRoutesProviderProps): JSX.Element {
         body: JSON.stringify(route),
       });
 
-      if (response.ok) {
-        alert("Rota editada com sucesso!");
-        getRoutes();
+      const data = await response.json();
+
+      if (!response.ok) {
+        const error = data as IApiError;
+        error?.errors
+          ? error.errors.forEach((errorMsg) => {
+              return toast.error(errorMsg);
+            })
+          : toast.error(error.message);
+      } else {
+        toast.warning("Rota alterada!");
       }
-    } catch (error) {
-      console.error(error);
+
+      getRoutes();
+      toast.warning("Rota alterada!");
+      return response.ok;
+    } catch (e) {
+      // console.log(e);
+      return false;
     }
   };
 
@@ -111,18 +135,23 @@ export function RouteProvider({ children }: IRoutesProviderProps): JSX.Element {
       });
 
       if (response.ok) {
-        alert("Rota deletada com sucesso!");
-        getRoutes();
+        toast.warning("Rota deletada com sucesso!");
       }
     } catch (error) {
       console.error(error);
+      toast.error("Não foi possível deletar!");
+      return false;
     }
+
+    getRoutes();
+    return true;
   };
 
   return (
     <RouteContext.Provider
       value={{ getRoutes, createRoute, editRoute, deleteRoute, routes }}
     >
+      <ToastContainer style={{ zIndex: 9999999 }} />
       {children}
     </RouteContext.Provider>
   );

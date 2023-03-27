@@ -44,6 +44,12 @@ export const ModalContainer = styled.div`
         text-align: center;
         background-color: ${(props) => props.theme["gray-300"]};
       }
+
+      .delete-btn:hover,
+      .canceal-btn:hover {
+        filter: brightness(0.9);
+        transition: filter 150ms;
+      }
     }
   }
 

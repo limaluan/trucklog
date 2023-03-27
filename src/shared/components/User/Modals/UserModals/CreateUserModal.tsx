@@ -8,7 +8,7 @@ interface ICreateEntityModalPropsDriver {
   onRequestClose: () => void;
 }
 
-type ICargo = Pick<IUserComplete, "idCargo" | "idUsuario">;
+// type ICargo = Pick<IUserComplete, "idCargo" | "idUsuario">;
 
 export function CreateUserModal({
   isOpen,
@@ -27,7 +27,7 @@ export function CreateUserModal({
       ariaHideApp={false}
     >
       <ModalContainer>
-        <h2>Adicionar Usuário</h2>
+        <h2>Adicionar</h2>
         <form
           className="form-container"
           onSubmit={handleSubmit((data) => {

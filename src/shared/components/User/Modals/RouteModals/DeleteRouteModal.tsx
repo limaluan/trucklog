@@ -32,7 +32,13 @@ export function DeleteRouteModal({
             Rota: <strong>{descricaoRota}</strong>
           </p>
           <div className="delete-btn-container">
-            <button className="delete-btn" onClick={() => deleteRoute(idRota)}>
+            <button
+              className="delete-btn"
+              onClick={async () => {
+                const isOk = await deleteRoute(idRota);
+                isOk && onRequestClose();
+              }}
+            >
               Deletar
             </button>
             <button className="canceal-btn" onClick={() => onRequestClose()}>
