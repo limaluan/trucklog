@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { useGasStations } from "../../../shared/hooks/useGasStations";
-import { PostosContainer } from "./styles";
+import { useEffect, useState } from "react";
+import { useRoutes } from "../../../shared/hooks/useRoutes";
+import { RotasContainer } from "./styles";
 import {
   CreateGasStationModal,
   EditGasStationModal,
   RemoveGasStationModal,
 } from "../../../shared/components/User/Modals";
 
-export const Postos = () => {
-  const { gasStations } = useGasStations();
+export const Rotas = () => {
+  const { getRoutes, routes } = useRoutes();
   const [searchGasStation, setGasStation] = useState("");
   const [isCreateGasStationModalOpen, setIsCreateGasStationModalOpen] =
     useState(false);
@@ -34,21 +34,26 @@ export const Postos = () => {
     setGasStationName(namePosto);
   };
 
+  useEffect(() => {
+    getRoutes();
+    console.log(routes);
+  });
+
   return (
-    <PostosContainer>
+    <RotasContainer>
       <main className="content">
         <div className="user-trail">
           <span>Meu Painel</span>
           <span>{" > "}</span>
-          <a className="selected">Postos</a>
+          <a className="selected">Rotas</a>
         </div>
 
-        <h2 className="title-page">Postos</h2>
+        <h2 className="title-page">Rotas</h2>
         <button
           onClick={() => setIsCreateGasStationModalOpen(true)}
           className="create-button"
         >
-          Cadastrar Posto <i className="ph ph-plus"></i>
+          Cadastrar Rota <i className="ph ph-plus"></i>
         </button>
         <input
           value={searchGasStation}
@@ -65,7 +70,7 @@ export const Postos = () => {
           <p>Status -</p>
         </div>
 
-        <div className="gas-station-body ">
+        {/* <div className="gas-station-body ">
           {gasStations
             .sort((item) => {
               return item.status === "ATIVO" ? -1 : 1;
@@ -126,7 +131,7 @@ export const Postos = () => {
                 </div>
               </div>
             ))}
-        </div>
+        </div> */}
       </main>
 
       <CreateGasStationModal
@@ -146,6 +151,6 @@ export const Postos = () => {
         idPosto={idPostoRemove}
         namePosto={gasStationName}
       />
-    </PostosContainer>
+    </RotasContainer>
   );
 };

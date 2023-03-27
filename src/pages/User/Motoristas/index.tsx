@@ -40,12 +40,12 @@ export const Motoristas = () => {
         </div>
 
         <h2 className="title-page">Motoristas</h2>
-        <button
+        {/* <button
           className="create-button"
           onClick={() => setIsCreateDriverModalOpen(true)}
         >
           Cadastrar Motorista <i className="ph ph-plus"></i>
-        </button>
+        </button> */}
         <input
           value={searchDriver}
           onChange={(e) => setSearchDrivers(e.target.value)}
@@ -58,7 +58,6 @@ export const Motoristas = () => {
             Nome <i className="ph ph-arrow-down"></i>
           </p>
           <p>CNH</p>
-          <p>Cargo</p>
           <p>Status</p>
         </div>
 
@@ -74,31 +73,33 @@ export const Motoristas = () => {
               return item.status === "ATIVO" ? -1 : 1;
             })
             .map((driver) => (
-              <div className="driver" key={driver.idUsuario}>
+              <div
+                className={
+                  driver.status === "ATIVO" ? "driver" : "driver inativo"
+                }
+                key={driver.idUsuario}
+              >
                 <p>{driver.nome}</p>
-                <p>{driver.documento}</p>
                 <p>{driver.documento}</p>
 
                 <div className="options-modal">
-                  {" "}
                   <p
-                    className={
-                      driver.status === "ATIVO" ? "active" : "inactive"
-                    }
+                    className={driver.status === "ATIVO" ? "ativo" : "inativo"}
                   >
                     {driver.status}
                   </p>
                   <div className="options">
-                    <button
+                    {/* <button
                       className="edit-icon"
                       onClick={() =>
                         handleEditModal(driver.idUsuario, driver.nome)
                       }
                     >
                       <i className="ph ph-pencil"></i>
-                    </button>
+                    </button> */}
                     <button
                       className="delete-icon"
+                      disabled={driver.status === "INATIVO" ? true : false}
                       onClick={() =>
                         handleDeleteModal(driver.idUsuario, driver.nome)
                       }

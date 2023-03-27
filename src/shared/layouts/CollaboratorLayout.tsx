@@ -10,6 +10,7 @@ import {
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { UserProvider } from "../hooks/useUsers";
+import { RouteProvider } from "../hooks/useRoutes";
 
 export const ColaboratorLayout = () => {
   const { token } = useContext(AuthContext);
@@ -20,9 +21,11 @@ export const ColaboratorLayout = () => {
         <TrucksProvider>
           <DriversProvider>
             <GasStationProvider>
-              <Sidenav>
-                <Outlet />
-              </Sidenav>
+              <RouteProvider>
+                <Sidenav>
+                  <Outlet />
+                </Sidenav>
+              </RouteProvider>
             </GasStationProvider>
           </DriversProvider>
         </TrucksProvider>

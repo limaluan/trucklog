@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { LandingPage, Login } from "../pages";
-import { Viagens, Motoristas, Caminhoes, Postos } from "../pages/User";
+import { Viagens, Motoristas, Caminhoes, Postos, Rotas } from "../pages/User";
 import { AuthProvider } from "../shared/context/AuthContext";
 import { ColaboratorLayout } from "../shared/layouts/CollaboratorLayout";
 import { Dashboard } from "../pages/User/Dashboard/Dashboard";
@@ -21,6 +21,7 @@ export const AppRoutes = () => {
           <Route path="/usuario/motoristas" element={<Motoristas />} />
           <Route path="/usuario/caminhoes" element={<Caminhoes />} />
           <Route path="/usuario/postos" element={<Postos />} />
+          <Route path="/usuario/rotas" element={<Rotas />} />
         </Route>
       </Routes>
     </AuthProvider>
