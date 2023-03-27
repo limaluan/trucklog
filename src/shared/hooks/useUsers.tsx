@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import { api } from "../../utils/api";
+import { AuthContext } from "../context/AuthContext";
 
 interface IUserProps {
   children: ReactNode;
@@ -17,9 +18,9 @@ export interface IUser {
   nome: string;
   email: string;
   documento: string;
-  idUsuario?: number;
+  idUsuario: number;
   status?: "ATIVO" | "INATIVO";
-
+  idCargo?: number;
   //statusMotorista: "DISPONIVEL" | "EM_ESTRADA"; removido do backend
 }
 
@@ -57,6 +58,7 @@ export interface IUserComplete extends IUser {
 interface IRemoveUserData {
   idUsuario: number;
 }
+
 interface IEditUserData {
   nome: string;
   email: string;
@@ -64,28 +66,30 @@ interface IEditUserData {
   documento: string;
 }
 
-interface IUserContextData {
-  users: IUserComplete[];
+export interface IUserContextData {
+  users: IUser[];
   addNewUser: (userData: IUser) => Promise<void>;
   editUser: (user: IEditUserData, idUsuario: number) => Promise<void>;
   removeUser: (idUsuario: number) => Promise<void>;
+  setCargo: (userId: number, idCargo: number) => Promise<void>;
 }
 
 const UsersContext = createContext({} as IUserContextData);
 
 export function UserProvider({ children }: IUserProps): JSX.Element {
-  const [users, setUsers] = useState<IUserComplete[]>([]);
+  const [users, setUsers] = useState<IUser[]>([]);
+  const { token } = useContext(AuthContext);
 
   const getUsers = () => {
-    fetch(api + "usuario/relatorio-completo?page=0&size=71", {
+    fetch(api + "usuario", {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     })
       .then((response) => response.json())
-      .then((data) => setUsers(data.elementos));
+      .then((data) => setUsers(data));
   };
   useEffect(() => {
     getUsers();
@@ -103,9 +107,35 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
         },
         body: JSON.stringify(userData),
       });
-
+      if (response.ok) {
+        getUsers();
+        console.log("usuario cadastrado");
+      }
       console.log(response.status);
       console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const setCargo = async (userId: number, idCargo: number) => {
+    try {
+      const response = await fetch(
+        api + `cargo/cadastrar-usuario?idCargo=${idCargo}&idUsuario=${userId}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.ok) {
+        console.log(response.status);
+        console.log("cargo alterado");
+      } else {
+        console.log("erro no cargo");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -122,7 +152,11 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
         },
         body: JSON.stringify(userData),
       });
-      console.log(response);
+      if (response.ok) {
+        console.log("usuario alterado");
+      } else {
+        console.log("erro ao alterar usuario");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -138,6 +172,7 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
           "Content-Type": "application/json",
         },
       });
+
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -146,7 +181,9 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
   };
 
   return (
-    <UsersContext.Provider value={{ users, addNewUser, editUser, removeUser }}>
+    <UsersContext.Provider
+      value={{ users, addNewUser, editUser, removeUser, setCargo }}
+    >
       {children}
     </UsersContext.Provider>
   );

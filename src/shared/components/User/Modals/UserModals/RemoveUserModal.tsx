@@ -1,12 +1,10 @@
 import Modal from "react-modal";
 import { ModalContainer } from "../styles";
-
 import { useUsers } from "../../../../hooks/useUsers";
 
 interface ICreateEntityModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
-
   idUsuario: number;
   nomeUsuario: string;
 }
@@ -37,7 +35,11 @@ export function RemoveUserModal({
             <div className="delete-btn-container  ">
               <button
                 className="delete-btn"
-                onClick={() => removeUser(idUsuario)}
+                onClick={() =>
+                  removeUser(idUsuario).then(() => {
+                    onRequestClose();
+                  })
+                }
               >
                 Deletar
               </button>

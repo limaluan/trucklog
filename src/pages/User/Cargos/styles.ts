@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export const MotoristasContainer = styled.div`
+export const RolesContainer = styled.main`
   width: 100%;
+  overflow-x: hidden;
 
   input[type="text"] {
     all: unset;
@@ -21,6 +22,7 @@ export const MotoristasContainer = styled.div`
     height: 90vh;
     display: flex;
     flex-direction: column;
+    font-family: "Red Hat Display", sans-serif;
   }
 
   .user-trail {
@@ -54,13 +56,13 @@ export const MotoristasContainer = styled.div`
     }
   }
 
-  .drivers-header {
+  .gas-station-header {
     display: grid;
     width: 100%;
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 3.2rem 1.5rem 1rem;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
@@ -74,67 +76,76 @@ export const MotoristasContainer = styled.div`
     }
   }
 
-  .drivers-body {
+  .gas-station-body {
     flex: 1;
     margin-bottom: 2.5rem;
     overflow-y: scroll;
+
+    p {
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    i,
+    .delete-icon {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      color: ${(props) => props.theme.white};
+      background-color: ${(props) => props.theme.status.warning};
+      cursor: pointer;
+    }
+
+    .delete-icon {
+      background-color: ${(props) => props.theme.status.error};
+    }
   }
+
   .inativo {
     opacity: 0.4;
   }
 
-  .driver {
+  .posto {
     display: grid;
     width: 100%;
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
+
     :hover {
       background-color: ${(props) => props.theme.background};
       transition: background-color 0.2s;
     }
 
-    .options-modal .inativo {
+    div.inativo,
+    div.ativo {
+      display: flex;
+      justify-content: space-between;
+
+      .btn-container {
+        display: flex;
+        gap: 0.8rem;
+
+        button {
+          background-color: transparent;
+          padding: 0;
+        }
+      }
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+    }
+
+    div.inativo {
       color: ${(props) => props.theme.status.error};
     }
 
-    .options-modal .ativo {
+    div.ativo {
       color: ${(props) => props.theme.status.success};
-    }
-
-    .options {
-      display: flex;
-      gap: 0.8rem;
-    }
-
-    .options-modal {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .edit-icon {
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        color: ${(props) => props.theme.white};
-        background-color: ${(props) => props.theme.status.warning};
-        cursor: pointer;
-      }
-
-      .delete-icon {
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        color: ${(props) => props.theme.white};
-
-        cursor: pointer;
-        background-color: ${(props) => props.theme.status.error};
-      }
-
-      .options {
-        button:disabled {
-          cursor: not-allowed;
-        }
-      }
     }
   }
 

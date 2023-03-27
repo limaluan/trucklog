@@ -8,6 +8,7 @@ interface IEditUser {
   nome: string;
   senha: string;
   documento: string;
+  email: string;
 }
 
 interface IEditUserModalProps {
@@ -33,24 +34,21 @@ export function EditUserModal({
       ariaHideApp={false}
     >
       <ModalContainer>
-        <h2>Editar Motorista</h2>
+        <h2>Editar Usuario</h2>
         <form
           className="form-container"
-          onSubmit={(event) => {
-            event.preventDefault();
-            handleSubmit((data: FieldValues) => {
-              idUsuario == data.idUsuario;
-              editUser(
-                {
-                  nome: data.nome,
-                  senha: data.senha,
-                  documento: data.documento,
-                  email: data.email,
-                },
-                idUsuario
-              );
-            });
-          }}
+          onSubmit={handleSubmit((data: FieldValues) => {
+            editUser(
+              {
+                nome: data.nome,
+                senha: data.senha,
+                email: data.email,
+                documento: data.documento,
+              },
+              idUsuario
+            );
+            onRequestClose(); // Close the modal after submitting the form
+          })}
         >
           <label htmlFor="name">Nome</label>
           <input
@@ -97,7 +95,7 @@ export function EditUserModal({
           />
 
           <button
-            type="submit"
+            type="button"
             form="form-container"
             onClick={() => {
               onRequestClose();

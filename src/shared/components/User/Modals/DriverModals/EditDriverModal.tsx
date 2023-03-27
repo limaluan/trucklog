@@ -1,7 +1,7 @@
 import Modal from "react-modal";
 import { ModalContainer } from "../styles";
 import { useForm, FieldValues } from "react-hook-form";
-import { useDrivers } from "../../../../hooks/useDrivers";
+import { useRoles } from "../../../../hooks/useRoles";
 
 interface IEditDriver {
   nome: string;
@@ -19,7 +19,7 @@ export function EditDriverModal({
   onRequestClose,
   idUsuario,
 }: IEditDriverModalProps) {
-  const { editDriver } = useDrivers();
+  const { editUserByRole } = useRoles();
   const { register, handleSubmit } = useForm();
 
   return (
@@ -31,21 +31,42 @@ export function EditDriverModal({
       ariaHideApp={false}
     >
       <ModalContainer>
-        <h2>Editar Motorista</h2>
+        <h2>Editar Usuario</h2>
         <form
           className="form-container"
           onSubmit={handleSubmit((data: FieldValues) => {
             idUsuario == data.idUsuario;
 
-            editDriver(
+            editUserByRole(
               {
-                nome: data.nome,
-                usuario: data.usuario,
-                senha: data.senha,
-                email: data.email,
-                documento: data.cnh,
                 idUsuario: data.idUsuario,
-                status: "ATIVO" || "INATIVO",
+                login: data.login,
+                nomeUsuario: data.nomeUsuario,
+                email: data.email,
+                documento: data.documento,
+                statusUsuario: data.statusUsuario,
+                idCargo: data.idCargo,
+                nome: data.nome,
+                idCaminhao: data.idCaminhao,
+                modelo: data.modelo,
+                placa: data.placa,
+                nivelCombustivel: data.nivelCombustivel,
+                statusCaminhao: data.statusCaminhao,
+                statusGeralCaminhao: data.statusGeralCaminhao,
+                idRota: data.idRota,
+                descricaoRota: data.descricaoRota,
+                localPartida: data.localPartida,
+                localDestino: data.localDestino,
+                statusRota: data.statusRota,
+                idPosto: data.idPosto,
+                nomePosto: data.nomePosto,
+                valorCombustivel: data.valorCombustivel,
+                statusPosto: data.statusPosto,
+                idViagem: data.idViagem,
+                descricaoViagem: data.descricaoViagem,
+                dataInicio: data.dataInicio,
+                dataFim: data.dataFim,
+                statusViagem: data.statusViagem,
                 // statusMotorista: "DISPONIVEL" || "EM_ESTRADA",
               },
               idUsuario

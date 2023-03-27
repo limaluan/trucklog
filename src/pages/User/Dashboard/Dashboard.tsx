@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { useUsers } from "../../../shared/hooks/useUsers";
 import { UsersContainer } from "./styles";
@@ -6,19 +6,26 @@ import { AuthContext } from "../../../shared/context/AuthContext";
 import { EditUserModal } from "../../../shared/components/User/Modals/UserModals/EditUserModal";
 import { CreateUserModal } from "../../../shared/components/User/Modals/UserModals/CreateUserModal";
 import { RemoveUserModal } from "../../../shared/components/User/Modals/UserModals/RemoveUserModal";
+import { AddRoleModal } from "../../../shared/components/User/Modals";
 
 export const Dashboard = () => {
   const { users } = useUsers();
 
-  const { userLogin, getLoggedUsers } = useContext(AuthContext);
+  const { userLogin } = useContext(AuthContext);
   const [isCreateUserModalOpen, setIsCreateUserModalOpen] = useState(false);
   const [isEditUserModalOpen, setIsEditUserModalOpen] = useState(false);
   const [isRemoveUSerModalOpen, setIsRemoveUserModalOpen] = useState(false);
+  const [isAddRoleModalOpen, setIsAddRoleModalOpen] = useState(false);
 
   const [idUserEdit, setIdUserEdit] = useState(0);
   const [idUserRemove, setIdUserRemove] = useState(0);
 
   const [userName, setUserName] = useState("");
+
+  const handleAddRole = (idUsuario: number) => {
+    setIsAddRoleModalOpen(true);
+    setIdUserEdit(idUsuario);
+  };
 
   const handleOpenEditModal = (user: number) => {
     setIsEditUserModalOpen(true);
@@ -31,8 +38,11 @@ export const Dashboard = () => {
     setIdUserRemove(idUsuario);
   };
 
+  useEffect(() => {
+    document.title = "Dashboard | TruckLog"
+  }, []);
+  
   const [searchUser, setSearchUsers] = useState("");
-  const [selectedRole, setSelectedRole] = useState("all");
   return (
     <UsersContainer>
       <main className="content">
@@ -61,67 +71,58 @@ export const Dashboard = () => {
             Nome <i className="ph ph-arrow-down"></i>
           </p>
           <p>Documento -</p>
-          <p>
-            <select
-              className="select"
-              onChange={(e) => setSelectedRole(e.target.value)}
-            >
-              <option value="all">Todas</option>
-              <option value="1">Administrador </option>
-              <option value="2">Colaborador</option>
-              <option value="3">Motorista</option>-{" "}
-            </select>
-            <i className="ph ph-arrow-down"></i>
-          </p>
+
           <p>Status - </p>
         </div>
 
         <div className="gas-station-body ">
           {users
             .sort((user) => {
-              return user.statusUsuario === "ATIVO" ? -1 : 1;
+              return user.status === "ATIVO" ? -1 : 1;
             })
 
             .filter((user) =>
-              user.nomeUsuario.toLowerCase().includes(searchUser.toLowerCase())
+              user.nome.toLowerCase().includes(searchUser.toLowerCase())
             )
             .map((user) => (
               <div
                 className={
-                  user.statusUsuario === "ATIVO" ? "trip ativo" : "trip inativo"
+                  user.status === "ATIVO" ? "trip ativo" : "trip inativo"
                 }
                 key={user.idUsuario}
               >
-                <p>{user.nomeUsuario}</p>
+                <p>{user.nome}</p>
                 <div>
                   <p>{user.documento}</p>
                 </div>
 
-                <div>
-                  <p>{user.nome.replace("ROLE_", "")}</p>
-                </div>
-                <div
-                  className={
-                    user.statusUsuario === "ATIVO" ? "ativo" : "inativo"
-                  }
-                >
-                  {user.statusUsuario}
+                <div className={user.status === "ATIVO" ? "ativo" : "inativo"}>
+                  {user.status}
                   <div className="btn-container">
                     <button
-                      onClick={() => handleOpenEditModal(user.idUsuario)}
-                      disabled={user.statusUsuario === "ATIVO" ? false : true}
+                      onClick={() => handleAddRole(user.idUsuario)}
+                      disabled={user.status === "ATIVO" ? false : true}
                     >
-                      <i title="Editar Posto" className="ph ph-pencil"></i>
+                      <i
+                        title="Editar cargos "
+                        className="ph ph-address-book"
+                      ></i>
+                    </button>
+                    <button
+                      onClick={() => handleOpenEditModal(user.idUsuario)}
+                      disabled={user.status === "ATIVO" ? false : true}
+                    >
+                      <i title="Editar User" className="ph ph-pencil"></i>
                     </button>
 
                     <button
                       onClick={() =>
-                        handleRemoveUserModal(user.idUsuario, user.nomeUsuario)
+                        handleRemoveUserModal(user.idUsuario, user.nome)
                       }
-                      disabled={user.statusUsuario === "ATIVO" ? false : true}
+                      disabled={user.status === "ATIVO" ? false : true}
                     >
                       <i
-                        title="Deletar Posto"
+                        title="Deletar User"
                         className="ph ph-trash delete-icon"
                       ></i>
                     </button>
@@ -149,6 +150,11 @@ export const Dashboard = () => {
         onRequestClose={() => setIsRemoveUserModalOpen(false)}
         idUsuario={idUserRemove}
       />
+      <AddRoleModal
+        isOpen={isAddRoleModalOpen}
+        onRequestClose={() => setIsAddRoleModalOpen(false)}
+        idUsuario={idUserEdit}
+      ></AddRoleModal>
     </UsersContainer>
   );
 };
