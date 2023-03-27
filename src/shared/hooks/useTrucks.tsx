@@ -28,6 +28,7 @@ interface ITruck {
 interface ITruckContextData {
   trucks: ITruck[];
   createTruck: (truckData: ICreateTruckDTO) => Promise<boolean>;
+  editTruck: (id: number, nivelGasolina: number) => Promise<boolean>;
 }
 
 export type ICreateTruckDTO = Pick<
@@ -44,8 +45,7 @@ export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
   const getTrucks = () => {
     fetch(api + "caminhao", {
       headers: {
-        Authorization:
-          `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     })
       .then((response) => response.json())
@@ -61,6 +61,7 @@ export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
       const response = await fetch(api + `caminhao?idColaborador=42`, {
         method: "POST",
         headers: {
+          Authorization: `Bearer ${token}`,
           "Content-type": "application/json",
         },
         body: JSON.stringify(truckData),
@@ -87,8 +88,30 @@ export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
     }
   };
 
+  const editTruck = async (id: number, gas: number) => {
+    try {
+      const response = await fetch(
+        api +
+          `/caminhao/abastecer?idCaminhao=${id}&Quantidade%20de%20gasolina=${gas}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-type": "application/json",
+          },
+        }
+      );
+
+      getTrucks();
+      return response.ok;
+    } catch (e) {
+      toast.error("Quantidade de gasolina inválida.");
+      return false;
+    }
+  };
+
   return (
-    <TrucksContext.Provider value={{ trucks, createTruck }}>
+    <TrucksContext.Provider value={{ trucks, createTruck, editTruck }}>
       {children}
       <ToastContainer style={{ zIndex: 9999999 }} />
     </TrucksContext.Provider>
