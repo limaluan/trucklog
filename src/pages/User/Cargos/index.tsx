@@ -133,7 +133,7 @@ export const Roles = () => {
         isOpen={isDeleteByRoleModalOpen}
         onRequestClose={() => setIsDeleteByRoleModalOpen(false)}
         idUsuario={idUsuario}
-        nome={userName}
+        nomeUsuario={userName}
       />
     </RolesContainer>
   );

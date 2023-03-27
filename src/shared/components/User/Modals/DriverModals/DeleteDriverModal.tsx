@@ -2,11 +2,6 @@ import Modal from "react-modal";
 import { ModalContainer } from "../styles";
 import { useRoles } from "../../../../hooks/useRoles";
 
-// interface IEditDriver {
-//   nome: string;
-//   senha: string;
-// }
-
 interface ICreateEntityModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
