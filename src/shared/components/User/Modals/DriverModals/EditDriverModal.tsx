@@ -31,7 +31,7 @@ export function EditDriverModal({
       ariaHideApp={false}
     >
       <ModalContainer>
-        <h2>Editar Motorista</h2>
+        <h2>Editar Usuario</h2>
         <form
           className="form-container"
           onSubmit={handleSubmit((data: FieldValues) => {

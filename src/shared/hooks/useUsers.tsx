@@ -121,7 +121,7 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
   const setCargo = async (userId: number, idCargo: number) => {
     try {
       const response = await fetch(
-        api + `cargo/cadastrar-usuario?idCargo=2&idUsuario=${userId}`,
+        api + `cargo/cadastrar-usuario?idCargo=${idCargo}&idUsuario=${userId}`,
         {
           method: "POST",
           headers: {
@@ -131,6 +131,7 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
         }
       );
       if (response.ok) {
+        console.log(response.status);
         console.log("cargo alterado");
       } else {
         console.log("erro no cargo");
@@ -151,7 +152,11 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
         },
         body: JSON.stringify(userData),
       });
-      console.log(response);
+      if (response.ok) {
+        console.log("usuario alterado");
+      } else {
+        console.log("erro ao alterar usuario");
+      }
     } catch (error) {
       console.log(error);
     }

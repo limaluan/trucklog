@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   CreateTruckModal,
   EditTruckModal,
@@ -24,6 +24,10 @@ export const Caminhoes = () => {
     setlicensePlate(truckLicensePlate);
   };
 
+  useEffect(() => {
+    document.title = "Caminhões | TruckLog"
+  }, []);
+  
   return (
     <>
       <CaminhoesContainer>

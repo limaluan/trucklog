@@ -38,7 +38,6 @@ export function EditUserModal({
         <form
           className="form-container"
           onSubmit={handleSubmit((data: FieldValues) => {
-            idUsuario == data.idUsuario;
             editUser(
               {
                 nome: data.nome,
