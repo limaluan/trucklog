@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { useUsers } from "../../../shared/hooks/useUsers";
 import { UsersContainer } from "./styles";
@@ -11,7 +11,7 @@ import { AddRoleModal } from "../../../shared/components/User/Modals";
 export const Dashboard = () => {
   const { users } = useUsers();
 
-  const { userLogin, getLoggedUsers } = useContext(AuthContext);
+  const { userLogin } = useContext(AuthContext);
   const [isCreateUserModalOpen, setIsCreateUserModalOpen] = useState(false);
   const [isEditUserModalOpen, setIsEditUserModalOpen] = useState(false);
   const [isRemoveUSerModalOpen, setIsRemoveUserModalOpen] = useState(false);
@@ -38,8 +38,11 @@ export const Dashboard = () => {
     setIdUserRemove(idUsuario);
   };
 
+  useEffect(() => {
+    document.title = "Dashboard | TruckLog"
+  }, []);
+  
   const [searchUser, setSearchUsers] = useState("");
-  const [selectedRole, setSelectedRole] = useState("all");
   return (
     <UsersContainer>
       <main className="content">

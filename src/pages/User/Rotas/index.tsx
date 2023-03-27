@@ -26,7 +26,7 @@ export const Rotas = () => {
 
   useEffect(() => {
     getRoutes();
-    console.log(routes);
+    document.title = "Rotas | TruckLog"
   }, []);
 
   const handleOpenEditModal = (idRota: number, descricaoRota: string) => {
@@ -34,7 +34,7 @@ export const Rotas = () => {
     setIdRoute(idRota);
     setDescriptionRoute(descricaoRota);
   };
-
+  
   return (
     <RotasContainer>
       <main className="content">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGasStations } from "../../../shared/hooks/useGasStations";
 import { PostosContainer } from "./styles";
 import {
@@ -34,6 +34,10 @@ export const Postos = () => {
     setGasStationName(namePosto);
   };
 
+  useEffect(() => {
+    document.title = "Postos | TruckLog"
+  }, []);
+  
   return (
     <PostosContainer>
       <main className="content">

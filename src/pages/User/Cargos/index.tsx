@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   CreateDriverModal,
   EditDriverModal,
@@ -30,6 +30,10 @@ export const Roles = () => {
     setUserName(driverName);
   };
 
+  useEffect(() => {
+    document.title = "Efetivo e Detalhes | TruckLog"
+  }, []);
+  
   return (
     <RolesContainer>
       <main className="content">
