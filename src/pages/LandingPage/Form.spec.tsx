@@ -1,8 +1,17 @@
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { LandingPage } from ".";
+import { vi, describe, expect, it } from "vitest";
 
 export {};
+
+vi.mock("react-router-dom", () => {
+  return {
+    useNavigate() {
+      return [null, false];
+    },
+  };
+});
 
 describe("Forms of HomePage", () => {
   it("renders a name input", async () => {

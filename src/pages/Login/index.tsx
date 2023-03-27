@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { LoginContainer } from "./styles";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../shared/context/AuthContext";
@@ -22,12 +22,14 @@ export const Login = () => {
         />
       </div>
       <form
-        onSubmit={handleSubmit((data) =>
-          handleLogin({
+        onSubmit={handleSubmit(async (data) => {
+          const isOk = await handleLogin({
             login: data.login,
             senha: data.senha,
-          })
-        )}
+          });
+
+          !isOk && document.querySelector(".error")?.classList.add("visible");
+        })}
       >
         <div className="form-section">
           <h1>Login</h1>
@@ -41,6 +43,16 @@ export const Login = () => {
               id="login"
               required
               {...register("login")}
+              onFocus={() => {
+                document
+                  .querySelectorAll(".input-container")[0]
+                  .classList.add("outlined");
+              }}
+              onBlur={() => {
+                document
+                  .querySelectorAll(".input-container")[0]
+                  .classList.remove("outlined");
+              }}
             />
           </div>
 
@@ -52,9 +64,20 @@ export const Login = () => {
               placeholder="senha"
               required
               {...register("senha")}
+              onFocus={() => {
+                document
+                  .querySelectorAll(".input-container")[1]
+                  .classList.add("outlined");
+              }}
+              onBlur={() => {
+                document
+                  .querySelectorAll(".input-container")[1]
+                  .classList.remove("outlined");
+              }}
             />
           </div>
 
+          <p className="error">*Login ou senha inválidos</p>
           <div className="button-section">
             <a href="#">Esqueceu sua senha?</a>
             {/* <a href="#" onClick={() => setIsLogin(false)}>

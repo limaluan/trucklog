@@ -99,6 +99,18 @@ export const LoginContainer = styled.div`
     justify-content: center;
     height: 100%;
     gap: 2rem;
+
+    .error {
+      color: ${(props) => props.theme.status.error};
+      font-weight: 700;
+      font-size: 1.2rem;
+      visibility: hidden;
+      padding-left: 1rem;
+
+      &.visible {
+        visibility: visible;
+      }
+    }
   }
 
   .input-container {
@@ -115,6 +127,12 @@ export const LoginContainer = styled.div`
     i {
       font-size: 2.5rem;
     }
+
+    border: 2px solid rgba(0, 0, 0, 0);
+  }
+
+  .outlined {
+    border: 2px solid ${(props) => props.theme["green-500"]};
   }
 
   .button-section {
