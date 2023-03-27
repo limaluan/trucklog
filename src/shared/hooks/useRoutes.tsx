@@ -41,6 +41,10 @@ export function RouteProvider({ children }: IRoutesProviderProps): JSX.Element {
   const [routes, setRoutes] = useState<IRoutes[]>([]);
   const { token } = useContext(AuthContext);
 
+  useEffect(() => {
+    getRoutes();
+  }, []);
+
   const getRoutes = () => {
     try {
       fetch(api + "rota", {

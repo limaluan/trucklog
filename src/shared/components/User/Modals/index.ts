@@ -1,4 +1,6 @@
+//Trips Modals
 export * from "./TripModals/CreateTripModal";
+export * from "./TripModals/EditTripModal";
 
 //Driver Modals
 export * from "./DriverModals/CreateDriverModal";
