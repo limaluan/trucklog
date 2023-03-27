@@ -116,11 +116,11 @@ export function RolesProvider({ children }: IRolesProviderProps): JSX.Element {
   async function createWithRole(data: IUserComplete) {
     try {
       const response = await fetch(
-        api + "usuario/relatorio-completo?page=1&size=75",
+        api + "usuario/relatorio-completo?page=0&size=100",
         {
           method: "POST",
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
+            Authorization: `Bearer ${token}`,
 
             "Content-Type": "application/json",
           },
@@ -145,7 +145,7 @@ export function RolesProvider({ children }: IRolesProviderProps): JSX.Element {
         {
           method: "PUT",
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
+            Authorization: `Bearer ${token}`,
 
             "Content-Type": "application/json",
           },
@@ -154,9 +154,10 @@ export function RolesProvider({ children }: IRolesProviderProps): JSX.Element {
       );
       console.log();
       if (response.ok) {
-        console.log("Motorista editado com sucesso!");
+        getAllUsers();
+        console.log("Editado com sucesso");
       } else {
-        console.log("Erro ao editar motorista!");
+        console.log("Erro ao editar usuario");
       }
     } catch (error) {
       console.log(error);
@@ -175,9 +176,10 @@ export function RolesProvider({ children }: IRolesProviderProps): JSX.Element {
       });
       console.log();
       if (response.ok) {
-        console.log("Motorista removido com sucesso!");
+        console.log("Usuario removido com sucesso!");
+        getAllUsers();
       } else {
-        console.log("Erro ao remover motorista!");
+        console.log("Erro ao remover usuario!");
       }
     } catch (error) {
       console.log(error);

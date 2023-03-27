@@ -11,13 +11,13 @@ interface ICreateEntityModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
   idUsuario: number;
-  nome: string;
+  nomeUsuario: string;
 }
 
 export function DeleteDriverModal({
   isOpen,
   onRequestClose,
-  nome,
+  nomeUsuario,
   idUsuario,
 }: ICreateEntityModalProps) {
   const { deleteUserByRole } = useRoles();
@@ -35,12 +35,16 @@ export function DeleteDriverModal({
           <div className="delete-gas-station">
             <h2>Tem certeza que deseja deletar?</h2>
             <p>
-              Motorista: <strong>{nome}</strong>
+              Usuario: <strong>{nomeUsuario}</strong>
             </p>
             <div className="delete-btn-container  ">
               <button
                 className="delete-btn"
-                onClick={() => deleteUserByRole(idUsuario)}
+                onClick={() =>
+                  deleteUserByRole(idUsuario).then(() => {
+                    onRequestClose();
+                  })
+                }
               >
                 Deletar
               </button>

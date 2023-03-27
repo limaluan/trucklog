@@ -41,7 +41,7 @@ export function AddRoleModal({
           <select id="idCargo" {...register("idCargo")}>
             <option value="1">Administrador</option>
             <option value="2">Colaborador</option>
-            <option value="2">Motorista</option>
+            <option value="3">Motorista</option>
           </select>
 
           <button type="submit">Cadastrar</button>
