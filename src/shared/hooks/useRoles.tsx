@@ -75,31 +75,12 @@ export interface IEditByRole extends IUserComplete {
   statusViagem: "EM_ANDAMENTO" | "FINALIZADA";
 }
 
-interface IDriversData {
-  elementos: IDrivers[];
-  pagina: number;
-  quantidadePaginas: number;
-  tamanho: number;
-  totalElementos: number;
-}
-
-interface IDrivers {
-  login: string;
-  senha: string;
-  nome: string;
-  email: string;
-  documento: string;
-  idUsuario: number;
-  status: "INATIVO" | "ATIVO";
-}
-
 interface IRolesContextData {
   users: IUserComplete[];
   createWithRole(data: IUserComplete): Promise<void>;
   editUserByRole: (editDriver: IEditByRole, IdUsuario: number) => Promise<void>;
   deleteUserByRole: (idUsuario: number) => Promise<void>;
   getAllUsers: () => Promise<void>;
-  drivers: IDrivers[];
 }
 
 const RolesContext = createContext({} as IRolesContextData);
@@ -107,7 +88,6 @@ const RolesContext = createContext({} as IRolesContextData);
 export function RolesProvider({ children }: IRolesProviderProps): JSX.Element {
   const { token } = useContext(AuthContext);
   const [allUsers, setAllUsersInfo] = useState<IUserComplete[]>([]);
-  const [drivers, setDrivers] = useState<IDrivers[]>([]);
 
   const getAllUsers = async () => {
     try {
@@ -132,7 +112,6 @@ export function RolesProvider({ children }: IRolesProviderProps): JSX.Element {
   };
   useEffect(() => {
     getAllUsers();
-    getDrivers();
   }, []);
   async function createWithRole(data: IUserComplete) {
     try {
@@ -207,28 +186,6 @@ export function RolesProvider({ children }: IRolesProviderProps): JSX.Element {
     }
   };
 
-  const getDrivers = async () => {
-    try {
-      const response = await fetch(
-        api + "usuario/listar-por-cargo?cargo=ROLE_MOTORISTA&page=0&size=70",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      if (response.ok) {
-        const data: IDriversData = await response.json();
-        const dataElements = data.elementos;
-        setDrivers(dataElements);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <RolesContext.Provider
       value={{
@@ -237,7 +194,6 @@ export function RolesProvider({ children }: IRolesProviderProps): JSX.Element {
         createWithRole,
         editUserByRole,
         deleteUserByRole,
-        drivers,
       }}
     >
       {children}

@@ -60,7 +60,7 @@ export const ViagensContainer = styled.main`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 3rem 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr 0.3fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
     position: relative;
@@ -101,16 +101,9 @@ export const ViagensContainer = styled.main`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr 0.3fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
-
-    button {
-      background-color: transparent;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
 
     :hover {
       background-color: ${(props) => props.theme.background};
