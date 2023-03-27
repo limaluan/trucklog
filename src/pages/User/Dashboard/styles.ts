@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PostosContainer = styled.main`
+export const UsersContainer = styled.main`
   width: 100%;
   overflow-x: hidden;
 
@@ -22,7 +22,6 @@ export const PostosContainer = styled.main`
     height: 90vh;
     display: flex;
     flex-direction: column;
-    font-family: "Red Hat Display", sans-serif;
   }
 
   .user-trail {
@@ -62,7 +61,7 @@ export const PostosContainer = styled.main`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 3.2rem 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
@@ -73,6 +72,10 @@ export const PostosContainer = styled.main`
       :hover {
         cursor: pointer;
       }
+    }
+
+    .select {
+      all: unset;
     }
   }
 
@@ -105,13 +108,13 @@ export const PostosContainer = styled.main`
     opacity: 0.4;
   }
 
-  .posto {
+  .trip {
     display: grid;
     width: 100%;
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     grid-gap: 0.5rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 

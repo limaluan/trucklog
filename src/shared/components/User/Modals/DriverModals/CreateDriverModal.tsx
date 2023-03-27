@@ -8,8 +8,6 @@ interface ICreateEntityModalPropsDriver {
   onRequestClose: () => void;
 }
 
-// type IEditDriver = Pick<IDriver, "nome" | "senha">;
-
 export function CreateDriverModal({
   isOpen,
   onRequestClose,
@@ -36,10 +34,10 @@ export function CreateDriverModal({
               usuario: data.usuario,
               senha: data.senha,
               email: data.email,
-              cnh: data.cnh,
+              documento: data.cnh,
               idUsuario: 1,
               status: "ATIVO" || "INATIVO",
-              statusMotorista: "DISPONIVEL" || "EM_ESTRADA",
+              //statusMotorista: "DISPONIVEL" || "EM_ESTRADA",
             });
           })}
         >

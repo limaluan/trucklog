@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PostosContainer = styled.main`
+export const RotasContainer = styled.main`
   width: 100%;
   overflow-x: hidden;
 
