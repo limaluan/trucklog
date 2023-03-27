@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import { api } from "../../utils/api";
+import { AuthContext } from "../context/AuthContext";
 
 interface ITripProviderProps {
   children: ReactNode;
@@ -31,8 +32,14 @@ const TripsContext = createContext({} as ITripsContextData);
 export function TripsProvider({ children }: ITripProviderProps): JSX.Element {
   const [trips, setTrips] = useState<ITrip[]>([]);
 
+  const { token } = useContext(AuthContext);
+
   useEffect(() => {
-    fetch(api + "viagem")
+    fetch(api + "viagem", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => setTrips(data));
   }, []);

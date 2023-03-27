@@ -45,7 +45,7 @@ export const LandingPage = () => {
             <a href="#">Benefícios</a>
             <a href="#">FAQ</a>
           </nav>
-          <button onClick={() => navigate("/login")}>Faça Login</button>
+          <button onClick={() => navigate("/login")}>Dashboard</button>
         </div>
       </header>
 

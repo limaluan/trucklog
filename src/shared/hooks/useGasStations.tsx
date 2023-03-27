@@ -6,6 +6,9 @@ import {
   useState,
 } from "react";
 import { api } from "../../utils/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { IApiError } from "../../@types/api";
 import { AuthContext } from "../context/AuthContext";
 
 interface IGasStationProviderProps {
@@ -26,12 +29,12 @@ interface IRemoveGasStationData {
 
 interface IGasStationContextData {
   gasStations: IGasStations[];
-  addNewGasStation: (gasStationdata: IGasStationData) => Promise<void>;
+  addNewGasStation: (gasStationdata: IGasStationData) => Promise<boolean>;
   editGasStation: (
     gasStationdata: IGasStationData,
     idPosto: number
-  ) => Promise<void>;
-  removeGasStation: (idPosto: number) => Promise<void>;
+  ) => Promise<boolean>;
+  removeGasStation: (idPosto: number) => Promise<boolean>;
 }
 
 interface IGasStationData {
@@ -63,25 +66,36 @@ export function GasStationProvider({
   }, []);
 
   const addNewGasStation = async (gasStationdata: IGasStationData) => {
-    console.log("entrou", gasStationdata);
+    // console.log("entrou", gasStationdata);
     try {
       const response = await fetch(api + `/posto?idColaborador=42`, {
         method: "POST",
         headers: {
+          Authorization:
+            `Bearer ${token}`,
           "Content-type": "application/json",
         },
         body: JSON.stringify(gasStationdata),
       });
 
-      if (response.ok) {
-        alert("Posto cadastrado");
-        getGasStations();
+      const data = await response.json();
+
+      if (!response.ok) {
+        const error = data as IApiError;
+        error?.errors
+          ? error.errors.forEach((errorMsg) => {
+              return toast.error(errorMsg);
+            })
+          : toast.error(error.message);
       } else {
-        alert("Ocorreu um erro ao cadastrar um posto");
-        console.log(response);
+        toast.success("Posto Cadastrado!");
       }
+
+      getGasStations();
+      return response.ok;
     } catch (error) {
-      console.error(error);
+      toast.error("Ocorreu um erro inesperado!");
+      return false;
     }
   };
 
@@ -97,40 +111,53 @@ export function GasStationProvider({
         {
           method: "PUT",
           headers: {
+            Authorization:
+              `Bearer ${token}`,
             "Content-type": "application/json",
           },
           body: JSON.stringify(gasStationdata),
         }
       );
 
-      if (response.ok) {
-        alert("Posto cadastrado!");
-        getGasStations();
+      const data = await response.json();
+
+      if (!response.ok) {
+        const error = data as IApiError;
+        error?.errors
+          ? error.errors.forEach((errorMsg) => {
+              return toast.error(errorMsg);
+            })
+          : toast.error(error.message);
       } else {
-        alert("Ocorreu um erro no cadastrado!");
+        toast.success("Posto Alterado!");
       }
-    } catch (error) {}
+
+      getGasStations();
+      return response.ok;
+    } catch (error) {
+      toast.error("Ocorreu um erro inesperado!");
+      return false;
+    }
   };
 
   const removeGasStation = async (idPosto: number) => {
     try {
-      const response = await fetch(
-        api + `/posto?idColaborador=42&idPosto=${idPosto}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
+      await fetch(api + `/posto?idPosto=${idPosto}`, {
+        method: "DELETE",
+        headers: {
+          Authorization:
+            `Bearer ${token}`,
+          "Content-type": "application/json",
+        },
+      });
 
-      if (response.ok) {
-        alert("Posto Deletado com sucesso!");
-        getGasStations();
-      } else {
-        alert("Ocorreu um erro no delete!");
-      }
-    } catch (error) {}
+      toast.success("Posto Desativado!");
+      getGasStations();
+      return true;
+    } catch (error) {
+      toast.error("Houve um erro inesperado!");
+      return false;
+    }
   };
 
   return (
@@ -142,6 +169,7 @@ export function GasStationProvider({
         removeGasStation,
       }}
     >
+      <ToastContainer style={{ zIndex: 999999 }} />
       {children}
     </GasStationsContext.Provider>
   );

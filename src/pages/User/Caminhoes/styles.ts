@@ -97,6 +97,14 @@ export const CaminhoesContainer = styled.div`
       background-color: ${(props) => props.theme.status.warning};
       cursor: pointer;
     }
+
+    .delete-icon {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      color: ${(props) => props.theme.white};
+      cursor: pointer;
+      background-color: ${(props) => props.theme.status.error};
+    }
   }
 
   .truck {
@@ -126,6 +134,16 @@ export const CaminhoesContainer = styled.div`
 
     div.ativo {
       color: ${(props) => props.theme.status.success};
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 0.8rem;
+
+      button {
+        background-color: transparent;
+        padding: 0;
+      }
     }
 
     :hover {

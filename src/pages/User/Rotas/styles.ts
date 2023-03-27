@@ -62,8 +62,8 @@ export const RotasContainer = styled.main`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 3.2rem 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    grid-gap: 0.5rem;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr 1fr 0.3fr;
+    grid-gap: 1rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
     p {
@@ -111,8 +111,8 @@ export const RotasContainer = styled.main`
     font-size: 1.6rem;
     position: relative;
     padding: 1.5rem 1rem;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    grid-gap: 0.5rem;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr 1fr 0.3fr;
+    grid-gap: 1rem;
     border-bottom: 1px solid ${(props) => props.theme["gray-200"]};
 
     :hover {
@@ -120,19 +120,13 @@ export const RotasContainer = styled.main`
       transition: background-color 0.2s;
     }
 
-    div.inativo,
-    div.ativo {
+    .btn-container {
       display: flex;
-      justify-content: space-between;
+      gap: 0.8rem;
 
-      .btn-container {
-        display: flex;
-        gap: 0.8rem;
-
-        button {
-          background-color: transparent;
-          padding: 0;
-        }
+      button {
+        background-color: transparent;
+        padding: 0;
       }
     }
 

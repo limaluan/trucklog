@@ -1,21 +1,21 @@
 import Modal from "react-modal";
-import { useGasStations } from "../../../../hooks/useGasStations";
+import { useTrucks } from "../../../../hooks";
 import { ModalContainer } from "../styles";
 
 interface ICreateEntityModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
-  idPosto: number;
-  namePosto: string;
+  idCaminhao: number;
+  placaCaminhao: string;
 }
 
-export function RemoveGasStationModal({
+export function DeleteTruckModal({
   isOpen,
   onRequestClose,
-  idPosto,
-  namePosto,
+  idCaminhao,
+  placaCaminhao,
 }: ICreateEntityModalProps) {
-  const { removeGasStation } = useGasStations();
+  const { deleteTruck } = useTrucks();
 
   return (
     <Modal
@@ -27,21 +27,18 @@ export function RemoveGasStationModal({
     >
       <ModalContainer>
         <div className="delete-gas-station">
-          <h2>Tem certeza que deseja deletar?</h2>
+          <h2>Tem certeza que deseja deletar? </h2>
           <p>
-            Posto: <strong>{namePosto}</strong>
+            Caminhão Placa: <strong>{placaCaminhao}</strong>
           </p>
           <div className="delete-btn-container">
             <button
               className="delete-btn"
-              onClick={async () => {
-                const response = await removeGasStation(idPosto);
-                return response && onRequestClose();
-              }}
+              onClick={() => deleteTruck(idCaminhao)}
             >
               Deletar
             </button>
-            <button className="canceal-btn" onClick={onRequestClose}>
+            <button className="canceal-btn" onClick={() => onRequestClose()}>
               Cancelar
             </button>
           </div>
