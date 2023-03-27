@@ -1,22 +1,37 @@
-import { Outlet } from "react-router-dom";
-import { Sidenav } from "../components/Collaborator/";
-import { GasStationProvider } from "../hooks/useGasStations";
-import { TripsProvider } from "../hooks/useTrips";
-import { DriversProvider } from "../hooks/useDrivers";
-import { TrucksProvider } from "../hooks/useTrucks";
+import { Navigate, Outlet } from "react-router-dom";
+import { Sidenav } from "../components/User";
+import {
+  GasStationProvider,
+  TripsProvider,
+  TrucksProvider,
+  RolesProvider,
+} from "../hooks";
+
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
+import { UserProvider } from "../hooks/useUsers";
+import { RouteProvider } from "../hooks/useRoutes";
 
 export const ColaboratorLayout = () => {
-  return (
-    <TripsProvider>
-      <TrucksProvider>
-        <DriversProvider>
-          <GasStationProvider>
-            <Sidenav>
-              <Outlet />
-            </Sidenav>
-          </GasStationProvider>
-        </DriversProvider>
-      </TrucksProvider>
-    </TripsProvider>
+  const { token } = useContext(AuthContext);
+
+  return token ? (
+    <UserProvider>
+      <RolesProvider>
+        <TripsProvider>
+          <TrucksProvider>
+            <GasStationProvider>
+              <RouteProvider>
+                <Sidenav>
+                  <Outlet />
+                </Sidenav>
+              </RouteProvider>
+            </GasStationProvider>
+          </TrucksProvider>
+        </TripsProvider>
+      </RolesProvider>
+    </UserProvider>
+  ) : (
+    <Navigate to="/login" />
   );
 };
