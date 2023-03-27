@@ -1,20 +1,20 @@
 import Modal from "react-modal";
 import { ModalContainer } from "../styles";
 import { useForm } from "react-hook-form";
-import { IDriver, useDrivers } from "../../../../hooks/useDrivers";
+import { IUserComplete, useRoles } from "../../../../hooks/useRoles";
 
 interface ICreateEntityModalPropsDriver {
   isOpen: boolean;
   onRequestClose: () => void;
 }
 
-type IEditDriver = Pick<IDriver, "nome" | "senha">;
+// type IEditUserByRole = Pick<IUserComplete, "nome" | "senha">;
 
 export function CreateDriverModal({
   isOpen,
   onRequestClose,
 }: ICreateEntityModalPropsDriver) {
-  const { createDriver } = useDrivers();
+  const { createWithRole, deleteUserByRole, editUserByRole } = useRoles();
 
   const { register, handleSubmit } = useForm();
 
@@ -31,15 +31,35 @@ export function CreateDriverModal({
         <form
           className="form-container"
           onSubmit={handleSubmit((data) => {
-            createDriver({
-              nome: data.nome,
-              usuario: data.usuario,
-              senha: data.senha,
+            createWithRole({
+              idUsuario: data.idUsuario,
+              login: data.login,
+              nomeUsuario: data.nomeUsuario,
               email: data.email,
-              documento: data.cnh,
-              idUsuario: 1,
-              status: "ATIVO" || "INATIVO",
-              //statusMotorista: "DISPONIVEL" || "EM_ESTRADA",
+              documento: data.documento,
+              statusUsuario: data.statusUsuario,
+              idCargo: data.idCargo,
+              nome: data.nome,
+              idCaminhao: data.idCaminhao,
+              modelo: data.modelo,
+              placa: data.placa,
+              nivelCombustivel: data.nivelCombustivel,
+              statusCaminhao: data.statusCaminhao,
+              statusGeralCaminhao: data.statusGeralCaminhao,
+              idRota: data.idRota,
+              descricaoRota: data.descricaoRota,
+              localPartida: data.localPartida,
+              localDestino: data.localDestino,
+              statusRota: data.statusRota,
+              idPosto: data.idPosto,
+              nomePosto: data.nomePosto,
+              valorCombustivel: data.valorCombustivel,
+              statusPosto: data.statusPosto,
+              idViagem: data.idViagem,
+              descricaoViagem: data.descricaoViagem,
+              dataInicio: data.dataInicio,
+              dataFim: data.dataFim,
+              statusViagem: data.statusViagem,
             });
           })}
         >

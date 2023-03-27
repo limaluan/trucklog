@@ -8,7 +8,7 @@ interface ICreateEntityModalPropsDriver {
   onRequestClose: () => void;
 }
 
-// type IEditDriver = Pick<IUserComplete, "nome" | "senha">;
+type ICargo = Pick<IUserComplete, "idCargo" | "idUsuario">;
 
 export function CreateUserModal({
   isOpen,
@@ -37,7 +37,9 @@ export function CreateUserModal({
               nome: data.nome,
               email: data.email,
               documento: data.documento,
+              idUsuario: data.idUsuario,
             });
+            onRequestClose();
           })}
         >
           <label htmlFor="name">Nome</label>
@@ -68,11 +70,15 @@ export function CreateUserModal({
             placeholder="CNH ou CPF"
             {...register("documento")}
           />
-          <label htmlFor="Role"> E-mail</label>
-          <input type="Role" placeholder="E-mail" {...register("role")} />
-          <label htmlFor="email"> E-mail</label>
+          {/* <label htmlFor="Role"> Cargo</label>
+          <select id="idCargo" {...register("idCargo")}>
+            <option value="1">Administrador</option>
+            <option value="2">Colaborador</option>
+            <option value="2">Motorista</option>
+          </select> */}
+          <label htmlFor="email"></label>
           <input type="email" placeholder="E-mail" {...register("email")} />
-          <button type="submit">Cadastrar</button>{" "}
+          <button type="submit">Cadastrar</button>
           {/* <label id="status" htmlFor="situation">
             Disponibilidade
           </label>

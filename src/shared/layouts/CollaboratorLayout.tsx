@@ -4,7 +4,7 @@ import {
   GasStationProvider,
   TripsProvider,
   TrucksProvider,
-  DriversProvider,
+  RolesProvider,
 } from "../hooks";
 
 import { AuthContext } from "../context/AuthContext";
@@ -17,9 +17,9 @@ export const ColaboratorLayout = () => {
 
   return token ? (
     <UserProvider>
-      <TripsProvider>
-        <TrucksProvider>
-          <DriversProvider>
+      <RolesProvider>
+        <TripsProvider>
+          <TrucksProvider>
             <GasStationProvider>
               <RouteProvider>
                 <Sidenav>
@@ -27,9 +27,9 @@ export const ColaboratorLayout = () => {
                 </Sidenav>
               </RouteProvider>
             </GasStationProvider>
-          </DriversProvider>
-        </TrucksProvider>
-      </TripsProvider>
+          </TrucksProvider>
+        </TripsProvider>
+      </RolesProvider>
     </UserProvider>
   ) : (
     <Navigate to="/login" />

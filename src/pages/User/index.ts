@@ -1,5 +1,5 @@
 export * from "./Caminhoes";
-export * from "./Motoristas";
+export * from "./Cargos";
 export * from "./Viagens";
 export * from "./Postos";
 export * from "./Rotas";

@@ -16,5 +16,6 @@ export * from "./GasStationModals/RemoveGasStationModal";
 //User Modals.
 
 export * from "./UserModals/CreateUserModal";
-// export * from "./UserModals/EditUserModal";
-// export * from "./UserModals/RemoveUserModal";
+export * from "./UserModals/EditUserModal";
+export * from "./UserModals/RemoveUserModal";
+export * from "./UserModals/AddRoleModal";
