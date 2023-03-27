@@ -48,7 +48,7 @@ export function DriversProvider({
       const response = await fetch(api + "motorista/usuarios", {
         method: "POST",
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
+          Authorization: `Bearer ${token}`,
 
           "Content-Type": "application/json",
         },
@@ -60,7 +60,7 @@ export function DriversProvider({
       } else {
         console.log("Erro ao cadastrar motorista!");
       }
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -73,7 +73,7 @@ export function DriversProvider({
         {
           method: "PUT",
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
+            Authorization: `Bearer ${token}`,
 
             "Content-Type": "application/json",
           },
@@ -121,14 +121,14 @@ export function DriversProvider({
       {
         method: "GET",
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
+          Authorization: `Bearer ${token}`,
           "content-type": "application/json",
         },
       }
     )
       .then((response) => response.json())
       .then((data) => {
-        setDrivers(data.elementos), console.log(data.elementos);
+        setDrivers(data.elementos);
       });
   };
 

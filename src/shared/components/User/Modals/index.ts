@@ -6,7 +6,7 @@ export * from "./DriverModals/EditDriverModal";
 export * from "./DriverModals/DeleteDriverModal";
 
 //Truck Modals
-export * from "./CreateTruckModal";
+export * from "./TruckModals/CreateTruckModal";
 
 //Gas Station Modals
 export * from "./GasStationModals/CreateGasStationModal";

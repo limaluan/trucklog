@@ -8,6 +8,8 @@ import {
 import { api } from "../../utils/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { IApiError } from "../../@types/api";
+import { AuthContext } from "../context/AuthContext";
 
 interface ITruckProviderProps {
   children: ReactNode;
@@ -23,14 +25,10 @@ interface ITruck {
   idUsuario: number;
 }
 
-interface ICreateTruckErrors {
-  message?: string;
-  errors?: string[];
-}
-
 interface ITruckContextData {
   trucks: ITruck[];
   createTruck: (truckData: ICreateTruckDTO) => Promise<boolean>;
+  editTruck: (id: number, nivelGasolina: number) => Promise<boolean>;
 }
 
 export type ICreateTruckDTO = Pick<
@@ -42,9 +40,14 @@ const TrucksContext = createContext({} as ITruckContextData);
 
 export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
   const [trucks, setTrucks] = useState<ITruck[]>([]);
+  const { token } = useContext(AuthContext);
 
   const getTrucks = () => {
-    fetch(api + "caminhao")
+    fetch(api + "caminhao", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => setTrucks(data));
   };
@@ -58,6 +61,7 @@ export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
       const response = await fetch(api + `caminhao?idColaborador=42`, {
         method: "POST",
         headers: {
+          Authorization: `Bearer ${token}`,
           "Content-type": "application/json",
         },
         body: JSON.stringify(truckData),
@@ -66,7 +70,7 @@ export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
       const data = await response.json();
 
       if (!response.ok) {
-        const error = data as ICreateTruckErrors;
+        const error = data as IApiError;
         error?.errors
           ? error.errors.forEach((errorMsg) => {
               return toast.error(errorMsg);
@@ -84,8 +88,30 @@ export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
     }
   };
 
+  const editTruck = async (id: number, gas: number) => {
+    try {
+      const response = await fetch(
+        api +
+          `/caminhao/abastecer?idCaminhao=${id}&Quantidade%20de%20gasolina=${gas}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-type": "application/json",
+          },
+        }
+      );
+
+      getTrucks();
+      return response.ok;
+    } catch (e) {
+      toast.error("Quantidade de gasolina inválida.");
+      return false;
+    }
+  };
+
   return (
-    <TrucksContext.Provider value={{ trucks, createTruck }}>
+    <TrucksContext.Provider value={{ trucks, createTruck, editTruck }}>
       {children}
       <ToastContainer style={{ zIndex: 9999999 }} />
     </TrucksContext.Provider>

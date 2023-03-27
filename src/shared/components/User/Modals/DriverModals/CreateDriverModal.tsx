@@ -1,14 +1,12 @@
 import Modal from "react-modal";
 import { ModalContainer } from "../styles";
 import { useForm } from "react-hook-form";
-import { IDriver, useDrivers } from "../../../../hooks/useDrivers";
+import { useDrivers } from "../../../../hooks/useDrivers";
 
 interface ICreateEntityModalPropsDriver {
   isOpen: boolean;
   onRequestClose: () => void;
 }
-
-type IEditDriver = Pick<IDriver, "nome" | "senha">;
 
 export function CreateDriverModal({
   isOpen,
