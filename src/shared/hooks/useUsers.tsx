@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { toast } from "react-toastify";
 import { api } from "../../utils/api";
 import { AuthContext } from "../context/AuthContext";
 
@@ -64,12 +65,21 @@ interface IEditUserData {
   email: string;
   senha: string;
   documento: string;
+  login: string;
+}
+
+interface IEditUser {
+  nome: string;
+  email: string;
+  senha: string;
+  documento: string;
+  idUsuario: number;
 }
 
 export interface IUserContextData {
   users: IUser[];
-  addNewUser: (userData: IUser) => Promise<void>;
-  editUser: (user: IEditUserData, idUsuario: number) => Promise<void>;
+  addNewUser: (userData: IEditUserData) => Promise<void>;
+  editUser: (user: IEditUser) => Promise<void>;
   removeUser: (idUsuario: number) => Promise<void>;
   setCargo: (userId: number, idCargo: number) => Promise<void>;
 }
@@ -80,8 +90,8 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
   const [users, setUsers] = useState<IUser[]>([]);
   const { token } = useContext(AuthContext);
 
-  const getUsers = () => {
-    fetch(api + "usuario", {
+  const getUsers = async () => {
+    await fetch(api + "usuario", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -95,7 +105,7 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
     getUsers();
   }, []);
 
-  const addNewUser = async (userData: IUser) => {
+  const addNewUser = async (userData: IEditUserData) => {
     console.log("entrou", userData);
     try {
       const response = await fetch(api + `usuario`, {
@@ -108,8 +118,8 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
         body: JSON.stringify(userData),
       });
       if (response.ok) {
+        toast.success("Usuário cadastrado com sucesso!");
         getUsers();
-        console.log("usuario cadastrado");
       }
       console.log(response.status);
       console.log(response);
@@ -141,18 +151,27 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
     }
   };
 
-  const editUser = async (userData: IEditUserData, idUsuario: number) => {
+  const editUser = async (userData: IEditUser) => {
     console.log("entrou", userData);
     try {
-      const response = await fetch(api + `usuario?idUsuario=${idUsuario}`, {
-        method: "PUT",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
+      const response = await fetch(
+        api + `usuario?idUsuario=${userData.idUsuario}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nome: userData.nome,
+            senha: userData.senha,
+            email: userData.email,
+            documento: userData.documento,
+          }),
+        }
+      );
       if (response.ok) {
+        toast.success("Usuário alterado com sucesso!");
         console.log("usuario alterado");
       } else {
         console.log("erro ao alterar usuario");
@@ -173,6 +192,9 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
         },
       });
 
+      if (response.ok) {
+        toast.success("Usuário Removido com sucesso!");
+      }
       console.log(response);
     } catch (error) {
       console.log(error);

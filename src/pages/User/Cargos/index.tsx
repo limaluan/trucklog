@@ -19,11 +19,12 @@ export const Roles = () => {
   const [userName, setUserName] = useState("");
   const [idUsuario, setIdUsuario] = useState(0);
 
-  const handleDeleteByRoleModal = (idUsuario: number, driverName: string) => {
+  const handleDeleteByRoleModal = (idUsuario: number, newUserName: string) => {
     setIsDeleteByRoleModalOpen(true);
     setIdUsuario(idUsuario);
-    setUserName(userName);
+    setUserName(newUserName);
   };
+
   const handleEditByRoleModal = (idUsuario: number, driverName: string) => {
     setIsEditByRoleModalOpen(true);
     setIdUsuario(idUsuario);
@@ -31,9 +32,9 @@ export const Roles = () => {
   };
 
   useEffect(() => {
-    document.title = "Efetivo e Detalhes | TruckLog"
+    document.title = "Efetivo e Detalhes | TruckLog";
   }, []);
-  
+
   return (
     <RolesContainer>
       <main className="content">
@@ -94,18 +95,21 @@ export const Roles = () => {
                 >
                   {user.statusUsuario}
                   <div className="btn-container">
-                    <button
+                    {/* <button
                       onClick={() =>
                         handleEditByRoleModal(user.idUsuario, user.nome)
                       }
                       disabled={user.statusUsuario === "ATIVO" ? false : true}
                     >
                       <i title="Editar Posto" className="ph ph-pencil"></i>
-                    </button>
+                    </button> */}
 
                     <button
                       onClick={() =>
-                        handleDeleteByRoleModal(user.idUsuario, user.nome)
+                        handleDeleteByRoleModal(
+                          user.idUsuario,
+                          user.nomeUsuario
+                        )
                       }
                       disabled={user.statusUsuario === "ATIVO" ? false : true}
                     >

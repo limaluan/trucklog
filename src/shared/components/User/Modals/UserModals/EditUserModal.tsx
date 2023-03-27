@@ -1,19 +1,18 @@
 import Modal from "react-modal";
+import { useGasStations } from "../../../../hooks/useGasStations";
 import { ModalContainer } from "../styles";
-import { useForm, FieldValues } from "react-hook-form";
-
+import { FieldValues, useForm } from "react-hook-form";
 import { useUsers } from "../../../../hooks/useUsers";
+
+interface ICreateEntityModalProps {
+  isOpen: boolean;
+  onRequestClose: () => void;
+  idUsuario: number;
+}
 
 interface IEditUser {
   nome: string;
-  senha: string;
-  documento: string;
-  email: string;
-}
-
-interface IEditUserModalProps {
-  isOpen: boolean;
-  onRequestClose: () => void;
+  valorCombustivel: string;
   idUsuario: number;
 }
 
@@ -21,7 +20,7 @@ export function EditUserModal({
   isOpen,
   onRequestClose,
   idUsuario,
-}: IEditUserModalProps) {
+}: ICreateEntityModalProps) {
   const { editUser } = useUsers();
   const { register, handleSubmit } = useForm();
 
@@ -34,75 +33,52 @@ export function EditUserModal({
       ariaHideApp={false}
     >
       <ModalContainer>
-        <h2>Editar Usuario</h2>
+        <h2>Editar Usuário</h2>
         <form
           className="form-container"
-          onSubmit={handleSubmit((data: FieldValues) => {
-            editUser(
-              {
-                nome: data.nome,
-                senha: data.senha,
-                email: data.email,
-                documento: data.documento,
-              },
-              idUsuario
-            );
-            onRequestClose(); // Close the modal after submitting the form
-          })}
+          onSubmit={handleSubmit((data: FieldValues) =>
+            editUser({
+              nome: data.nome,
+              senha: data.senha,
+              email: data.email,
+              documento: data.documento,
+              idUsuario,
+            })
+          )}
         >
-          <label htmlFor="name">Nome</label>
+          <label htmlFor="nome">Nome</label>
           <input
             id="nome"
             type="text"
-            placeholder="Nome"
+            placeholder="Digite um nome"
             {...register("nome")}
           />
-          {/* <label htmlFor="user">Usuário</label>
-          <input
-            id="usuario"
-            type="text"
-            placeholder="Usuário"
-            {...register("usuario")}
-          /> */}
 
-          <label htmlFor="email">E-mail</label>
+          <label htmlFor="senha">Senha</label>
+          <input
+            id="senha"
+            type="password"
+            placeholder="Digite uma senha"
+            {...register("senha")}
+          />
+
+          <label htmlFor="email">Email</label>
           <input
             id="email"
             type="email"
-            placeholder="E-mail"
+            placeholder="Digite um e-mail"
             {...register("email")}
           />
+
           <label htmlFor="documento">Documento</label>
           <input
             id="documento"
             type="text"
-            placeholder="Documento"
-            maxLength={11}
+            placeholder="Digite um documento"
             {...register("documento")}
           />
-          {/*  <label htmlFor="status">Status</label>
-          <select {...register("status")}>
-            <option value="ATIVO">Ativo</option>
-            <option value="INATIVO">Inativo</option>
-          </select> */}
 
-          <label htmlFor="password">Senha</label>
-          <input
-            id="senha"
-            type="password"
-            placeholder="Senha"
-            {...register("senha")}
-          />
-
-          <button
-            type="button"
-            form="form-container"
-            onClick={() => {
-              onRequestClose();
-            }}
-          >
-            Editar
-          </button>
+          <button type="submit">Editar Usuário</button>
         </form>
       </ModalContainer>
     </Modal>
