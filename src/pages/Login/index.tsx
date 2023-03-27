@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { LoginContainer } from "./styles";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../shared/context/AuthContext";
@@ -22,18 +22,24 @@ export const Login = () => {
         />
       </div>
       <form
-        onSubmit={handleSubmit((data) =>
-          handleLogin({
+        onSubmit={handleSubmit(async (data) => {
+          const isOk = await handleLogin({
             login: data.login,
             senha: data.senha,
-          })
-        )}
+          });
+
+          !isOk &&
+            (document.querySelector(".error")?.classList.add("visible"),
+            document.querySelectorAll(".input-container").forEach((input) => {
+              input.classList.add("outlined-error");
+            }));
+        })}
       >
         <div className="form-section">
           <h1>Login</h1>
           <h3>Insira seus dados de acesso:</h3>
 
-          <div className="input-container">
+          <div className="input-container visible">
             <i className="ph ph-envelope"></i>
             <input
               type="text"
@@ -41,10 +47,24 @@ export const Login = () => {
               id="login"
               required
               {...register("login")}
+              onFocus={() => {
+                document
+                  .querySelectorAll(".input-container")[0]
+                  .classList.add("outlined");
+              }}
+              onBlur={() => {
+                document
+                  .querySelectorAll(".input-container")[0]
+                  .classList.remove("outlined");
+
+                document
+                  .querySelectorAll(".input-container")[0]
+                  .classList.remove("outlined-error");
+              }}
             />
           </div>
 
-          <div className="input-container">
+          <div className="input-container visible">
             <i className="ph ph-lock-key"></i>
             <input
               type="password"
@@ -52,9 +72,24 @@ export const Login = () => {
               placeholder="senha"
               required
               {...register("senha")}
+              onFocus={() => {
+                document
+                  .querySelectorAll(".input-container")[1]
+                  .classList.add("outlined");
+              }}
+              onBlur={() => {
+                document
+                  .querySelectorAll(".input-container")[1]
+                  .classList.remove("outlined");
+
+                document
+                  .querySelectorAll(".input-container")[1]
+                  .classList.remove("outlined-error");
+              }}
             />
           </div>
 
+          <p className="error">*Login ou senha inválidos</p>
           <div className="button-section">
             <a href="#">Esqueceu sua senha?</a>
             {/* <a href="#" onClick={() => setIsLogin(false)}>

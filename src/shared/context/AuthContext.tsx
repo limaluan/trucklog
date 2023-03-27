@@ -1,13 +1,16 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../utils/api";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface IChildren {
   children: React.ReactNode;
 }
 
 interface IAuthContext {
-  handleLogin: (user: IUser) => Promise<void>;
+  handleLogin: (user: IUser) => Promise<boolean>;
   handleLogout: () => void;
   getLoggedUsers: () => Promise<void>;
   token: string;
@@ -41,9 +44,14 @@ export const AuthProvider = ({ children }: IChildren) => {
         localStorage.setItem("token", token);
         setToken(token);
         navigate("/usuario/dashboard");
+        return true;
       }
+      
+      return false;
     } catch (error) {
       console.error(error);
+      toast.error("Houve um erro inesperado.")
+      return false;
     }
   };
 
@@ -71,6 +79,7 @@ export const AuthProvider = ({ children }: IChildren) => {
     <AuthContext.Provider
       value={{ handleLogin, handleLogout, getLoggedUsers, token, userLogin }}
     >
+      <ToastContainer style={{ zIndex: 999999 }} />
       {children}
     </AuthContext.Provider>
   );
