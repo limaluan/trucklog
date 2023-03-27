@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import { ModalContainer } from "./styles";
+import { ModalContainer } from "../styles";
 
 import { useState } from "react";
 import { useForm, Controller, FieldValues } from "react-hook-form";
