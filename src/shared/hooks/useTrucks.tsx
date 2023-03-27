@@ -29,7 +29,7 @@ interface ITruckContextData {
   trucks: ITruck[];
   createTruck: (truckData: ICreateTruckDTO) => Promise<boolean>;
   editTruck: (id: number, nivelGasolina: number) => Promise<boolean>;
-  deleteTruck: (truckId: number) => Promise<void>;
+  deleteTruck: (truckId: number) => Promise<boolean>;
 }
 
 export type ICreateTruckDTO = Pick<
@@ -103,6 +103,10 @@ export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
         }
       );
 
+      !response.ok
+        ? toast.error("Quantidade de gasolina inválida.")
+        : toast.success("Caminhão abastecido!");
+
       getTrucks();
       return response.ok;
     } catch (e) {
@@ -122,12 +126,16 @@ export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
       });
 
       if (response.ok) {
-        alert("Caminhão deletado com sucesso!");
-        getTrucks();
+        toast.warning("Caminhão deletado com sucesso!");
       }
     } catch (error) {
       console.error(error);
+      toast.error("Não foi possível deletar!");
+      return false;
     }
+
+    getTrucks();
+    return true;
   };
 
   return (

@@ -34,7 +34,10 @@ export function DeleteTruckModal({
           <div className="delete-btn-container">
             <button
               className="delete-btn"
-              onClick={() => deleteTruck(idCaminhao)}
+              onClick={async () => {
+                const isOk = await deleteTruck(idCaminhao);
+                isOk && onRequestClose();
+              }}
             >
               Deletar
             </button>

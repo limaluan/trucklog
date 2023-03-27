@@ -32,13 +32,15 @@ export function CreateRouteModal({
         <h2>Cadastrar Rota</h2>
         <form
           className="form-container"
-          onSubmit={handleSubmit((data: FieldValues) =>
-            createRoute({
+          onSubmit={handleSubmit(async (data: FieldValues) => {
+            const isOk = await createRoute({
               descricao: data.descricao,
               localPartida: data.localPartida,
               localDestino: data.localDestino,
-            })
-          )}
+            });
+
+            isOk && onRequestClose();
+          })}
         >
           <label htmlFor="descricao">Descrição rota</label>
           <input
