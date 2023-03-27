@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CreateTripModal } from "../../../shared/components/User/Modals";
 import { useTrips } from "../../../shared/hooks/useTrips";
 import { ViagensContainer } from "./styles";
@@ -9,6 +9,10 @@ export const Viagens = () => {
   const [searchTrip, setSearchTrip] = useState("");
 
   const [isCreateTripModalOpen, setIsCreateTripModalOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = "Viagens | TruckLog";
+  }, []);
 
   return (
     <ViagensContainer>
@@ -45,9 +49,7 @@ export const Viagens = () => {
         <div className="trips-body">
           {trips
             .filter((trip) =>
-              trip.descricao
-                .toLowerCase()
-                .includes(searchTrip.toLowerCase())
+              trip.descricao.toLowerCase().includes(searchTrip.toLowerCase())
             )
             .map((trip) => (
               <div className="trip" key={trip.idViagem}>
@@ -71,7 +73,8 @@ export const Viagens = () => {
                     trip.statusViagem === "FINALIZADA" ? "finished" : "progress"
                   }
                 >
-                  {trip.statusViagem.replace("_", " ")} <i className="ph ph-pencil"></i>
+                  {trip.statusViagem.replace("_", " ")}{" "}
+                  <i className="ph ph-pencil"></i>
                 </p>
               </div>
             ))}
