@@ -37,7 +37,6 @@ export function CreateUserModal({
               nome: data.nome,
               email: data.email,
               documento: data.documento,
-              idUsuario: data.idUsuario,
             });
             onRequestClose();
           })}

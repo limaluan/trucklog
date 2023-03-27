@@ -22,8 +22,6 @@ export * from "./UserModals/CreateUserModal";
 export * from "./UserModals/EditUserModal";
 export * from "./UserModals/RemoveUserModal";
 export * from "./UserModals/AddRoleModal";
-// export * from "./UserModals/EditUserModal";
-// export * from "./UserModals/RemoveUserModal";
 
 //Route Modals
 export * from "./RouteModals/CreateRouteModal";

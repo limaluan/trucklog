@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { toast } from "react-toastify";
 import { api } from "../../utils/api";
 import { AuthContext } from "../context/AuthContext";
 
@@ -197,7 +198,7 @@ export function RolesProvider({ children }: IRolesProviderProps): JSX.Element {
       });
       console.log();
       if (response.ok) {
-        console.log("Usuario removido com sucesso!");
+        toast.success("Usuario removido com sucesso!");
         getAllUsers();
       } else {
         console.log("Erro ao remover usuario!");
