@@ -29,6 +29,7 @@ interface ITruckContextData {
   trucks: ITruck[];
   createTruck: (truckData: ICreateTruckDTO) => Promise<boolean>;
   editTruck: (id: number, nivelGasolina: number) => Promise<boolean>;
+  deleteTruck: (truckId: number) => Promise<void>;
 }
 
 export type ICreateTruckDTO = Pick<
@@ -110,8 +111,29 @@ export function TrucksProvider({ children }: ITruckProviderProps): JSX.Element {
     }
   };
 
+  const deleteTruck = async (truckId: number) => {
+    try {
+      const response = await fetch(api + `/caminhao?idCaminhao=${truckId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        alert("Caminhão deletado com sucesso!");
+        getTrucks();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <TrucksContext.Provider value={{ trucks, createTruck, editTruck }}>
+    <TrucksContext.Provider
+      value={{ trucks, createTruck, editTruck, deleteTruck }}
+    >
       {children}
       <ToastContainer style={{ zIndex: 9999999 }} />
     </TrucksContext.Provider>
