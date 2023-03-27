@@ -100,7 +100,7 @@ export const LoginContainer = styled.div`
     height: 100%;
     gap: 2rem;
 
-    .error {
+    & .error {
       color: ${(props) => props.theme.status.error};
       font-weight: 700;
       font-size: 1.2rem;
@@ -129,10 +129,37 @@ export const LoginContainer = styled.div`
     }
 
     border: 2px solid rgba(0, 0, 0, 0);
-  }
 
-  .outlined {
-    border: 2px solid ${(props) => props.theme["green-500"]};
+    &.outlined-error {
+      border: 2px solid ${(props) => props.theme.status.error};
+      animation: shake 400ms;      
+      
+      @keyframes shake {
+        25% {
+          transform: translateX(-0.5rem);
+        }
+
+        50% {
+          transform: translateX(0.5rem);
+        }
+
+        75% {
+          transform: translateX(-0.5rem);
+        }
+
+        90% {
+          transform: translateX(0.5rem);
+        }
+
+        100% {
+          transform: translateX(0);
+        }
+      }
+    }
+
+    &.outlined {
+      border: 2px solid ${(props) => props.theme["green-500"]};
+    }
   }
 
   .button-section {

@@ -28,14 +28,18 @@ export const Login = () => {
             senha: data.senha,
           });
 
-          !isOk && document.querySelector(".error")?.classList.add("visible");
+          !isOk &&
+            (document.querySelector(".error")?.classList.add("visible"),
+            document.querySelectorAll(".input-container").forEach((input) => {
+              input.classList.add("outlined-error");
+            }));
         })}
       >
         <div className="form-section">
           <h1>Login</h1>
           <h3>Insira seus dados de acesso:</h3>
 
-          <div className="input-container">
+          <div className="input-container visible">
             <i className="ph ph-envelope"></i>
             <input
               type="text"
@@ -52,11 +56,15 @@ export const Login = () => {
                 document
                   .querySelectorAll(".input-container")[0]
                   .classList.remove("outlined");
+
+                document
+                  .querySelectorAll(".input-container")[0]
+                  .classList.remove("outlined-error");
               }}
             />
           </div>
 
-          <div className="input-container">
+          <div className="input-container visible">
             <i className="ph ph-lock-key"></i>
             <input
               type="password"
@@ -73,6 +81,10 @@ export const Login = () => {
                 document
                   .querySelectorAll(".input-container")[1]
                   .classList.remove("outlined");
+
+                document
+                  .querySelectorAll(".input-container")[1]
+                  .classList.remove("outlined-error");
               }}
             />
           </div>
