@@ -9,7 +9,7 @@ import {
 
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
-import { UserProvider } from "../hooks/useLoginUser";
+import { UserProvider } from "../hooks/useUsers";
 
 export const ColaboratorLayout = () => {
   const { token } = useContext(AuthContext);

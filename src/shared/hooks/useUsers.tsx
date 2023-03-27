@@ -17,13 +17,13 @@ export interface IUser {
   nome: string;
   email: string;
   documento: string;
-  idUsuario: number;
-  status: "ATIVO" | "INATIVO";
-  idCargo: number;
+  idUsuario?: number;
+  status?: "ATIVO" | "INATIVO";
+
   //statusMotorista: "DISPONIVEL" | "EM_ESTRADA"; removido do backend
 }
 
-export interface IUserComplete {
+export interface IUserComplete extends IUser {
   idUsuario: number;
   login: string;
   nomeUsuario: string;
@@ -57,64 +57,67 @@ export interface IUserComplete {
 interface IRemoveUserData {
   idUsuario: number;
 }
-interface IUserData {
+interface IEditUserData {
   nome: string;
-  valorCombustivel: number;
+  email: string;
+  senha: string;
+  documento: string;
 }
 
 interface IUserContextData {
-  users: IUser[];
-  addNewUser: (userData: IUserData) => Promise<void>;
-  editUser: (user: IUserData, idUsuario: number) => Promise<void>;
-  removeUser: (idPosto: number) => Promise<void>;
+  users: IUserComplete[];
+  addNewUser: (userData: IUser) => Promise<void>;
+  editUser: (user: IEditUserData, idUsuario: number) => Promise<void>;
+  removeUser: (idUsuario: number) => Promise<void>;
 }
 
 const UsersContext = createContext({} as IUserContextData);
 
 export function UserProvider({ children }: IUserProps): JSX.Element {
-  const [users, setUsers] = useState<IUser[]>([]);
+  const [users, setUsers] = useState<IUserComplete[]>([]);
 
   const getUsers = () => {
-    fetch(api + "usuario", {
+    fetch(api + "usuario/relatorio-completo?page=0&size=71", {
       method: "GET",
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
         "Content-Type": "application/json",
       },
     })
       .then((response) => response.json())
-      .then((data) => setUsers(data));
+      .then((data) => setUsers(data.elementos));
   };
   useEffect(() => {
     getUsers();
   }, []);
 
-  const addNewUser = async (userData: IUserData) => {
+  const addNewUser = async (userData: IUser) => {
     console.log("entrou", userData);
     try {
-      const response = await fetch(api + `/usuario`, {
+      const response = await fetch(api + `usuario`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
+          Authorization: `Bearer ${localStorage.getItem("token")} `,
 
           "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
       });
+
+      console.log(response.status);
       console.log(response);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const editUser = async (userData: IUserData, idUsuario: number) => {
+  const editUser = async (userData: IEditUserData, idUsuario: number) => {
     console.log("entrou", userData);
     try {
-      const response = await fetch(api + `/usuario/${idUsuario}`, {
+      const response = await fetch(api + `usuario?idUsuario=${idUsuario}`, {
         method: "PUT",
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
-
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
@@ -123,14 +126,15 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
     } catch (error) {
       console.log(error);
     }
+    getUsers();
   };
 
   const removeUser = async (idUsuario: number) => {
     try {
-      const response = await fetch(api + `/usuario/${idUsuario}`, {
+      const response = await fetch(api + `/usuario?idUsuario=${idUsuario}`, {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOjUsImxvZ2luIjoiZnJvbnQiLCJjYXJnb3MgIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNjc5NzAyNDAwLCJleHAiOjE2Nzk4NTMzODd9.aEXfZK3omL8ejmsROX69PS7L2nFxEgzdWvNzYmk1lSs`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "application/json",
         },
       });
@@ -138,6 +142,7 @@ export function UserProvider({ children }: IUserProps): JSX.Element {
     } catch (error) {
       console.log(error);
     }
+    getUsers();
   };
 
   return (

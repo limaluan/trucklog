@@ -73,6 +73,10 @@ export const UsersContainer = styled.main`
         cursor: pointer;
       }
     }
+
+    .select {
+      all: unset;
+    }
   }
 
   .gas-station-body {

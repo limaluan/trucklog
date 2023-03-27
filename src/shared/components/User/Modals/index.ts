@@ -12,3 +12,9 @@ export * from "./CreateTruckModal";
 export * from "./GasStationModals/CreateGasStationModal";
 export * from "./GasStationModals/EditGasStationModal";
 export * from "./GasStationModals/RemoveGasStationModal";
+
+//User Modals.
+
+export * from "./UserModals/CreateUserModal";
+// export * from "./UserModals/EditUserModal";
+// export * from "./UserModals/RemoveUserModal";
