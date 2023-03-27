@@ -78,7 +78,7 @@ export function EditUserModal({
           <input
             id="documento"
             type="text"
-            placeholder="___.___.___-__"
+            placeholder="Documento"
             maxLength={11}
             {...register("documento")}
           />
