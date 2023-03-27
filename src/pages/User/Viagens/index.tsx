@@ -1,5 +1,8 @@
-import { useEffect, useState } from "react";
-import { CreateTripModal } from "../../../shared/components/User/Modals";
+import { useState } from "react";
+import {
+  CreateTripModal,
+  EditTripModal,
+} from "../../../shared/components/User/Modals";
 import { useTrips } from "../../../shared/hooks/useTrips";
 import { ViagensContainer } from "./styles";
 
@@ -9,10 +12,16 @@ export const Viagens = () => {
   const [searchTrip, setSearchTrip] = useState("");
 
   const [isCreateTripModalOpen, setIsCreateTripModalOpen] = useState(false);
+  const [isEditTripModalOpen, setIsEditTripModalOpen] = useState(false);
 
-  useEffect(() => {
-    document.title = "Viagens | TruckLog";
-  }, []);
+  const [idViagem, setIdViagem] = useState(0);
+  const [idMotorista, setMotorista] = useState(0);
+
+  const handleEditTrip = (idViagem: number, idMotorista: number) => {
+    setIsEditTripModalOpen(true);
+    setIdViagem(idViagem);
+    setMotorista(idMotorista);
+  };
 
   return (
     <ViagensContainer>
@@ -25,7 +34,7 @@ export const Viagens = () => {
 
         <h2 className="title-page">Viagens</h2>
         <button
-          // onClick={() => setIsCreateTripModalOpen(true)}
+          onClick={() => setIsCreateTripModalOpen(true)}
           className="create-button"
         >
           Criar Viagem <i className="ph ph-plus"></i>
@@ -68,14 +77,20 @@ export const Viagens = () => {
                     .map((value) => value.padStart(2, "0"))
                     .join("-")}
                 </p>
+
                 <p
                   className={
                     trip.statusViagem === "FINALIZADA" ? "finished" : "progress"
                   }
                 >
                   {trip.statusViagem.replace("_", " ")}{" "}
-                  <i className="ph ph-pencil"></i>
                 </p>
+
+                <button
+                  onClick={() => handleEditTrip(trip.idViagem, trip.idUsuario)}
+                >
+                  <i className="ph ph-pencil"></i>
+                </button>
               </div>
             ))}
         </div>
@@ -83,6 +98,13 @@ export const Viagens = () => {
       <CreateTripModal
         isOpen={isCreateTripModalOpen}
         onRequestClose={() => setIsCreateTripModalOpen(false)}
+      />
+
+      <EditTripModal
+        isOpen={isEditTripModalOpen}
+        onRequestClose={() => setIsEditTripModalOpen(false)}
+        idViagem={idViagem}
+        idMotorista={idMotorista}
       />
     </ViagensContainer>
   );
